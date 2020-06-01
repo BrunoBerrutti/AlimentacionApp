@@ -14,8 +14,24 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         this.sistema = unSistema;
-        this.listaUsuariosVentana.setListData(sistema.getListaUsuarios().toArray());
-        this.listaProfesionalesVentana.setListData(sistema.getListaProfesionales().toArray());
+        if(sistema.getListaUsuarios().isEmpty()){
+            this.jScrollPane2.setVisible(false);
+            this.lblNombre1.setVisible(false);
+            this.lblAgregarUsuario.setVisible(true);
+        }else{
+             this.listaUsuariosVentana.setListData
+            (sistema.getListaUsuarios().toArray());
+             this.lblAgregarUsuario.setVisible(false);
+        }
+        if(sistema.getListaProfesionales().isEmpty()){
+            this.jScrollPane1.setVisible(false);
+            this.lblNombre.setVisible(false);
+            this.lblAgregarProfesional.setVisible(true);
+        }else {
+            this.listaProfesionalesVentana.setListData
+            (sistema.getListaProfesionales().toArray());
+            this.lblAgregarProfesional.setVisible(false);
+        }
     }
 
     public Image getIconImage() {
@@ -51,6 +67,8 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         lblNombre1 = new javax.swing.JLabel();
         btnAgregarProfesional1 = new javax.swing.JLabel();
         btnCerrarSistema = new javax.swing.JButton();
+        lblAgregarUsuario = new javax.swing.JLabel();
+        lblAgregarProfesional = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1060, 800));
@@ -77,7 +95,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addComponent(icono, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,7 +123,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
 
         lblNuevoUsuario.setFont(new java.awt.Font("Levenim MT", 0, 65)); // NOI18N
         lblNuevoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblNuevoUsuario.setText("Inicio de Sesión");
+        lblNuevoUsuario.setText("Inicio de Sesion");
         panel2.add(lblNuevoUsuario);
         lblNuevoUsuario.setBounds(203, 36, 530, 91);
 
@@ -119,9 +137,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         panel2.add(lblNombre);
         lblNombre.setBounds(450, 200, 181, 38);
 
-        listaUsuariosVentana.setBackground(new java.awt.Color(51, 51, 51));
         listaUsuariosVentana.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        listaUsuariosVentana.setForeground(new java.awt.Color(255, 255, 255));
         listaUsuariosVentana.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaUsuariosVentana.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -133,9 +149,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         panel2.add(jScrollPane2);
         jScrollPane2.setBounds(80, 250, 230, 330);
 
-        listaProfesionalesVentana.setBackground(new java.awt.Color(51, 51, 51));
         listaProfesionalesVentana.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        listaProfesionalesVentana.setForeground(new java.awt.Color(255, 255, 255));
         listaProfesionalesVentana.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listaProfesionalesVentanaValueChanged(evt);
@@ -153,7 +167,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
             }
         });
         panel2.add(btnAgregarUsuario);
-        btnAgregarUsuario.setBounds(150, 600, 110, 90);
+        btnAgregarUsuario.setBounds(140, 590, 110, 90);
 
         btnAgregarProfesional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoAgregarProf.png"))); // NOI18N
         btnAgregarProfesional.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,7 +176,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
             }
         });
         panel2.add(btnAgregarProfesional);
-        btnAgregarProfesional.setBounds(570, 640, 50, 80);
+        btnAgregarProfesional.setBounds(570, 620, 50, 80);
 
         lblNombre1.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         lblNombre1.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,7 +191,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
             }
         });
         panel2.add(btnAgregarProfesional1);
-        btnAgregarProfesional1.setBounds(510, 600, 100, 90);
+        btnAgregarProfesional1.setBounds(510, 580, 100, 90);
 
         btnCerrarSistema.setBackground(new java.awt.Color(51, 51, 51));
         btnCerrarSistema.setForeground(new java.awt.Color(51, 51, 51));
@@ -185,7 +199,6 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         btnCerrarSistema.setBorderPainted(false);
         btnCerrarSistema.setContentAreaFilled(false);
         btnCerrarSistema.setFocusPainted(false);
-        btnCerrarSistema.setOpaque(false);
         btnCerrarSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSistemaActionPerformed(evt);
@@ -193,6 +206,18 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         });
         panel2.add(btnCerrarSistema);
         btnCerrarSistema.setBounds(730, 10, 50, 50);
+
+        lblAgregarUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblAgregarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblAgregarUsuario.setText("Agregar Usuario");
+        panel2.add(lblAgregarUsuario);
+        lblAgregarUsuario.setBounds(120, 680, 130, 20);
+
+        lblAgregarProfesional.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblAgregarProfesional.setForeground(new java.awt.Color(255, 255, 255));
+        lblAgregarProfesional.setText("AgregarProfecional");
+        panel2.add(lblAgregarProfesional);
+        lblAgregarProfesional.setBounds(500, 680, 150, 22);
 
         getContentPane().add(panel2);
         panel2.setBounds(275, 0, 950, 800);
@@ -250,6 +275,8 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
     private javax.swing.JLabel icono;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAgregarProfesional;
+    private javax.swing.JLabel lblAgregarUsuario;
     private javax.swing.JLabel lblIconoNuevoUsuario;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
