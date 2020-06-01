@@ -39,6 +39,7 @@ public class AyudaProfesional extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
+        setLocationByPlatform(true);
         setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
