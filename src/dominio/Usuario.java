@@ -14,6 +14,7 @@ public final class Usuario extends Persona {
     public Usuario(String unNombre,
             String unApellido,
             String unaFechaNacimiento,
+            String unaContrasena,
             ImageIcon unaFotoDePerfil,
             String unaNacionalidad,
             ArrayList<String> listaPreferencias,
@@ -23,6 +24,7 @@ public final class Usuario extends Persona {
         this.setNombre(unNombre);
         this.setApellido(unApellido);
         this.setFechaNacimiento(unaFechaNacimiento);
+        this.setContrasena(unaContrasena);
         this.setFotoDePerfil(unaFotoDePerfil);
         this.setNacionalidad(unaNacionalidad);
         this.setPreferencias(listaPreferencias);

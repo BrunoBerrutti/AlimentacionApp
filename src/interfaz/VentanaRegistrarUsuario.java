@@ -94,6 +94,10 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         lblNombreVacio = new javax.swing.JLabel();
         lblApellidoVacio = new javax.swing.JLabel();
         lblPaisVacio = new javax.swing.JLabel();
+        lblContraseña = new javax.swing.JLabel();
+        txtContrasena = new javax.swing.JTextField();
+        lblContrasenaVacia = new javax.swing.JLabel();
+        lblValidarContrasena = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1060, 800));
@@ -425,6 +429,33 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     panel2.add(lblPaisVacio);
     lblPaisVacio.setBounds(510, 270, 110, 30);
 
+    lblContraseña.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+    lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
+    lblContraseña.setText("Contraseña");
+    panel2.add(lblContraseña);
+    lblContraseña.setBounds(30, 360, 110, 20);
+
+    txtContrasena.setBackground(new java.awt.Color(227, 227, 227));
+    txtContrasena.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+    txtContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            txtContrasenaFocusLost(evt);
+        }
+    });
+    panel2.add(txtContrasena);
+    txtContrasena.setBounds(240, 350, 210, 30);
+
+    lblContrasenaVacia.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
+    lblContrasenaVacia.setForeground(new java.awt.Color(240, 128, 128));
+    lblContrasenaVacia.setText("Dato vacío");
+    panel2.add(lblContrasenaVacia);
+    lblContrasenaVacia.setBounds(510, 350, 110, 30);
+
+    lblValidarContrasena.setForeground(new java.awt.Color(255, 255, 255));
+    lblValidarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png"))); // NOI18N
+    panel2.add(lblValidarContrasena);
+    lblValidarContrasena.setBounds(470, 350, 30, 30);
+
     getContentPane().add(panel2);
     panel2.setBounds(270, 0, 950, 800);
 
@@ -440,19 +471,20 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private void btnIngresarUsuarioASistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarUsuarioASistemaActionPerformed
         String nombre = this.txtNombre.getText();
         String apellido = this.txtApellido.getText();
+        String contrasena = this.txtContrasena.getText();
         ArrayList<String> preferencias = new ArrayList<>();
         ArrayList<String> restricciones = new ArrayList<>();
         ArrayList<Ingesta> alimentosIngeridosPorFecha = new ArrayList<>();
         String nacionalidad = (String) this.listaNacionalidad.getSelectedItem();
         String fechaNacimiento = this.dateChooserFechaNacimiento.getText();
-        if (nombre.equals("") || apellido.equals("") || nacionalidad.equals("Seleccione...")) {
+        if (nombre.equals("") || apellido.equals("") || nacionalidad.equals("Seleccione...") || contrasena.equals("")) {
             this.lblDatosIncorrectos.setVisible(true);
-            mostrarErrores(nombre, apellido, nacionalidad);
+            mostrarErrores(nombre, apellido, nacionalidad, contrasena);
         } else {
             this.lblDatosIncorrectos.setVisible(false);
             agregarPreferenciasUsuario(preferencias);
             agregarRestriccionesUsuario(restricciones);
-            boolean seAgregoUsuario = this.getSistema().crearUsuario(nombre, apellido, fechaNacimiento, this.fotoDePerfilActual, nacionalidad, preferencias, restricciones, alimentosIngeridosPorFecha);
+            boolean seAgregoUsuario = this.getSistema().crearUsuario(nombre, apellido, fechaNacimiento, contrasena, this.fotoDePerfilActual, nacionalidad, preferencias, restricciones, alimentosIngeridosPorFecha);
             if (seAgregoUsuario) {
                 this.txtNombre.setText("");
                 this.txtApellido.setText("");
@@ -526,6 +558,19 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void txtContrasenaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaFocusLost
+        String contrasenaIngresada = this.txtContrasena.getText();
+        if (contrasenaIngresada.equals("")) {
+            this.lblValidarContrasena.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarContrasena.setVisible(true);
+            this.lblContrasenaVacia.setVisible(true);
+        } else {
+            this.lblValidarContrasena.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarContrasena.setVisible(true);
+            this.lblContrasenaVacia.setVisible(false);
+        }
+    }//GEN-LAST:event_txtContrasenaFocusLost
+
     void agregarRestriccionesUsuario(ArrayList<String> restricciones) {
         if (this.rdBtnCeliaco.isSelected()) {
             restricciones.add("Celíaco");
@@ -567,6 +612,8 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel icono;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblApellidoVacio;
+    private javax.swing.JLabel lblContrasenaVacia;
+    private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblDatosIncorrectos;
     private javax.swing.JLabel lblIconoNuevoUsuario;
     private javax.swing.JLabel lblNombre;
@@ -579,6 +626,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel lblTxtPreferencias;
     private javax.swing.JLabel lblTxtRestricciones;
     private javax.swing.JLabel lblValidarApellido;
+    private javax.swing.JLabel lblValidarContrasena;
     private javax.swing.JLabel lblValidarNacionalidad;
     private javax.swing.JLabel lblValidarNombre;
     private javax.swing.JComboBox<String> listaNacionalidad;
@@ -594,6 +642,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private javax.swing.JRadioButton rdBtnVegano;
     private javax.swing.JRadioButton rdBtnVerduras;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
@@ -605,6 +654,8 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         this.lblNombreVacio.setVisible(false);
         this.lblApellidoVacio.setVisible(false);
         this.lblPaisVacio.setVisible(false);
+        this.lblContrasenaVacia.setVisible(false);
+        this.lblValidarContrasena.setVisible(false);
     }
 
     private void cargarListaPreferencias() {
@@ -665,7 +716,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         }
     }
 
-    private void mostrarErrores(String nombre, String apellido, String nacionalidad) {
+    private void mostrarErrores(String nombre, String apellido, String nacionalidad, String contrasena) {
         if (nombre.equals("")) {
             this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
@@ -680,6 +731,12 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
             this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNacionalidad.setVisible(true);
             this.lblPaisVacio.setVisible(true);
+        }
+        if(contrasena.equals(""))
+        {
+            this.lblValidarContrasena.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarContrasena.setVisible(true);
+            this.lblContrasenaVacia.setVisible(true);
         }
     }
 

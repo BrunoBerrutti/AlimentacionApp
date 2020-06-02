@@ -14,22 +14,20 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         this.sistema = unSistema;
-        if(sistema.getListaUsuarios().isEmpty()){
+        if (sistema.getListaUsuarios().isEmpty()) {
             this.jScrollPane2.setVisible(false);
             this.lblNombre1.setVisible(false);
             this.lblAgregarUsuario.setVisible(true);
-        }else{
-             this.listaUsuariosVentana.setListData
-            (sistema.getListaUsuarios().toArray());
-             this.lblAgregarUsuario.setVisible(false);
+        } else {
+            this.listaUsuariosVentana.setListData(sistema.getListaUsuarios().toArray());
+            this.lblAgregarUsuario.setVisible(false);
         }
-        if(sistema.getListaProfesionales().isEmpty()){
+        if (sistema.getListaProfesionales().isEmpty()) {
             this.jScrollPane1.setVisible(false);
             this.lblNombre.setVisible(false);
             this.lblAgregarProfesional.setVisible(true);
-        }else {
-            this.listaProfesionalesVentana.setListData
-            (sistema.getListaProfesionales().toArray());
+        } else {
+            this.listaProfesionalesVentana.setListData(sistema.getListaProfesionales().toArray());
             this.lblAgregarProfesional.setVisible(false);
         }
     }
@@ -230,17 +228,20 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowClosing
 
     private void listaUsuariosVentanaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaUsuariosVentanaValueChanged
-        this.sistema.setPersonaLogueada((Persona) listaUsuariosVentana.getSelectedValue());
-        VentanaMenuPrincipalUsuario ventanaPrincipalUsuarios = new VentanaMenuPrincipalUsuario(sistema);
-        this.setVisible(false);
-        ventanaPrincipalUsuarios.setVisible(true);
+        if (!evt.getValueIsAdjusting()) {
+            this.sistema.setPersonaLogueada((Persona) listaUsuariosVentana.getSelectedValue());
+            IngresarContrasena ventanaIngresarContrasena = new IngresarContrasena(sistema, true);
+            ventanaIngresarContrasena.setVisible(true);
+        }
+
     }//GEN-LAST:event_listaUsuariosVentanaValueChanged
 
     private void listaProfesionalesVentanaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProfesionalesVentanaValueChanged
-        this.sistema.setPersonaLogueada((Persona) listaProfesionalesVentana.getSelectedValue());
-        VentanaMenuPrincipalProfesional ventanaPrincipalProfesionales = new VentanaMenuPrincipalProfesional(sistema);
-        this.setVisible(false);
-        ventanaPrincipalProfesionales.setVisible(true);
+        if (!evt.getValueIsAdjusting()) {
+            this.sistema.setPersonaLogueada((Persona) listaProfesionalesVentana.getSelectedValue());
+            IngresarContrasena ventanaIngresarContrasena = new IngresarContrasena(sistema, false);
+            ventanaIngresarContrasena.setVisible(true);
+        }
     }//GEN-LAST:event_listaProfesionalesVentanaValueChanged
 
     private void btnAgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioMouseClicked

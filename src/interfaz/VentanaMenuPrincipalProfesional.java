@@ -39,6 +39,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblDatosIncorrectos2.setVisible(false);
         ocultarPrincipalesNutrientes();
         this.panelVacio.setVisible(true);
+        this.lblNombrePofecional.setText(sistema.getPersonaLogueada().getNombre()+" "+sistema.getPersonaLogueada().getApellido());
     }
 
     public Sistema getSistema() {
@@ -72,8 +73,6 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblIngresarAlimento = new javax.swing.JLabel();
         lblIngresarAlimento2 = new javax.swing.JLabel();
         panelDerecho = new javax.swing.JPanel();
-        panelVacio = new javax.swing.JPanel();
-        btnAyuda = new javax.swing.JButton();
         panelNoHayPlanesPendientes = new javax.swing.JPanel();
         lblNohayPlanesTexto1 = new javax.swing.JLabel();
         lblNoHayAlimentosIcono = new javax.swing.JLabel();
@@ -200,6 +199,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblDatosIncorrectos2 = new javax.swing.JLabel();
         lblNombreVacio = new javax.swing.JLabel();
         lblTipoAlimentoVacio = new javax.swing.JLabel();
+        panelVacio = new javax.swing.JPanel();
+        btnAyuda = new javax.swing.JButton();
+        lblBienvenido = new javax.swing.JLabel();
+        lblNombrePofecional = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1060, 800));
@@ -347,41 +350,6 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         panelDerecho.setMinimumSize(new java.awt.Dimension(800, 800));
         panelDerecho.setPreferredSize(new java.awt.Dimension(800, 800));
         panelDerecho.setLayout(new java.awt.CardLayout());
-
-        panelVacio.setBackground(new java.awt.Color(51, 51, 51));
-        panelVacio.setMaximumSize(new java.awt.Dimension(800, 800));
-        panelVacio.setMinimumSize(new java.awt.Dimension(800, 800));
-
-        btnAyuda.setForeground(new java.awt.Color(255, 255, 255));
-        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_Question_Mark_64px.png"))); // NOI18N
-        btnAyuda.setBorder(null);
-        btnAyuda.setBorderPainted(false);
-        btnAyuda.setContentAreaFilled(false);
-        btnAyuda.setFocusPainted(false);
-        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAyudaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelVacioLayout = new javax.swing.GroupLayout(panelVacio);
-        panelVacio.setLayout(panelVacioLayout);
-        panelVacioLayout.setHorizontalGroup(
-            panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
-                .addContainerGap(704, Short.MAX_VALUE)
-                .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelVacioLayout.setVerticalGroup(
-            panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
-                .addContainerGap(708, Short.MAX_VALUE)
-                .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        panelDerecho.add(panelVacio, "card7");
 
         panelNoHayPlanesPendientes.setBackground(new java.awt.Color(51, 51, 51));
         panelNoHayPlanesPendientes.setMaximumSize(new java.awt.Dimension(400, 400));
@@ -666,7 +634,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblElaborarNuevoPlan.setForeground(new java.awt.Color(255, 255, 255));
         lblElaborarNuevoPlan.setText("Elaborar plan ");
         panelElaborarPlan.add(lblElaborarNuevoPlan);
-        lblElaborarNuevoPlan.setBounds(30, 11, 403, 91);
+        lblElaborarNuevoPlan.setBounds(30, 11, 448, 91);
 
         lblComida.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
         lblComida.setForeground(new java.awt.Color(255, 255, 255));
@@ -1704,6 +1672,63 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
 
         panelDerecho.add(panelNuevoAlimento, "card5");
 
+        panelVacio.setBackground(new java.awt.Color(51, 51, 51));
+        panelVacio.setMaximumSize(new java.awt.Dimension(800, 800));
+        panelVacio.setMinimumSize(new java.awt.Dimension(800, 800));
+
+        btnAyuda.setForeground(new java.awt.Color(255, 255, 255));
+        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_Question_Mark_64px.png"))); // NOI18N
+        btnAyuda.setBorder(null);
+        btnAyuda.setBorderPainted(false);
+        btnAyuda.setContentAreaFilled(false);
+        btnAyuda.setFocusPainted(false);
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaActionPerformed(evt);
+            }
+        });
+
+        lblBienvenido.setFont(new java.awt.Font("Vijaya", 0, 60)); // NOI18N
+        lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        lblBienvenido.setText("Bienvenido");
+
+        lblNombrePofecional.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblNombrePofecional.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelVacioLayout = new javax.swing.GroupLayout(panelVacio);
+        panelVacio.setLayout(panelVacioLayout);
+        panelVacioLayout.setHorizontalGroup(
+            panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVacioLayout.createSequentialGroup()
+                .addGroup(panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVacioLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelVacioLayout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addGroup(panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelVacioLayout.createSequentialGroup()
+                                .addComponent(lblNombrePofecional, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 156, Short.MAX_VALUE))
+                            .addGroup(panelVacioLayout.createSequentialGroup()
+                                .addComponent(lblBienvenido)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        panelVacioLayout.setVerticalGroup(
+            panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
+                .addGap(322, 322, 322)
+                .addComponent(lblBienvenido)
+                .addGap(18, 18, 18)
+                .addComponent(lblNombrePofecional, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
+                .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        panelDerecho.add(panelVacio, "card7");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2452,6 +2477,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lblAlimentos;
     private javax.swing.JLabel lblAlmuerzo;
+    private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblCena;
     private javax.swing.JLabel lblCena1;
     private javax.swing.JLabel lblComida;
@@ -2489,6 +2515,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
     private javax.swing.JLabel lblNombreDelDia;
     private javax.swing.JLabel lblNombrePlan;
     private javax.swing.JLabel lblNombrePlanVacio;
+    private javax.swing.JLabel lblNombrePofecional;
     private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblNombreUsuario1;
     private javax.swing.JLabel lblNombreUsuario2;

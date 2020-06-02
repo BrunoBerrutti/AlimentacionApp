@@ -40,7 +40,7 @@ public final class PlanAlimentacion implements Serializable {
 
     public void setProfesional(Profesional unProfesional) {
         if (unProfesional == null) {
-            this.profesional = new Profesional(null, null, null, null, null, null, null);
+            this.profesional = new Profesional(null, null, null, null, null, null, null, null);
         } else {
             this.profesional = unProfesional;
         }

@@ -63,6 +63,10 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
         lblTituloVacio = new javax.swing.JLabel();
         lblPaisVacio = new javax.swing.JLabel();
         lblApellidoVacio = new javax.swing.JLabel();
+        lblContrasena = new javax.swing.JLabel();
+        txtContrasena = new javax.swing.JTextField();
+        lblValidarContrasena = new javax.swing.JLabel();
+        lblContrasenaVacia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -188,7 +192,7 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
         lblTituloProfesional.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloProfesional.setText("Seleccione el título profesional");
         panel2.add(lblTituloProfesional);
-        lblTituloProfesional.setBounds(30, 370, 290, 23);
+        lblTituloProfesional.setBounds(30, 400, 290, 23);
 
         btnIngresarProfesionalASistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fotoConfirmar.png"))); // NOI18N
         btnIngresarProfesionalASistema.setBorderPainted(false);
@@ -224,7 +228,7 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
             }
         });
         panel2.add(listaTituloProfesional);
-        listaTituloProfesional.setBounds(30, 410, 420, 31);
+        listaTituloProfesional.setBounds(30, 440, 420, 31);
 
         lblFechaNac.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lblFechaNac.setForeground(new java.awt.Color(255, 255, 255));
@@ -294,7 +298,7 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
     lblFechaGraduacion.setForeground(new java.awt.Color(255, 255, 255));
     lblFechaGraduacion.setText("Seleccione la fecha de graduación");
     panel2.add(lblFechaGraduacion);
-    lblFechaGraduacion.setBounds(30, 490, 320, 23);
+    lblFechaGraduacion.setBounds(30, 520, 320, 23);
 
     dateChooserFechaGraduacion.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
         new datechooser.view.appearance.ViewAppearance("custom",
@@ -341,7 +345,7 @@ dateChooserFechaGraduacion.setFieldFont(new java.awt.Font("Century Gothic", java
 dateChooserFechaGraduacion.setMaxDate(new java.util.GregorianCalendar(2017, 10, 9));
 dateChooserFechaGraduacion.setMinDate(new java.util.GregorianCalendar(1917, 10, 1));
 panel2.add(dateChooserFechaGraduacion);
-dateChooserFechaGraduacion.setBounds(30, 520, 210, 30);
+dateChooserFechaGraduacion.setBounds(30, 550, 210, 30);
 
 lblValidarNombre.setForeground(new java.awt.Color(255, 255, 255));
 lblValidarNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png"))); // NOI18N
@@ -356,7 +360,7 @@ lblValidarApellido.setBounds(460, 220, 32, 44);
 lblValidarTituloProfesional.setForeground(new java.awt.Color(255, 255, 255));
 lblValidarTituloProfesional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png"))); // NOI18N
 panel2.add(lblValidarTituloProfesional);
-lblValidarTituloProfesional.setBounds(470, 400, 30, 50);
+lblValidarTituloProfesional.setBounds(470, 430, 30, 50);
 
 lblValidarPaisGraduacion.setForeground(new java.awt.Color(255, 255, 255));
 lblValidarPaisGraduacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png"))); // NOI18N
@@ -379,7 +383,7 @@ lblTituloVacio.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
 lblTituloVacio.setForeground(new java.awt.Color(240, 128, 128));
 lblTituloVacio.setText("Dato vacío");
 panel2.add(lblTituloVacio);
-lblTituloVacio.setBounds(510, 410, 110, 25);
+lblTituloVacio.setBounds(510, 440, 110, 25);
 
 lblPaisVacio.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
 lblPaisVacio.setForeground(new java.awt.Color(240, 128, 128));
@@ -393,15 +397,42 @@ lblApellidoVacio.setText("Dato vacío");
 panel2.add(lblApellidoVacio);
 lblApellidoVacio.setBounds(500, 220, 134, 38);
 
-javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-getContentPane().setLayout(layout);
-layout.setHorizontalGroup(
-    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-    .addGroup(layout.createSequentialGroup()
-        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 0, Short.MAX_VALUE))
+lblContrasena.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+lblContrasena.setForeground(new java.awt.Color(255, 255, 255));
+lblContrasena.setText("Contraseña");
+panel2.add(lblContrasena);
+lblContrasena.setBounds(30, 330, 110, 30);
+
+txtContrasena.setBackground(new java.awt.Color(227, 227, 227));
+txtContrasena.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+txtContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
+    public void focusLost(java.awt.event.FocusEvent evt) {
+        txtContrasenaFocusLost(evt);
+    }
+    });
+    panel2.add(txtContrasena);
+    txtContrasena.setBounds(230, 330, 220, 30);
+
+    lblValidarContrasena.setForeground(new java.awt.Color(255, 255, 255));
+    lblValidarContrasena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png"))); // NOI18N
+    panel2.add(lblValidarContrasena);
+    lblValidarContrasena.setBounds(470, 320, 32, 44);
+
+    lblContrasenaVacia.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
+    lblContrasenaVacia.setForeground(new java.awt.Color(240, 128, 128));
+    lblContrasenaVacia.setText("Dato vacío");
+    panel2.add(lblContrasenaVacia);
+    lblContrasenaVacia.setBounds(510, 320, 134, 38);
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,16 +470,17 @@ layout.setHorizontalGroup(
     private void btnIngresarProfesionalASistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarProfesionalASistemaActionPerformed
         String nombre = this.txtNombre.getText();
         String apellido = this.txtApellido.getText();
+        String contrasena = this.txtContrasena.getText();
         String tituloProfesional = (String) this.listaTituloProfesional.getSelectedItem();
         String paisGraduacion = (String) this.listaPaisGraduacion.getSelectedItem();
         String fechaNacimiento = this.dateChooserFechaNacimiento.getText();
         String fechaGraduacion = this.dateChooserFechaGraduacion.getText();
-        if (nombre.equals("") || apellido.equals("") || tituloProfesional.equals("Seleccione...") || paisGraduacion.equals("Seleccione...")) {
+        if (nombre.equals("") || apellido.equals("") || contrasena.equals("") || tituloProfesional.equals("Seleccione...") || paisGraduacion.equals("Seleccione...")) {
             this.lblDatosIncorrectos.setVisible(true);
-            mostrarErrores(nombre, apellido, tituloProfesional, paisGraduacion);
+            mostrarErrores(nombre, apellido, contrasena, tituloProfesional, paisGraduacion);
         } else {
             this.lblDatosIncorrectos.setVisible(false);
-            boolean seAgregoProfesional = this.getSistema().crearProfesional(nombre, apellido, fechaNacimiento, this.fotoDePerfilActual, tituloProfesional, fechaGraduacion, paisGraduacion);
+            boolean seAgregoProfesional = this.getSistema().crearProfesional(nombre, apellido,contrasena, fechaNacimiento, this.fotoDePerfilActual, tituloProfesional, fechaGraduacion, paisGraduacion);
             if (seAgregoProfesional) {
                 this.txtNombre.setText("");
                 this.txtApellido.setText("");
@@ -536,6 +568,19 @@ layout.setHorizontalGroup(
         }
     }//GEN-LAST:event_listaPaisGraduacionItemStateChanged
 
+    private void txtContrasenaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaFocusLost
+        String contrasenaIngresada = this.txtContrasena.getText();
+        if (contrasenaIngresada.equals("")) {
+            this.lblValidarContrasena.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarContrasena.setVisible(true);
+            this.lblContrasenaVacia.setVisible(true);
+        } else {
+            this.lblValidarContrasena.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarContrasena.setVisible(true);
+            this.lblContrasenaVacia.setVisible(false);
+        }
+    }//GEN-LAST:event_txtContrasenaFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHome;
@@ -546,6 +591,8 @@ layout.setHorizontalGroup(
     private javax.swing.JLabel icono;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblApellidoVacio;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblContrasenaVacia;
     private javax.swing.JLabel lblDatosIncorrectos;
     private javax.swing.JLabel lblFechaGraduacion;
     private javax.swing.JLabel lblFechaNac;
@@ -559,6 +606,7 @@ layout.setHorizontalGroup(
     private javax.swing.JLabel lblTituloVacio;
     private javax.swing.JLabel lblTituloVentana;
     private javax.swing.JLabel lblValidarApellido;
+    private javax.swing.JLabel lblValidarContrasena;
     private javax.swing.JLabel lblValidarNombre;
     private javax.swing.JLabel lblValidarPaisGraduacion;
     private javax.swing.JLabel lblValidarTituloProfesional;
@@ -567,17 +615,20 @@ layout.setHorizontalGroup(
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
     private void ocultarEtiquetas() {
         this.lblValidarNombre.setVisible(false);
         this.lblValidarApellido.setVisible(false);
+        this.lblValidarContrasena.setVisible(false);
         this.lblValidarTituloProfesional.setVisible(false);
         this.lblValidarPaisGraduacion.setVisible(false);
         this.lblDatosIncorrectos.setVisible(false);
         this.lblNombreVacio.setVisible(false);
         this.lblApellidoVacio.setVisible(false);
+        this.lblContrasenaVacia.setVisible(false);
         this.lblTituloVacio.setVisible(false);
         this.lblPaisVacio.setVisible(false);
     }
@@ -592,7 +643,7 @@ layout.setHorizontalGroup(
         }
     }
 
-    private void mostrarErrores(String nombre, String apellido, String tituloProfesional, String paisGraduacion) {
+    private void mostrarErrores(String nombre, String apellido, String contrasena, String tituloProfesional, String paisGraduacion) {
         if (nombre.equals("")) {
             this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
@@ -602,6 +653,11 @@ layout.setHorizontalGroup(
             this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(true);
+        }
+        if(contrasena.equals("")){
+            this.lblValidarContrasena.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarContrasena.setVisible(true);
+            this.lblContrasenaVacia.setVisible(true);
         }
         if (tituloProfesional.equals("Seleccione...")) {
             this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));

@@ -13,12 +13,13 @@ public class ProfesionalTest {
     public void testGetsSetsDatosCorrectosGraduacion() {
         String nombre = "Martin";
         String apellido = "Gómez";
+        String contrasena = "";
         String fechaNacimiento = "11/02/98";
         ImageIcon fotoPerfil = null;
         String tituloProf = "Doctor";
         String fechaGrad = "11/02/2016";
         String paisGraduacion = "Uruguay";
-        Profesional prof = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil,
+        Profesional prof = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil,
                 tituloProf, fechaGrad, paisGraduacion);
         assertEquals(prof.getFechaGraduacion(), fechaGrad);
     }
@@ -27,12 +28,13 @@ public class ProfesionalTest {
     public void testGetsDatosCorrectossVaciosPais() {
         String nombre = "Martin";
         String apellido = "Gómez";
+        String contrasena = "";
         String fechaNacimiento = "11/02/98";
         ImageIcon fotoPerfil = null;
         String tituloProf = "Doctor";
         String fechaGrad = "11/02/2016";
         String paisGraduacion = "Uruguay";
-        Profesional prof = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil,
+        Profesional prof = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil,
                 tituloProf, fechaGrad, paisGraduacion);
         assertEquals(prof.getPaisGraduacion(), paisGraduacion);
     }
@@ -41,12 +43,13 @@ public class ProfesionalTest {
     public void testGetsSetsDatosCorrectosTitulo() {
         String nombre = "Martin";
         String apellido = "Gómez";
+        String contrasena = "";
         String fechaNacimiento = "11/02/98";
         ImageIcon fotoPerfil = null;
         String tituloProf = "Doctor";
         String fechaGrad = "11/02/2016";
         String paisGraduacion = "Uruguay";
-        Profesional prof = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil,
+        Profesional prof = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil,
                 tituloProf, fechaGrad, paisGraduacion);
         assertEquals(prof.getTituloProfesional(), tituloProf);
     }
@@ -55,12 +58,13 @@ public class ProfesionalTest {
     public void testToStringDatosCorrectos() {
         String nombre = "Martin";
         String apellido = "Gómez";
+        String contrasena = "";
         String fechaNacimiento = "11/02/98";
         ImageIcon fotoPerfil = null;
         String tituloProf = "Doctor";
         String fechaGrad = "11/02/2016";
         String paisGraduacion = "Uruguay";
-        Profesional prof = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil,
+        Profesional prof = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil,
                 tituloProf, fechaGrad, paisGraduacion);
         String toStringEperado = nombre + " " + apellido;
         assertEquals(prof.toString(), toStringEperado);
@@ -70,12 +74,13 @@ public class ProfesionalTest {
     public void testToStringDatosNull() {
         String nombre = null;
         String apellido = null;
+        String contrasena = "";
         String fechaNacimiento = null;
         ImageIcon fotoPerfil = null;
         String tituloProf = null;
         String fechaGrad = null;
         String paisGraduacion = null;
-        Profesional prof = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil,
+        Profesional prof = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil,
                 tituloProf, fechaGrad, paisGraduacion);
         String toStringEperado = "Nombre no ingresado";
         assertEquals(prof.toString(), toStringEperado);
@@ -84,12 +89,13 @@ public class ProfesionalTest {
     public void testToStringDatosVacios() {
         String nombre = "";
         String apellido = "";
+        String contrasena = "";
         String fechaNacimiento = "";
         ImageIcon fotoPerfil = null;
         String tituloProf = "";
         String fechaGrad = "";
         String paisGraduacion = "";
-        Profesional prof = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil,
+        Profesional prof = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil,
                 tituloProf, fechaGrad, paisGraduacion);
         String toStringEperado = "Nombre no ingresado";
         assertEquals(prof.toString(), toStringEperado);

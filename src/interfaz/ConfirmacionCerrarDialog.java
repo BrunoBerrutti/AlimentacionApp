@@ -5,18 +5,7 @@
  */
 package interfaz;
 
-import dominio.Sistema;
-
-/**
- *
- * @author bruno
- */
 public class ConfirmacionCerrarDialog extends javax.swing.JDialog {
-
-    /**
-     * Creates new form ConfirmacionCerrarDialog
-     */
-    private Sistema sistema;
     
     public ConfirmacionCerrarDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

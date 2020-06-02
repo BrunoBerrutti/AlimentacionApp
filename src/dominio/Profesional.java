@@ -10,6 +10,7 @@ public final class Profesional extends Persona {
 
     public Profesional(String unNombre,
             String unApellido,
+            String unaContrasena,
             String unaFechaNacimiento,
             ImageIcon unaFoto,
             String unTitulo,
@@ -18,6 +19,7 @@ public final class Profesional extends Persona {
 
         setNombre(unNombre);
         setApellido(unApellido);
+        setContrasena(unaContrasena);
         setFechaNacimiento(unaFechaNacimiento);
         setFotoDePerfil(unaFoto);
         setTituloProfesional(unTitulo);

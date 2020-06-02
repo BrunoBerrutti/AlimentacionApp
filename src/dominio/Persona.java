@@ -10,6 +10,7 @@ public abstract class Persona implements Serializable {
     private String apellido;
     private String fechaNacimiento;
     public ImageIcon fotoDePerfil;
+    private String contrasena;
 
     public String getNombre() {
         return this.nombre;
@@ -67,6 +68,14 @@ public abstract class Persona implements Serializable {
             retorno = getNombre() + " " + getApellido();
         }
         return retorno;
+    }
+    
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override

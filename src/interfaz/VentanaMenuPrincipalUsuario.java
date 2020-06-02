@@ -47,6 +47,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         Calendar fecha = new GregorianCalendar();
         this.fechaIngestaUsuario.setMaxDate(fecha);
         this.panelVacio.setVisible(true);
+        this.lblNombreUsuario.setText(sistema.getPersonaLogueada().getNombre()+" "+sistema.getPersonaLogueada().getApellido());
         this.btnCerrarSistemaUsuarios.setVisible(true);
         this.btnCerrarSistemaUsuarios.repaint();
     }
@@ -124,6 +125,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         panelElegirProfesional = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         listaElegirProfesionales = new javax.swing.JList();
+        btnCancelar = new javax.swing.JButton();
         panelVerPlanAlimentacion = new javax.swing.JPanel();
         lblPlanPropuesto1 = new javax.swing.JLabel();
         lblPlanPropuesto2 = new javax.swing.JLabel();
@@ -200,6 +202,8 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         btnVerPlanesExistentes = new javax.swing.JButton();
         panelVacio = new javax.swing.JPanel();
         btnAyuda = new javax.swing.JButton();
+        lblBienvenido = new javax.swing.JLabel();
+        lblNombreUsuario = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -574,21 +578,34 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         });
         jScrollPane7.setViewportView(listaElegirProfesionales);
 
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelElegirProfesionalLayout = new javax.swing.GroupLayout(panelElegirProfesional);
         panelElegirProfesional.setLayout(panelElegirProfesionalLayout);
         panelElegirProfesionalLayout.setHorizontalGroup(
             panelElegirProfesionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelElegirProfesionalLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(168, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelElegirProfesionalLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(177, 177, 177))
         );
         panelElegirProfesionalLayout.setVerticalGroup(
             panelElegirProfesionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelElegirProfesionalLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelar)
+                .addContainerGap(233, Short.MAX_VALUE))
         );
 
         panelDerecho.add(panelElegirProfesional, "card4");
@@ -1163,19 +1180,37 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
             }
         });
 
+        lblBienvenido.setFont(new java.awt.Font("Vijaya", 0, 60)); // NOI18N
+        lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        lblBienvenido.setText("Bienvenido");
+
+        lblNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout panelVacioLayout = new javax.swing.GroupLayout(panelVacio);
         panelVacio.setLayout(panelVacioLayout);
         panelVacioLayout.setHorizontalGroup(
             panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
-                .addContainerGap(704, Short.MAX_VALUE)
-                .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(300, Short.MAX_VALUE)
+                .addGroup(panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBienvenido)
+                    .addGroup(panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
+                            .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
+                            .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(180, 180, 180)))))
         );
         panelVacioLayout.setVerticalGroup(
             panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
-                .addContainerGap(708, Short.MAX_VALUE)
+                .addGap(298, 298, 298)
+                .addComponent(lblBienvenido)
+                .addGap(18, 18, 18)
+                .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                 .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1207,6 +1242,11 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnConsultaConProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaConProfesionalActionPerformed
+        CargarPanelConsultaProfecional();
+    }//GEN-LAST:event_btnConsultaConProfesionalActionPerformed
+
+    void CargarPanelConsultaProfecional()
+    {
         ocultarPaneles();
         this.btnConsultaConProfesional.setEnabled(false);
         if (sistema.getListaProfesionales().size() > 0) {
@@ -1227,10 +1267,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
             this.btnNuevaConversacion1.setVisible(false);
             this.lblCrearConv.setVisible(false);
         }
-
-
-    }//GEN-LAST:event_btnConsultaConProfesionalActionPerformed
-
+    }
     private void btnSolicitarPlanAlimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarPlanAlimentacionActionPerformed
         ocultarPaneles();
         this.btnSolicitarPlanAlimentacion.setEnabled(false);
@@ -1468,11 +1505,12 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
             Runtime.getRuntime().exit(0);
             this.dispose();
         }
-
-        //this.sistema.guardarDatosSistema();
-        //Runtime.getRuntime().exit(0);
-        //this.dispose();
     }//GEN-LAST:event_btnCerrarSistemaUsuariosActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.panelElegirProfesional.setVisible(false);
+        CargarPanelConsultaProfecional();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void ocultarPaneles() {
         this.btnConsultaConProfesional.setEnabled(true);
@@ -1513,6 +1551,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptarSolicitudPlanAlimentacion;
     private javax.swing.JButton btnAyuda;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCerrarSistemaUsuarios;
     private javax.swing.JButton btnConsultaConProfesional;
     private javax.swing.JButton btnEditarPreferencias;
@@ -1557,6 +1596,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel lblAlimentoIngeridoSeleccionado7;
     private javax.swing.JLabel lblAlimentoIngeridoSeleccionado8;
     private javax.swing.JLabel lblAlimentoIngeridoSeleccionado9;
+    private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblCambiarPreferencias2;
     private javax.swing.JLabel lblCambiarPreferencias3;
     private javax.swing.JLabel lblCambiarPreferencias4;
@@ -1581,6 +1621,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel lblNombreDelPlan;
     private javax.swing.JLabel lblNombreDelProfesional;
     private javax.swing.JLabel lblNombreProfesional;
+    private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblNuevoAlimentoIngerido;
     private javax.swing.JLabel lblNuevoAlimentoVacio;
     private javax.swing.JLabel lblPlanDeAlimentacion;

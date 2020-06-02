@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import java.util.Currency;
 import javax.swing.ImageIcon;
 
 public final class Sistema implements Serializable {
@@ -41,7 +39,7 @@ public final class Sistema implements Serializable {
         setListaAlimentos(new ArrayList<>());
         setListaConversaciones(new ArrayList<>());
         setListaPlanesAlimentacion(new ArrayList<>());
-        setPersonaLogueada(new Usuario("Nombre", "Apellido", "",
+        setPersonaLogueada(new Usuario("Nombre", "Apellido", "", "Contrasena",
                 new ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png")),
                 "", null, null, null));
 
@@ -202,9 +200,9 @@ public final class Sistema implements Serializable {
         }
     }
 
-    public boolean crearUsuario(String nombre, String apellido, String fechaNacimiento, ImageIcon fotoDePerfil, String nacionalidad, ArrayList<String> preferencias, ArrayList<String> restricciones, ArrayList<Ingesta> alimentosIngeridos) {
+    public boolean crearUsuario(String nombre, String apellido, String fechaNacimiento, String contrasena, ImageIcon fotoDePerfil, String nacionalidad, ArrayList<String> preferencias, ArrayList<String> restricciones, ArrayList<Ingesta> alimentosIngeridos) {
         Usuario usuarioNuevo;
-        usuarioNuevo = new Usuario(nombre, apellido, fechaNacimiento, fotoDePerfil, nacionalidad, preferencias, restricciones, alimentosIngeridos);
+        usuarioNuevo = new Usuario(nombre, apellido, fechaNacimiento, contrasena, fotoDePerfil, nacionalidad, preferencias, restricciones, alimentosIngeridos);
         boolean fueAgregadoUsuario = agregarUsuarioALaLista(usuarioNuevo);
         return fueAgregadoUsuario;
     }
@@ -218,8 +216,8 @@ public final class Sistema implements Serializable {
         return fueAgregadoUsuario;
     }
 
-    public boolean crearProfesional(String nombre, String apellido, String fechaNacimiento, ImageIcon fotoPerfil, String tituloProfesional, String fechaGraduacion, String paisGraduacion) {
-        Profesional profesionalNuevo = new Profesional(nombre, apellido, fechaNacimiento, fotoPerfil, tituloProfesional, fechaGraduacion, paisGraduacion);
+    public boolean crearProfesional(String nombre, String apellido, String contrasena, String fechaNacimiento, ImageIcon fotoPerfil, String tituloProfesional, String fechaGraduacion, String paisGraduacion) {
+        Profesional profesionalNuevo = new Profesional(nombre, apellido, contrasena, fechaNacimiento, fotoPerfil, tituloProfesional, fechaGraduacion, paisGraduacion);
         boolean fueAgregadoProfesional = agregarProfesionalALaLista(profesionalNuevo);
         return fueAgregadoProfesional;
     }
@@ -280,7 +278,7 @@ public final class Sistema implements Serializable {
     public String[] getListaNombresProfesionalesConversaciones(String nombreUsuarioConversacion) {
         String[] nombresProfesionales = new String[getListaConversaciones().size()];
         ArrayList<String> nombresIngresados = new ArrayList<>();
-        for (int i = 1; i < getListaConversaciones().size(); i++) {
+        for (int i = 0; i < getListaConversaciones().size(); i++) {
             String nombreCompleto = getListaConversaciones().get(i).getProfesional().getNombreCompleto();
             String nombreUsuarioCompleto = getListaConversaciones().get(i).getUsuario().getNombreCompleto();
             if (!nombresIngresados.contains(nombreCompleto)) {
@@ -413,7 +411,7 @@ public final class Sistema implements Serializable {
     }
 
     public Usuario getUsuarioPorNombre(String nombreCompleto) {
-        Usuario usuarioRetorno = new Usuario(null, null, null, null, null, null, null, null);
+        Usuario usuarioRetorno = new Usuario(null, null, null, null, null, null, null, null, null);
         for (int i = 0; i < this.listaUsuarios.size(); i++) {
             String nombreActual = this.listaUsuarios.get(i).getNombreCompleto();
             if (nombreActual.equals(nombreCompleto)) {
@@ -424,7 +422,7 @@ public final class Sistema implements Serializable {
     }
 
     public Profesional getProfesionalPorNombre(String nombreCompleto) {
-        Profesional profesionalRetorno = new Profesional(null, null, null, null, null, null, null);
+        Profesional profesionalRetorno = new Profesional(null, null, null, null, null, null, null, null);
         for (int i = 0; i < this.listaProfesionales.size(); i++) {
             String nombreActual = this.listaProfesionales.get(i).getNombreCompleto();
             if (nombreActual.equals(nombreCompleto)) {
@@ -513,5 +511,12 @@ public final class Sistema implements Serializable {
         } else {
             return new String[0];
         }
+    }
+    
+    public boolean ValidarContrasena(Persona unaPersona, String unaContraseña){
+        boolean correcta = false;
+        if(unaPersona.getContrasena().equals(unaContraseña))
+            correcta = true;
+        return correcta;
     }
 }
