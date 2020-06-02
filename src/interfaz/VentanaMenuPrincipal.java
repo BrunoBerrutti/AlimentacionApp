@@ -16,6 +16,7 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
         this.sistema = unSistema;
         this.listaUsuariosVentana.setListData(sistema.getListaUsuarios().toArray());
         this.listaProfesionalesVentana.setListData(sistema.getListaProfesionales().toArray());
+        //hola
     }
 
     public Image getIconImage() {
