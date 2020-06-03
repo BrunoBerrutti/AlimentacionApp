@@ -1,6 +1,5 @@
 package dominio;
 
-
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -42,7 +41,6 @@ public final class Sistema implements Serializable {
         setPersonaLogueada(new Usuario("Nombre", "Apellido", "", "Contrasena",
                 new ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png")),
                 "", null, null, null));
-
     }
 
     public Persona getPersonaLogueada() {
