@@ -5,27 +5,43 @@ import dominio.Ingesta;
 import dominio.Sistema;
 import dominio.Usuario;
 import java.util.ArrayList;
-
+/**
+ * Esta ventana muestra el perfil del usuario.
+ * @author Usuario
+ */
 public class MostrarPerfilUsuario extends javax.swing.JDialog {
-
+    /**
+     * Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     * Esta variable hace referencia al nombre del usuario.
+     */
     private String nombreUsuario;
-
+    /**
+     * Este es el metodo que inicializa la ventana.
+     * @param unSistema recibe un sistema
+     * @param usuarioAMostrar recibe un nombre de usuario
+     */
     public MostrarPerfilUsuario(Sistema unSistema, String usuarioAMostrar) {
         initComponents();
         this.sistema = unSistema;
         this.nombreUsuario = usuarioAMostrar;
         this.setLocationRelativeTo(null);
-        Usuario usuarioPerfil = (Usuario) sistema.getUsuarioPorNombre(nombreUsuario);
+        Usuario usuarioPerfil = (Usuario) sistema.
+                getUsuarioPorNombre(nombreUsuario);
         this.lblNombreUsuario.setText(usuarioPerfil.getNombreCompleto());
-        this.lblFechaNacimientoUsuario.setText(usuarioPerfil.getFechaNacimiento());
+        this.lblFechaNacimientoUsuario.setText(usuarioPerfil.
+                getFechaNacimiento());
         this.lblFotoDeUsuario.setIcon(usuarioPerfil.getFotoDePerfil());
         if (usuarioPerfil.getArrayAlimentosIngeridos().length > 0) {
-            ArrayList <Ingesta> ingeridos = usuarioPerfil.getAlimentosIngeridos();
+            ArrayList <Ingesta> ingeridos = usuarioPerfil.
+                    getAlimentosIngeridos();
             ArrayList <String> listaASetear = new ArrayList <>();
             for (int i = 0; i < ingeridos.size(); i++) {
                 Ingesta ingestaActual = ingeridos.get(i);
-                ArrayList <Alimento> alimentosActuales = ingestaActual.getListaAlimentosPorFecha();
+                ArrayList <Alimento> alimentosActuales = ingestaActual.
+                        getListaAlimentosPorFecha();
                 for (int j = 0; j < alimentosActuales.size(); j++) {
                     listaASetear.add(alimentosActuales.get(i).toString());
                 }
@@ -37,29 +53,45 @@ public class MostrarPerfilUsuario extends javax.swing.JDialog {
             this.listaIngestas.setListData(arrayASetear);
         }
         if (usuarioPerfil.getArrayPreferencias().length > 0) {
-            this.listaPreferencias.setListData(usuarioPerfil.getArrayPreferencias());
+            this.listaPreferencias.setListData(usuarioPerfil.
+                    getArrayPreferencias());
         }
         if (usuarioPerfil.getArrayRestricciones().length > 0) {
-            this.listaRestricciones.setListData(usuarioPerfil.getArrayRestricciones());
+            this.listaRestricciones.setListData(usuarioPerfil.
+                    getArrayRestricciones());
         }
     }
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo retorna al sistema.
+     * @return retorna el sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica al sistema.
+     * @param unSistema este es el nuevo sistema
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
-    public String getNombreUsuario() {
+    /**
+     * Este metodo retorna el nombre del usuario.
+     * @return retorna el nombre del usuario
+     */
+    private String getNombreUsuario() {
         return nombreUsuario;
     }
-
-    public void setNombreUsuario(String unNombreUsuario) {
+    /**
+     * Este metodo modifica el nombre del usuario.
+     * @param unNombreUsuario este es el nuevo nombre del usuario
+     */
+    private void setNombreUsuario(String unNombreUsuario) {
         this.nombreUsuario = unNombreUsuario;
     }
-
+    /**
+     * Este metodo suprime los warnigns no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -12,17 +12,43 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
+/**
+ * Esta clase es el menu principal del profesional.
+ * @author Usuario
+ */
 public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
-
+    /**
+     *  Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     *  Esta variable hace referencia al usuario seleccionado.
+     */
     private String usuarioSeleccionado;
+    /**
+     *  Esta variable hace referencia a la foto del alimento.
+     */
     private ImageIcon fotoDeAlimentoActual;
+    /**
+     *  Esta variable hace referencia a los nutrientes seleccionados.
+     */
     private final boolean[] nutrientesSeleccionados;
+    /**
+     *  Esta variable hace referencia a los dias de la semana anterior.
+     */
     private String diaDeLaSemanaAnterior;
+    /**
+     *  Esta variable hace referencia a los dias de la semana actual.
+     */
     private String diaDeLaSemanaActual;
+    /**
+     *  Esta variable hace referencia al plan de alimentacion.
+     */
     private final String[][] planAlimentacion;
-
+    /**
+     * Este metodo es el que inicializa la ventana principal.
+     * @param unSistema recibe por parametro al sistema
+     */
     public VentanaMenuPrincipalProfesional(Sistema unSistema) {
         initComponents();
         sistema = unSistema;
@@ -33,7 +59,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         this.diaDeLaSemanaAnterior = "Lunes";
         this.planAlimentacion = new String[7][3];
         this.diaDeLaSemanaActual = "Lunes";
-        this.fotoDeAlimentoActual = new ImageIcon(getClass().getResource("/Imagenes/fotoDelAlimentoEstandar.png"));
+        this.fotoDeAlimentoActual = new ImageIcon(getClass().
+                getResource("/Imagenes/fotoDelAlimentoEstandar.png"));
         lblValidarTipoAlimento.setVisible(false);
         lblValidarNombre.setVisible(false);
         lblDatosIncorrectos.setVisible(false);
@@ -41,23 +68,37 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         ocultarPrincipalesNutrientes();
         this.panelVacio.setVisible(true);
     }
-
+    /**
+     * Este metodo retorna el sistema.
+     * @return retorna el sistema
+     */
     public Sistema getSistema() {
         return sistema;
     }
-
+    /**
+     * Este metodo modifica al sistema.
+     * @param unSistema es el sistema por el cual se va a cambiar el existente
+     */
     public void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
+    /**
+     * Este metodo retorna la foto actual del alimento.
+     * @return retorna una foto
+     */
     public ImageIcon getFotoDeAlimentoActual() {
         return fotoDeAlimentoActual;
     }
-
+    /**
+     * Este metodo modifica la foto del alimento actual.
+     * @param unaFoto es la foto nueva que se va a setear
+     */
     public void setFotoDeAlimentoActual(ImageIcon unaFoto) {
         this.fotoDeAlimentoActual = unaFoto;
     }
-
+    /**
+     * Este metodo suprime los warnings no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1777,12 +1818,17 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo es el boton de consultas pendientes.
+     * @param evt recibe esto por parametro
+     */
     private void btnConsultasPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasPendientesActionPerformed
         ocultarPaneles();
         this.panelConsultaConProfesional.setVisible(true);
         this.listaConversaciones.setSelectedIndex(0);
-        String[] lista = this.sistema.getListaNombresUsuariosConversacionesPendientes(sistema.getPersonaLogueada().getNombreCompleto());
+        String[] lista = this.sistema.
+        getListaNombresUsuariosConversacionesPendientes(sistema.
+                getPersonaLogueada().getNombreCompleto());
         if (lista.length > 0) {
             this.listaConversaciones.setListData(lista);
         } else {
@@ -1791,13 +1837,19 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         }
         this.btnConsultasPendientes.setEnabled(false);
     }//GEN-LAST:event_btnConsultasPendientesActionPerformed
-
+    /**
+     * Este es el boton de home.
+     * @param evt recibe esto por parametro
+     */
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         VentanaMenuPrincipal vPrincipal = new VentanaMenuPrincipal(sistema);
         this.setVisible(false);
         vPrincipal.setVisible(true);
     }//GEN-LAST:event_btnHomeActionPerformed
-
+    /**
+     * este es el boton de los planes solicitados.
+     * @param evt recibe esto por parametro
+     */
     private void btnPlanesSolicitadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanesSolicitadosActionPerformed
         ocultarPaneles();
         this.btnPlanesSolicitados.setEnabled(false);
@@ -1813,9 +1865,12 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             this.panelPerfilDeUsuario.setVisible(false);
             this.btnPlanesSolicitados.setEnabled(false);
             this.listaPlanesPendientes.setSelectedIndex(0);
-            String nombreProfesionalLogueado = sistema.getPersonaLogueada().getNombreCompleto();
-            Profesional profesionalLogueado = sistema.getProfesionalPorNombre(nombreProfesionalLogueado);
-            String[] lista = this.sistema.getListaPlanesPendientes(profesionalLogueado);
+            String nombreProfesionalLogueado = sistema.getPersonaLogueada().
+                    getNombreCompleto();
+            Profesional profesionalLogueado = sistema.
+                    getProfesionalPorNombre(nombreProfesionalLogueado);
+            String[] lista = this.sistema.
+                    getListaPlanesPendientes(profesionalLogueado);
             if (lista.length > 0) {
                 this.listaPlanesPendientes.setListData(lista);
             } else {
@@ -1829,77 +1884,110 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_btnPlanesSolicitadosActionPerformed
-
+    /**
+     * este es el metodo de la lista de conversaciones.
+     * @param evt recibe esto por parametro
+     */
     private void listaConversacionesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaConversacionesValueChanged
         this.panelConversacionOk.setVisible(true);
         this.panelMostrarOk.setVisible(false);
         this.panelConversacion.setVisible(true);
         if (this.listaConversaciones.getSelectedValue() != null) {
-            this.usuarioSeleccionado = this.listaConversaciones.getSelectedValue();
+            this.usuarioSeleccionado = this.listaConversaciones.
+                    getSelectedValue();
         }
         actualizarConversaciones(this.usuarioSeleccionado);
     }//GEN-LAST:event_listaConversacionesValueChanged
-
+    /**
+     * Este es el boton de enviar mensaje.
+     * @param evt recibe esto por parametro
+     */
     private void btnEnviarMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarMensajeActionPerformed
         String mensaje = this.txtMensajeNuevo.getText();
         String usuario = this.usuarioSeleccionado;
-        String profesional = this.sistema.getPersonaLogueada().getNombreCompleto();
-        this.sistema.agregarMensajeConversacion(profesional, usuario, mensaje, true, true);
+        String profesional = this.sistema.getPersonaLogueada().
+                getNombreCompleto();
+        this.sistema.
+        agregarMensajeConversacion(profesional, usuario, mensaje, true, true);
         this.txtMensajeNuevo.setText("");
         this.txtMostrarConversacion.setText("");
         this.lblNombreUsuario.setText("Usuario");
         this.panelConversacionOk.setVisible(true);
         this.panelConversacion.setVisible(false);
         this.panelMostrarOk.setVisible(true);
-        String[] listaUsuariosConversacionesPendientes = sistema.getListaNombresUsuariosConversacionesPendientes(profesional);
+        String[] listaUsuariosConversacionesPendientes = sistema.
+                getListaNombresUsuariosConversacionesPendientes(profesional);
         if (listaUsuariosConversacionesPendientes.length > 0) {
-            this.listaConversaciones.setListData(listaUsuariosConversacionesPendientes);
+            this.listaConversaciones.
+                    setListData(listaUsuariosConversacionesPendientes);
         } else {
             ocultarPaneles();
             this.panelNoHayConsultasPendientes.setVisible(true);
         }
     }//GEN-LAST:event_btnEnviarMensajeActionPerformed
-
+    /**
+     * Este es el boton de ingresar un alimento.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarAlimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarAlimentoActionPerformed
         ocultarPaneles();
         this.btnIngresarAlimento.setEnabled(false);
         this.panelNuevoAlimento.setVisible(true);
         this.panelIngresarAlimentoAlSistema.setVisible(true);
     }//GEN-LAST:event_btnIngresarAlimentoActionPerformed
-
+    /**
+     * Este es el nombre.
+     * @param evt recibe esto por parametro
+     */
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
-
+    /**
+     * Este es el boton de ingresar la foto del alimento.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarFotoAlimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarFotoAlimentoActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter file = new FileNameExtensionFilter("PNG", "png");
+        FileNameExtensionFilter file = 
+                new FileNameExtensionFilter("PNG", "png");
         fileChooser.setFileFilter(file);
         int imagen = fileChooser.showOpenDialog(this);
         if (imagen == JFileChooser.APPROVE_OPTION) {
-            ImageIcon iconoPerfil = new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath());
+            ImageIcon iconoPerfil = new ImageIcon(fileChooser.getSelectedFile().
+                    getAbsolutePath());
             btnIngresarFotoAlimento.setIcon(iconoPerfil);
             this.setFotoDeAlimentoActual(iconoPerfil);
         }
     }//GEN-LAST:event_btnIngresarFotoAlimentoActionPerformed
-
+    /**
+     * Este es el metodo de la lista de tipo de aliemto.
+     * @param evt recibe esto por parametro
+     */
     private void listaTipoAlimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaTipoAlimentosActionPerformed
-        String tipoAlimentoIngresado = (String) this.listaTipoAlimentos.getSelectedItem();
+        String tipoAlimentoIngresado = (String) this.listaTipoAlimentos.
+                getSelectedItem();
         if (tipoAlimentoIngresado.equals("Seleccione...")) {
-            this.lblValidarTipoAlimento.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarTipoAlimento.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarTipoAlimento.setVisible(true);
             this.lblTipoAlimentoVacio.setVisible(true);
         } else {
-            this.lblValidarTipoAlimento.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarTipoAlimento.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarTipoAlimento.setVisible(true);
             this.lblTipoAlimentoVacio.setVisible(false);
         }
     }//GEN-LAST:event_listaTipoAlimentosActionPerformed
-
+    /**
+     * Este es el boton de ingresar un alimento.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarAlimentoASistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarAlimentoASistemaActionPerformed
         String nombre = this.txtNombre.getText();
-        String tipoAlimento = (String) this.listaTipoAlimentos.getSelectedItem();
-        ArrayList<ComposicionAlimento> listaNutrientesConProporcion = nutrientesSeleccionados();
+        String tipoAlimento = (String) this.listaTipoAlimentos.
+                getSelectedItem();
+        ArrayList<ComposicionAlimento> listaNutrientesConProporcion =
+                nutrientesSeleccionados();
         if (nombre.equals("") || tipoAlimento.equals("Seleccione...")) {
             this.lblDatosIncorrectos.setVisible(true);
             this.lblDatosIncorrectos2.setVisible(true);
@@ -1907,7 +1995,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         } else {
             this.lblDatosIncorrectos.setVisible(false);
             this.lblDatosIncorrectos2.setVisible(false);
-            boolean seAgregoAlimento = this.getSistema().crearAlimento(nombre, tipoAlimento, listaNutrientesConProporcion, fotoDeAlimentoActual);
+            boolean seAgregoAlimento;
+            seAgregoAlimento = this.getSistema().crearAlimento(nombre,
+            tipoAlimento, listaNutrientesConProporcion, fotoDeAlimentoActual);
             if (seAgregoAlimento) {
                 this.txtNombre.setText("");
                 this.listaTipoAlimentos.setSelectedIndex(0);
@@ -1922,12 +2012,19 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_btnIngresarAlimentoASistemaActionPerformed
-
+    /**
+     * Este es el boton de ver el perfil del usuario.
+     * @param evt recibe esto por parametro
+     */
     private void btnVerPerfilDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPerfilDeUsuarioActionPerformed
-        MostrarPerfilUsuario perfil = new MostrarPerfilUsuario(getSistema(), usuarioSeleccionado);
+        MostrarPerfilUsuario perfil = new MostrarPerfilUsuario(getSistema(),
+                usuarioSeleccionado);
         perfil.setVisible(true);
     }//GEN-LAST:event_btnVerPerfilDeUsuarioActionPerformed
-
+    /**
+     * Este es el metodo que chequea los hidratos.
+     * @param evt recibe esto por parametro
+     */
     private void checkHidratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkHidratosActionPerformed
         if (!this.nutrientesSeleccionados[0]) {
             this.lblHidratos.setVisible(true);
@@ -1939,7 +2036,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             this.nutrientesSeleccionados[0] = false;
         }
     }//GEN-LAST:event_checkHidratosActionPerformed
-
+    /**
+     * Este es el metodo que chequea los glucidos.
+     * @param evt recibe esto por parametro
+     */
     private void checkGlucidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkGlucidosActionPerformed
         if (!this.nutrientesSeleccionados[1]) {
             this.txtGlucidos.setVisible(true);
@@ -1951,7 +2051,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             this.nutrientesSeleccionados[1] = false;
         }
     }//GEN-LAST:event_checkGlucidosActionPerformed
-
+    /**
+     * Este es el metodo que chequea los lipidos.
+     * @param evt recibe esto por parametro
+     */
     private void checkLipidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkLipidosActionPerformed
         if (!this.nutrientesSeleccionados[2]) {
             this.txtLipidos.setVisible(true);
@@ -1963,7 +2066,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             nutrientesSeleccionados[2] = false;
         }
     }//GEN-LAST:event_checkLipidosActionPerformed
-
+    /**
+     * Este es el metodo que chequea las proteinas.
+     * @param evt recibe esto por parametro
+     */
     private void checkProteínasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkProteínasActionPerformed
         if (!nutrientesSeleccionados[3]) {
             txtProteínas.setVisible(true);
@@ -1975,7 +2081,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             nutrientesSeleccionados[3] = false;
         }
     }//GEN-LAST:event_checkProteínasActionPerformed
-
+    /**
+     * Este es el metodo que chequea los minerales.
+     * @param evt recibe esto por parametro
+     */
     private void checkMineralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMineralesActionPerformed
         if (!nutrientesSeleccionados[4]) {
             txtMinerales.setVisible(true);
@@ -1987,7 +2096,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             nutrientesSeleccionados[4] = false;
         }
     }//GEN-LAST:event_checkMineralesActionPerformed
-
+    /**
+     * Este es el metodo que chequea la fibra.
+     * @param evt recibe esto por parametro
+     */
     private void checkFibraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkFibraActionPerformed
         if (!nutrientesSeleccionados[5]) {
             txtFibra.setVisible(true);
@@ -2000,7 +2112,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_checkFibraActionPerformed
-
+    /**
+     * Este metodo chequea las vitaminas.
+     * @param evt recibe esto por parametro
+     */
     private void checkVitaminasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVitaminasActionPerformed
         if (!nutrientesSeleccionados[6]) {
             txtVitaminas.setVisible(true);
@@ -2012,48 +2127,72 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             nutrientesSeleccionados[6] = false;
         }
     }//GEN-LAST:event_checkVitaminasActionPerformed
-
+    /**
+     * Este metodo es el nombre.
+     * @param evt recibe esto por parametro
+     */
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
         String nombreIngresado = txtNombre.getText();
         if (nombreIngresado.equals("")) {
-            lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(true);
         } else {
-            lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(false);
         }
     }//GEN-LAST:event_txtNombreFocusLost
-
+    /**
+     * Este es un label del nombre.
+     * @param evt recibe esto por parametro
+     */
     private void lblValidarNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblValidarNombreFocusGained
 
     }//GEN-LAST:event_lblValidarNombreFocusGained
-
+    /**
+     * Este es el label del tipo de aliemento.
+     * @param evt recibe esto por parametro
+     */
     private void lblValidarTipoAlimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblValidarTipoAlimentoFocusGained
 
     }//GEN-LAST:event_lblValidarTipoAlimentoFocusGained
-
+    /**
+     * Este es el metodo que guarda los datos.
+     * @param evt recibe esto por parametro 
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
+    /**
+     * Este es el label de validar nombre.
+     * @param evt recibe esto por parametro
+     */
     private void lblValidarNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblValidarNombreFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_lblValidarNombreFocusLost
-
+    /**
+     * Este es el metodo de la lista de planes pendientes.
+     * @param evt recibe esto por parametro
+     */
     private void listaPlanesPendientesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPlanesPendientesValueChanged
-        this.usuarioSeleccionado = this.listaPlanesPendientes.getSelectedValue();
-        Usuario usuarioPerfil = (Usuario) sistema.getUsuarioPorNombre(usuarioSeleccionado);
+        this.usuarioSeleccionado = this.listaPlanesPendientes.
+                getSelectedValue();
+        Usuario usuarioPerfil = (Usuario) sistema.
+                getUsuarioPorNombre(usuarioSeleccionado);
         this.lblNombreUsuario2.setText(usuarioSeleccionado);
         lblFechaNacimiento.setText(usuarioPerfil.getFechaNacimiento());
         lblFotoDeUsuario.setIcon(usuarioPerfil.getFotoDePerfil());
         if (usuarioPerfil.getArrayAlimentosIngeridos().length > 0) {
-            ArrayList<Ingesta> ingeridos = usuarioPerfil.getAlimentosIngeridos();
+            ArrayList<Ingesta> ingeridos = usuarioPerfil.
+                    getAlimentosIngeridos();
             ArrayList<String> listaASetear = new ArrayList<>();
             for (int i = 0; i < ingeridos.size(); i++) {
                 Ingesta ingestaActual = ingeridos.get(i);
-                ArrayList<Alimento> alimentosActuales = ingestaActual.getListaAlimentosPorFecha();
+                ArrayList<Alimento> alimentosActuales = ingestaActual.
+                        getListaAlimentosPorFecha();
                 for (int j = 0; j < alimentosActuales.size(); j++) {
                     listaASetear.add(alimentosActuales.get(i).toString());
                 }
@@ -2068,25 +2207,34 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             listaPreferencias.setListData(usuarioPerfil.getArrayPreferencias());
         }
         if (usuarioPerfil.getArrayRestricciones().length > 0) {
-            listaRestricciones.setListData(usuarioPerfil.getArrayRestricciones());
+            listaRestricciones.setListData(usuarioPerfil.
+                    getArrayRestricciones());
         }
         this.panelDatosUsuario.setVisible(true);
         this.panelPerfilDeUsuario.setVisible(true);
     }//GEN-LAST:event_listaPlanesPendientesValueChanged
-
+    /**
+     * Este es el  boton de elaborar plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnElaborarPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElaborarPlanActionPerformed
         ocultarPaneles();
         cargarListaDiasDeLaSemana();
         cargarListaIngestasPorDia();
-        this.listaAlimentosEnSistema.setListData(sistema.getListaAlimentos().toArray());
+        this.listaAlimentosEnSistema.setListData(sistema.getListaAlimentos().
+                toArray());
         this.lblNombreDelDia.setText("Lunes");
         this.panelElaborarPlan.setVisible(true);
         this.listaAlimentosEnSistema.setSelectedIndex(0);
     }//GEN-LAST:event_btnElaborarPlanActionPerformed
-
+    /**
+     * Este metodo es de la lista de los dias de la semana.
+     * @param evt recibe esto por parametro
+     */
     private void listaDiasDeLaSemanaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaDiasDeLaSemanaItemStateChanged
 
-        String diaSeleccionado = (String) this.listaDiasDeLaSemana.getSelectedItem();
+        String diaSeleccionado = (String) this.listaDiasDeLaSemana.
+                getSelectedItem();
         this.diaDeLaSemanaActual = diaSeleccionado;
         this.lblNombreDelDia.setText(this.diaDeLaSemanaActual);
         switch (this.diaDeLaSemanaActual) {
@@ -2129,53 +2277,85 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 break;
         }
     }//GEN-LAST:event_listaDiasDeLaSemanaItemStateChanged
-
+    /**
+     * Este metodo es de los dias de la semana.
+     * @param evt recibe esto por parametro
+     */
     private void listaDiasDeLaSemanaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_listaDiasDeLaSemanaFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_listaDiasDeLaSemanaFocusLost
-
+    /**
+     * Este metodo es de la lista de los dias de la semana.
+     * @param evt recibe esto por parametro
+     */
     private void listaDiasDeLaSemanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDiasDeLaSemanaActionPerformed
 
     }//GEN-LAST:event_listaDiasDeLaSemanaActionPerformed
-
+    /**
+     * Este metodo es de la lista de comidas.
+     * @param evt recibe esto por parametro
+     */
     private void listaComidasPlanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaComidasPlanItemStateChanged
 
     }//GEN-LAST:event_listaComidasPlanItemStateChanged
-
+    /**
+     * Este metodo es de la lista de comidas.
+     * @param evt recibe esto por parametro
+     */
     private void listaComidasPlanFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_listaComidasPlanFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_listaComidasPlanFocusLost
-
+    /**
+     * Este metodo es de la lista de comidas.
+     * @param evt recibe esto por parametro
+     */
     private void listaComidasPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaComidasPlanActionPerformed
 
     }//GEN-LAST:event_listaComidasPlanActionPerformed
-
+    /**
+     * Este metodo es de la lista de alimentos.
+     * @param evt recibe esto por parametro
+     */
     private void listaAlimentosEnSistemaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaAlimentosEnSistemaValueChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_listaAlimentosEnSistemaValueChanged
-
+    /**
+     * Este metodo es del nombre del plan.
+     * @param evt recibe esto por parametro
+     */
     private void txtNombrePlanFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombrePlanFocusLost
         String nombrePlanIngresado = this.txtNombrePlan.getText();
         if (nombrePlanIngresado.equals("")) {
-            this.lblValidarNombrePlan.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNombrePlan.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombrePlan.setVisible(true);
             this.lblNombrePlanVacio.setVisible(true);
         } else {
-            this.lblValidarNombrePlan.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarNombrePlan.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarNombrePlan.setVisible(true);
             this.lblNombrePlanVacio.setVisible(false);
         }
     }//GEN-LAST:event_txtNombrePlanFocusLost
-
+    /**
+     * Este es el texto del nombre.
+     * @param evt recibe esto por parametro
+     */
     private void txtNombrePlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombrePlanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombrePlanActionPerformed
-
+    /**
+     * Este es el metodo del boton de agregar el plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnAgregarAlPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlPlanActionPerformed
-        String diaSeleccionado = (String) this.listaDiasDeLaSemana.getSelectedItem();
+        String diaSeleccionado = (String) this.listaDiasDeLaSemana.
+                getSelectedItem();
         this.diaDeLaSemanaAnterior = diaSeleccionado;
-        String ingestaSeleccionada = (String) this.listaComidasPlan.getSelectedItem();
-        String alimentoAgregado = this.listaAlimentosEnSistema.getSelectedValue().toString();
+        String ingestaSeleccionada = (String) this.listaComidasPlan.
+                getSelectedItem();
+        String alimentoAgregado = this.listaAlimentosEnSistema.
+                getSelectedValue().toString();
         String textoAnterior = "";
         switch (ingestaSeleccionada) {
             case "Desayuno":
@@ -2209,11 +2389,17 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 break;
         }
     }//GEN-LAST:event_btnAgregarAlPlanActionPerformed
-
+    /**
+     * Este es el metodo del boton de eliminar el plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnEliminarDelPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDelPlanActionPerformed
-        String diaSeleccionado = (String) this.listaDiasDeLaSemana.getSelectedItem();
-        String ingestaSeleccionada = (String) this.listaComidasPlan.getSelectedItem();
-        String alimentoEliminado = this.listaAlimentosEnSistema.getSelectedValue().toString();
+        String diaSeleccionado = (String) this.listaDiasDeLaSemana.
+                getSelectedItem();
+        String ingestaSeleccionada = (String) this.listaComidasPlan.
+                getSelectedItem();
+        String alimentoEliminado = this.listaAlimentosEnSistema.
+                getSelectedValue().toString();
         String aRemplazar = "";
         String remplazado = "";
         CharSequence secuencia = "\n";
@@ -2246,28 +2432,42 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 break;
         }
     }//GEN-LAST:event_btnEliminarDelPlanActionPerformed
-
+    /**
+     * Este metodo es el boton de elaborar el plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnElaborarPlan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElaborarPlan1ActionPerformed
         String nombreDelPlan = this.txtNombrePlan.getText();
         if (nombreDelPlan.equals("")) {
             this.lblNombrePlanVacio.setVisible(true);
             this.lblValidarNombrePlan.setVisible(true);
         } else {
-            String nombreProfesionalLogueado = sistema.getPersonaLogueada().getNombreCompleto();
-            Profesional profesionalLogueado = sistema.getProfesionalPorNombre(nombreProfesionalLogueado);
-            Usuario usuarioPerfil = (Usuario) sistema.getUsuarioPorNombre(usuarioSeleccionado);
-            boolean fueAtendidoElPlan = this.sistema.atenderSolicitudDelPlan(planAlimentacion, profesionalLogueado, usuarioPerfil, nombreDelPlan);
+            String nombreProfesionalLogueado = sistema.getPersonaLogueada().
+                    getNombreCompleto();
+            Profesional profesionalLogueado = sistema.
+                    getProfesionalPorNombre(nombreProfesionalLogueado);
+            Usuario usuarioPerfil = (Usuario) sistema.
+                    getUsuarioPorNombre(usuarioSeleccionado);
+            boolean fueAtendidoElPlan;
+            fueAtendidoElPlan = this.sistema.atenderSolicitudDelPlan(
+           planAlimentacion, profesionalLogueado, usuarioPerfil, nombreDelPlan);
             if (fueAtendidoElPlan) {
                 ocultarPaneles();
                 this.panelMostrarPlanEnviado.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnElaborarPlan1ActionPerformed
-
+    /**
+     * Este metodo es el boton de eliminar el plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnEliminarDelPlan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDelPlan1ActionPerformed
         guardarDatosDelPlan();
     }//GEN-LAST:event_btnEliminarDelPlan1ActionPerformed
-
+    /**
+     * Este es el texto de hidratos.
+     * @param evt recibe esto por parametro
+     */
     private void txtHidratosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHidratosKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2277,7 +2477,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtHidratosKeyTyped
-
+    /**
+     * Este es el texto de proteinas.
+     * @param evt recibe esto por parametro
+     */
     private void txtProteínasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProteínasKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2288,7 +2491,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_txtProteínasKeyTyped
-
+    /**
+     * Este el texto de vitaminas.
+     * @param evt recibe esto por parametro
+     */
     private void txtVitaminasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVitaminasKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2299,7 +2505,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_txtVitaminasKeyTyped
-
+    /**
+     * Este el texto de glucidos.
+     * @param evt recibe esto por parametro
+     */
     private void txtGlucidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGlucidosKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2309,7 +2518,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtGlucidosKeyTyped
-
+    /**
+     * Este el texto de minerales.
+     * @param evt recibe esto por parametro
+     */
     private void txtMineralesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMineralesKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2319,7 +2531,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtMineralesKeyTyped
-
+    /**
+     * Este texto de fibras.
+     * @param evt recibe esto por parametro
+     */
     private void txtFibraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFibraKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2329,7 +2544,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtFibraKeyTyped
-
+    /**
+     * Este es el texto de lipidos.
+     * @param evt recibe esto por parametro
+     */
     private void txtLipidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLipidosKeyTyped
         char ingresado = evt.getKeyChar();
         if (ingresado < '0') {
@@ -2339,19 +2557,30 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtLipidosKeyTyped
-
+    /**
+     * Este es el boton de ayuda.
+     * @param evt recibe esto por parametro
+     */
     private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
         AyudaProfesional ayuda = new AyudaProfesional(sistema);
         ayuda.setVisible(true);
     }//GEN-LAST:event_btnAyudaActionPerformed
-
+    /**
+     * Este es el boton de cerrar el sistema.
+     * @param evt recibe esto por parametro
+     */
     private void btnCerrarSistema1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSistema1ActionPerformed
         
     }//GEN-LAST:event_btnCerrarSistema1ActionPerformed
-
+    /**
+     * Este es el boton de cerrar el sistema.
+     * @param evt recibe esto por parametro
+     */
     private void btnCerrarSistema2ndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSistema2ndActionPerformed
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Estas seguro que quieres salir? Perderás la información que no guardaste.","Atención!",dialogButton);
+        int dialogResult = JOptionPane.showConfirmDialog (null,
+        "Estas seguro que quieres salir? Perderás la información que no "
+                + "guardaste.","Atención!",dialogButton);
         if(dialogResult == JOptionPane.YES_OPTION){
             this.sistema.guardarDatosSistema();
             Runtime.getRuntime().exit(0);
@@ -2363,7 +2592,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         //Runtime.getRuntime().exit(0);
         //this.dispose();
     }//GEN-LAST:event_btnCerrarSistema2ndActionPerformed
-
+    /**
+     * Este es el metodo de ocultar los paneles.
+     */
     private void ocultarPaneles() {
         this.btnConsultasPendientes.setEnabled(true);
         this.btnIngresarAlimento.setEnabled(true);
@@ -2389,17 +2620,26 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         this.panelAlimentroRegistradoCorrectamente.setVisible(false);
         this.panelVacio.setVisible(false);
     }
-
+    /**
+     * Este es el metodo de actualizar la conversacion.
+     * @param remitente recibe el remitente
+     */
     private void actualizarConversaciones(String remitente) {
         if (remitente != null) {
-            String destinatario = sistema.getPersonaLogueada().getNombreCompleto();
-            String conversacion = sistema.getConversacion(destinatario, remitente);
+            String destinatario = sistema.getPersonaLogueada().
+                    getNombreCompleto();
+            String conversacion = sistema.
+                    getConversacion(destinatario, remitente);
             txtMostrarConversacion.setText(conversacion);
             lblNombreUsuario.setText(usuarioSeleccionado);
-            listaConversaciones.setListData(sistema.getListaNombresUsuariosConversacionesPendientes(destinatario));
+            listaConversaciones.setListData(sistema.
+            getListaNombresUsuariosConversacionesPendientes(destinatario));
         }
     }
-
+    /**
+     * Este es el metodo de restaurar.
+     * @param nombreUsuario recibe el nombre del usuario.
+     */
     void restaurar(String nombreUsuario) {
         panelConversacionOk.setVisible(true);
         panelMostrarOk.setVisible(false);
@@ -2407,7 +2647,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         usuarioSeleccionado = nombreUsuario;
         actualizarConversaciones(usuarioSeleccionado);
     }
-
+    /**
+     * Este es metodo de ocultar los principales nutrientes.
+     */
     void ocultarPrincipalesNutrientes() {
         txtHidratos.setVisible(false);
         lblHidratos.setVisible(false);
@@ -2427,14 +2669,18 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             nutrientesSeleccionados[i] = false;
         }
     }
-
+    /**
+     * Este es el metodo de los nutrientes seleccionados.
+     * @return retorna un arraylist de la composicion de alimentos
+     */
     ArrayList<ComposicionAlimento> nutrientesSeleccionados() {
         ArrayList<ComposicionAlimento> listaRetorno = new ArrayList<>();
         if (checkFibra.isSelected()) {
             String proporcionIngresada = txtFibra.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Fibras", proporcion);
+                ComposicionAlimento nueva =
+                        new ComposicionAlimento("Fibras", proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2442,7 +2688,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String proporcionIngresada = txtGlucidos.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Glucidos", proporcion);
+                ComposicionAlimento nueva = new ComposicionAlimento("Glucidos",
+                        proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2450,7 +2697,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String proporcionIngresada = txtHidratos.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Hidratos de carbono", proporcion);
+                ComposicionAlimento nueva = new ComposicionAlimento("Hidratos"
+                        + " de carbono", proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2458,7 +2706,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String proporcionIngresada = txtLipidos.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Lipidos", proporcion);
+                ComposicionAlimento nueva = new ComposicionAlimento("Lipidos",
+                        proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2466,7 +2715,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String proporcionIngresada = txtMinerales.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Minerales", proporcion);
+                ComposicionAlimento nueva = new ComposicionAlimento("Minerales",
+                        proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2474,7 +2724,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String proporcionIngresada = txtProteínas.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Proteinas", proporcion);
+                ComposicionAlimento nueva = new ComposicionAlimento("Proteinas",
+                        proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2482,7 +2733,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String proporcionIngresada = txtVitaminas.getText();
             if (!proporcionIngresada.equals("")) {
                 float proporcion = Integer.parseInt(proporcionIngresada);
-                ComposicionAlimento nueva = new ComposicionAlimento("Vitaminas", proporcion);
+                ComposicionAlimento nueva;
+                nueva = new ComposicionAlimento("Vitaminas", proporcion);
                 listaRetorno.add(nueva);
             }
         }
@@ -2632,7 +2884,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
     private javax.swing.JTextField txtProteínas;
     private javax.swing.JTextField txtVitaminas;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Este metodo es para cargar la losta de los dias de la semana.
+     */
     private void cargarListaDiasDeLaSemana() {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         ArrayList<String> diasEnSistema = sistema.devolverListaDiasDeLaSemana();
@@ -2641,18 +2895,24 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             this.listaDiasDeLaSemana.addItem(diasEnSistema.get(i));
         }
     }
-
+    /**
+     * Este es el metodo de cargar la losta de la ingesta.
+     */
     private void cargarListaIngestasPorDia() {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        ArrayList<String> ingestasEnSistema = sistema.devolverListaIngestasDeLaSemana();
+        ArrayList<String> ingestasEnSistema = sistema.
+                devolverListaIngestasDeLaSemana();
         this.listaComidasPlan.setModel(modelo);
         for (int i = 0; i < ingestasEnSistema.size(); i++) {
             this.listaComidasPlan.addItem(ingestasEnSistema.get(i));
         }
     }
-
+    /**
+    * Este metodo guarda los datos del plan.
+    */
     private void guardarDatosDelPlan() {
-        String diaSeleccionado = (String) this.listaDiasDeLaSemana.getSelectedItem();
+        String diaSeleccionado = (String) this.listaDiasDeLaSemana.
+                getSelectedItem();
         this.diaDeLaSemanaActual = diaSeleccionado;
         this.lblNombreDelDia.setText(diaSeleccionado);
         String itemsDesayuno = this.textDesayuno.getText();
@@ -2701,21 +2961,29 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 break;
         }
     }
-
+    /**
+     * Este metodo es para mostrar los errores.
+     * @param nombre recibe el nombre
+     * @param tipoAlimento y el tipo de alimento
+     */
     private void mostrarErrores(String nombre, String tipoAlimento) {
         if (nombre.equals("")) {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(true);
         }
         if (tipoAlimento.equals("Seleccione...")) {
-            this.lblValidarTipoAlimento.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarTipoAlimento.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarTipoAlimento.setVisible(true);
             this.lblTipoAlimentoVacio.setVisible(true);
         }
 
     }
-
+    /**
+     * Este metodo es de ocultar el check box.
+     */
     private void ocultarCheckbox() {
         this.checkFibra.setSelected(false);
         this.checkGlucidos.setSelected(false);

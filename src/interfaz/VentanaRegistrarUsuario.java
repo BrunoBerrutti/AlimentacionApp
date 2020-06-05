@@ -9,18 +9,33 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
+/**
+ * Esta ventana permite registrar un usuario.
+ * @author Usuario
+ */
 public class VentanaRegistrarUsuario extends javax.swing.JDialog {
-
+    /**
+     *  Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     *  Esta variable hace referencia a la foto de perfil.
+     */
     private ImageIcon fotoDePerfilActual;
+    /**
+     *  Esta variable hace referencia a si es la primera vez o no.
+     */
     private boolean primeraVez;
-
+    /**
+     * Este metodo inicializa la ventana.
+     * @param unSistema le pasa el sistema por parametro
+     */
     public VentanaRegistrarUsuario(Sistema unSistema) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.sistema = unSistema;
-        this.fotoDePerfilActual = new ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png"));
+        this.fotoDePerfilActual = new ImageIcon(getClass().
+                getResource("/Imagenes/fotoDeUsuarioStandard.png"));
         this.primeraVez = true;
         ocultarEtiquetas();
         cargarListaPreferencias();
@@ -30,31 +45,51 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         this.dateChooserFechaNacimiento.setMaxDate(fecha);
         this.primeraVez = false;
     }
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo devuelve el sistema.
+     * @return el sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica el sistema.
+     * @param unSistema es el sistema por el cual se va a cambiar
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
-    public ImageIcon getFotoDePerfilActual() {
+    /**
+    * Este metodo devuelve la foto de perfil.
+    * @return retorna la foto
+    */
+    private ImageIcon getFotoDePerfilActual() {
         return fotoDePerfilActual;
     }
-
-    public void setFotoDePerfilActual(ImageIcon unaFoto) {
+    /**
+     * Este metodo modifica la foto de perfil.
+     * @param unaFoto es la foto por la cual se quiere cambiar
+     */
+    private void setFotoDePerfilActual(ImageIcon unaFoto) {
         this.fotoDePerfilActual = unaFoto;
     }
-
-    public boolean getPrimeraVezEnSistema() {
+    /**
+     * Este metodo devuelve true si es la primera vez en el sistema.
+     * @return retorna un booleano
+     */
+    private boolean getPrimeraVezEnSistema() {
         return primeraVez;
     }
-
-    public void setPrimeraVezEnSistema(boolean primera) {
+    /**
+     * Este metodo modifica la variable primeravez.
+     * @param primera es el booleano por el cual se desea modificar
+     */
+    private void setPrimeraVezEnSistema(boolean primera) {
         this.primeraVez = primera;
     }
-
+    /**
+     * Este metodo suprime los warnings no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -425,13 +460,19 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo hace referencia al boton home.
+     * @param evt recibe este parametro
+     */
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         VentanaMenuPrincipal vPrincipal = new VentanaMenuPrincipal(sistema);
         this.setVisible(false);
         vPrincipal.setVisible(true);
     }//GEN-LAST:event_btnHomeActionPerformed
-
+    /**
+     * Esta metodo es del boton para ingresar un usuario al sistema.
+     * @param evt recibe este parametro
+     */
     private void btnIngresarUsuarioASistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarUsuarioASistemaActionPerformed
         String nombre = this.txtNombre.getText();
         String apellido = this.txtApellido.getText();
@@ -440,84 +481,115 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         ArrayList<Ingesta> alimentosIngeridosPorFecha = new ArrayList<>();
         String nacionalidad = (String) this.listaNacionalidad.getSelectedItem();
         String fechaNacimiento = this.dateChooserFechaNacimiento.getText();
-        if (nombre.equals("") || apellido.equals("") || nacionalidad.equals("Seleccione...")) {
+        if (nombre.equals("") || apellido.equals("") || nacionalidad.
+                equals("Seleccione...")) {
             this.lblDatosIncorrectos.setVisible(true);
             mostrarErrores(nombre, apellido, nacionalidad);
         } else {
             this.lblDatosIncorrectos.setVisible(false);
             agregarPreferenciasUsuario(preferencias);
             agregarRestriccionesUsuario(restricciones);
-            boolean seAgregoUsuario = this.getSistema().crearUsuario(nombre, apellido, fechaNacimiento, this.fotoDePerfilActual, nacionalidad, preferencias, restricciones, alimentosIngeridosPorFecha);
+            boolean seAgregoUsuario = this.getSistema().crearUsuario(nombre,
+            apellido, fechaNacimiento, this.fotoDePerfilActual, nacionalidad,
+            preferencias, restricciones, alimentosIngeridosPorFecha);
             if (seAgregoUsuario) {
                 this.txtNombre.setText("");
                 this.txtApellido.setText("");
-                VentanaMenuPrincipal vPrincipal = new VentanaMenuPrincipal(sistema);
+                VentanaMenuPrincipal vPrincipal =
+                        new VentanaMenuPrincipal(sistema);
                 this.setVisible(false);
                 vPrincipal.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnIngresarUsuarioASistemaActionPerformed
-
+    /**
+     * Este metodo es del boton para ingresar la foto de perfil.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarFotoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarFotoPerfilActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter file = new FileNameExtensionFilter("PNG", "png");
+        FileNameExtensionFilter file =
+                new FileNameExtensionFilter("PNG", "png");
         fileChooser.setFileFilter(file);
         fileChooser.setAcceptAllFileFilterUsed(false);
         int imagen = fileChooser.showOpenDialog(this);
         if (imagen == JFileChooser.APPROVE_OPTION) {
-            ImageIcon iconoPerfil = new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath());
+            ImageIcon iconoPerfil = new ImageIcon(fileChooser.getSelectedFile().
+                    getAbsolutePath());
             this.btnIngresarFotoPerfil.setIcon(iconoPerfil);
             this.fotoDePerfilActual = iconoPerfil;
         }
     }//GEN-LAST:event_btnIngresarFotoPerfilActionPerformed
-
+    /**
+     * Este metodo es del nombre ingresado.
+     * @param evt recibe esto por parametro
+     */
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
         String nombreIngresado = this.txtNombre.getText();
         if (nombreIngresado.equals("")) {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(true);
         } else {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(false);
         }
     }//GEN-LAST:event_txtNombreFocusLost
-
+    /**
+     * Este metodo es del apellido ingresado.
+     * @param evt recibe esto por parametro
+     */
     private void txtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusLost
         String apellidoIngresado = this.txtApellido.getText();
         if (apellidoIngresado.equals("")) {
-            this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarApellido.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(true);
         } else {
-            this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarApellido.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(false);
         }
     }//GEN-LAST:event_txtApellidoFocusLost
-
+    /**
+     * Este metodo es para guardar los datos al cerrar la ventana.
+     * @param evt recibe esto por parametro
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
+    /**
+     * Este metodo es sobre la lista de nacionalidad.
+     * @param evt recibe esto por parametro
+     */
     private void listaNacionalidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaNacionalidadItemStateChanged
         if (!this.primeraVez) {
-            String nacionalidadIngresada = (String) listaNacionalidad.getSelectedItem();
+            String nacionalidadIngresada = (String) listaNacionalidad.
+                    getSelectedItem();
             if (nacionalidadIngresada.equals("Seleccione...")) {
-                this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+                this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoIncorrecto.png")));
                 this.lblValidarNacionalidad.setVisible(true);
                 this.lblPaisVacio.setVisible(true);
             } else {
-                this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+                this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoCorrecto.png")));
                 this.lblValidarNacionalidad.setVisible(true);
                 this.lblPaisVacio.setVisible(false);
             }
         }
 
     }//GEN-LAST:event_listaNacionalidadItemStateChanged
-
-    void agregarRestriccionesUsuario(ArrayList<String> restricciones) {
+    /**
+     * Este metodo es para agregar las restricciones al usuario.
+     * @param restricciones recibe las restricciones a agregar
+     */
+    private void agregarRestriccionesUsuario(ArrayList<String> restricciones) {
         if (this.rdBtnCeliaco.isSelected()) {
             restricciones.add("Celíaco");
         }
@@ -531,8 +603,11 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
             restricciones.add("Intolerancia a la lactosa");
         }
     }
-
-    void agregarPreferenciasUsuario(ArrayList<String> preferencias) {
+    /**
+     * Este metodo es para agregar las preferencias al usuario.
+     * @param preferencias recibe las preferencias a agregar
+     */
+    private void agregarPreferenciasUsuario(ArrayList<String> preferencias) {
         if (this.rdBtnCarnesBlancas.isSelected()) {
             preferencias.add("Carnes Blancas");
         }
@@ -587,7 +662,9 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Este metodo es para ocultar etiquetas.
+     */
     private void ocultarEtiquetas() {
         this.lblValidarNombre.setVisible(false);
         this.lblValidarApellido.setVisible(false);
@@ -597,7 +674,9 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         this.lblApellidoVacio.setVisible(false);
         this.lblPaisVacio.setVisible(false);
     }
-
+    /**
+     * Este metodo es para cargar la lista de preferencias.
+     */
     private void cargarListaPreferencias() {
         Sistema.Preferencias[] listaPreferencias = new Sistema.Preferencias[5];
         listaPreferencias[0] = Sistema.Preferencias.CarnesBlancas;
@@ -623,9 +702,12 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
             }
         }
     }
-
+    /**
+     * Este metodo es para cargar la lista de restricciones.
+     */
     private void cargarListaRestricciones() {
-        Sistema.Restricciones[] listaRestricciones = new Sistema.Restricciones[4];
+        Sistema.Restricciones[] listaRestricciones = new Sistema.
+                Restricciones[4];
         listaRestricciones[0] = Sistema.Restricciones.Celiaquia;
         listaRestricciones[1] = Sistema.Restricciones.Diabetes;
         listaRestricciones[2] = Sistema.Restricciones.IntoleranciaLactosa;
@@ -638,37 +720,50 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
                 this.rdBtnDiabetes.setText("Diabetes");
             }
             if (i == 2) {
-                this.rdBtnIntoleranteLactosa.setText("Intolerante a la lactosa");
+                this.rdBtnIntoleranteLactosa.
+                        setText("Intolerante a la lactosa");
             }
             if (i == 3) {
                 this.rdBtnVegano.setText("Veganismo");
             }
         }
     }
-
+    /**
+     * Este metodo es para cargar la lista de paises.
+     */
     private void cargarListaPaises() {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        ArrayList<String> nacionalidaesEnSistema = sistema.devolverListaPaises();
+        ArrayList<String> nacionalidaesEnSistema = sistema.
+                devolverListaPaises();
         this.listaNacionalidad.setModel(modelo);
         this.listaNacionalidad.addItem("Seleccione...");
         for (int i = 0; i < nacionalidaesEnSistema.size(); i++) {
             this.listaNacionalidad.addItem(nacionalidaesEnSistema.get(i));
         }
     }
-
-    private void mostrarErrores(String nombre, String apellido, String nacionalidad) {
+    /**
+     * Este metodo es para mostrar errores.
+     * @param nombre recibe el nombre
+     * @param apellido su apellido
+     * @param nacionalidad y la nacionalidad
+     */
+    private void mostrarErrores(String nombre, String apellido,
+            String nacionalidad) {
         if (nombre.equals("")) {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(true);
         }
         if (apellido.equals("")) {
-            this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarApellido.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(true);
         }
         if (nacionalidad.equals("Seleccione...")) {
-            this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNacionalidad.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNacionalidad.setVisible(true);
             this.lblPaisVacio.setVisible(true);
         }

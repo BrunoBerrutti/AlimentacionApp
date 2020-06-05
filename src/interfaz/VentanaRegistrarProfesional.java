@@ -8,18 +8,33 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
+/**
+ *  Esta ventana permite registrar un profesional.
+ * @author Usuario
+ */
 public class VentanaRegistrarProfesional extends javax.swing.JDialog {
-
+    /**
+     *  Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     *  Esta variable hace referencia a la foto de perfil actual.
+     */
     private ImageIcon fotoDePerfilActual;
+    /**
+     *  Esta variable hace referencia a si es la primera vez o no.
+     */
     private boolean primeraVez;
-
+    /**
+     * Este metodo inicializa la ventana.
+     * @param unSistema le pasa el sistema por parametro
+     */
     public VentanaRegistrarProfesional(Sistema unSistema) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.sistema = unSistema;
-        this.fotoDePerfilActual = new ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png"));
+        this.fotoDePerfilActual = new ImageIcon(getClass().
+                getResource("/Imagenes/fotoDeUsuarioStandard.png"));
         ocultarEtiquetas();
         this.primeraVez = true;
         cargarListaPaisesGraduacion();
@@ -28,7 +43,9 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
         this.dateChooserFechaGraduacion.setMaxDate(fecha);
         this.primeraVez = false;
     }
-
+    /**
+     * Este metodo suprime los warnings no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -413,125 +430,188 @@ layout.setHorizontalGroup(
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo devuelve el sistema.
+     * @return retorna el sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica el sistema.
+     * @param unSistema es el sistema por el cual sera cambiado
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
-    public ImageIcon getFotoDePerfilActual() {
+    /**
+     * Este metodo devuelve la foto de perfil.
+     * @return retorna la foto de perfil
+     */
+    private ImageIcon getFotoDePerfilActual() {
         return fotoDePerfilActual;
     }
-
-    public void setFotoDePerfilActual(ImageIcon unaFoto) {
+    /**
+     * Este metodo modifica la foto de perfil actual.
+     * @param unaFoto es la foto por la cual se cambiara la original
+     */
+    private void setFotoDePerfilActual(ImageIcon unaFoto) {
         this.fotoDePerfilActual = unaFoto;
     }
-
-    public boolean getPrimeraVezEnSistema() {
+    /**
+     * Este metodo devuelve un true si es la primera vez en el sistema.
+     * @return retorna un booleano
+     */
+    private boolean getPrimeraVezEnSistema() {
         return primeraVez;
     }
-
-    public void setPrimeraVezEnSistema(boolean primera) {
+    /**
+     * Este metodo modifica la variable primeravez.
+     * @param primera es la variable por la cual se va a modificar la anterior
+     */
+    private void setPrimeraVezEnSistema(boolean primera) {
         this.primeraVez = primera;
     }
-
+    /**
+     * Este metodo es del boton de ingresar un profesional al sistema.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarProfesionalASistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarProfesionalASistemaActionPerformed
         String nombre = this.txtNombre.getText();
         String apellido = this.txtApellido.getText();
-        String tituloProfesional = (String) this.listaTituloProfesional.getSelectedItem();
-        String paisGraduacion = (String) this.listaPaisGraduacion.getSelectedItem();
+        String tituloProfesional = (String) this.listaTituloProfesional.
+                getSelectedItem();
+        String paisGraduacion = (String) this.listaPaisGraduacion.
+                getSelectedItem();
         String fechaNacimiento = this.dateChooserFechaNacimiento.getText();
         String fechaGraduacion = this.dateChooserFechaGraduacion.getText();
-        if (nombre.equals("") || apellido.equals("") || tituloProfesional.equals("Seleccione...") || paisGraduacion.equals("Seleccione...")) {
+        if (nombre.equals("") || apellido.equals("") || tituloProfesional.
+        equals("Seleccione...") || paisGraduacion.equals("Seleccione...")) {
             this.lblDatosIncorrectos.setVisible(true);
             mostrarErrores(nombre, apellido, tituloProfesional, paisGraduacion);
         } else {
             this.lblDatosIncorrectos.setVisible(false);
-            boolean seAgregoProfesional = this.getSistema().crearProfesional(nombre, apellido, fechaNacimiento, this.fotoDePerfilActual, tituloProfesional, fechaGraduacion, paisGraduacion);
+            boolean seAgregoProfesional;
+            seAgregoProfesional = this.getSistema().
+            crearProfesional(nombre, apellido, fechaNacimiento,
+            this.fotoDePerfilActual, tituloProfesional, fechaGraduacion, 
+            paisGraduacion);
             if (seAgregoProfesional) {
                 this.txtNombre.setText("");
                 this.txtApellido.setText("");
-                VentanaMenuPrincipal vPrincipal = new VentanaMenuPrincipal(sistema);
+                VentanaMenuPrincipal vPrincipal;
+                vPrincipal = new VentanaMenuPrincipal(sistema);
                 this.setVisible(false);
                 vPrincipal.setVisible(true);
             }
         }
     }//GEN-LAST:event_btnIngresarProfesionalASistemaActionPerformed
-
+    /**
+     * Este metodo es del boton home.
+     * @param evt recibe esto por parametro
+     */
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         VentanaMenuPrincipal vPrincipal = new VentanaMenuPrincipal(sistema);
         this.setVisible(false);
         vPrincipal.setVisible(true);
     }//GEN-LAST:event_btnHomeActionPerformed
-
+    /**
+     * Este metodo es del boton de ingresar foto de perfil.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarFotoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarFotoPerfilActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter file = new FileNameExtensionFilter("PNG", "png");
+        FileNameExtensionFilter file;
+        file = new FileNameExtensionFilter("PNG", "png");
         fileChooser.setFileFilter(file);
         fileChooser.setAcceptAllFileFilterUsed(false);
         int imagen = fileChooser.showOpenDialog(this);
         if (imagen == JFileChooser.APPROVE_OPTION) {
-            ImageIcon iconoPerfil = new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath());
+            ImageIcon iconoPerfil = new ImageIcon(fileChooser.getSelectedFile().
+                    getAbsolutePath());
             this.btnIngresarFotoPerfil.setIcon(iconoPerfil);
             this.fotoDePerfilActual = iconoPerfil;
         }
     }//GEN-LAST:event_btnIngresarFotoPerfilActionPerformed
-
+    /**
+     * Este metodo es del nombre.
+     * @param evt recibe esto por parametro
+     */
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
         String nombreIngresado = this.txtNombre.getText();
         if (nombreIngresado.equals("")) {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(true);
         } else {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(false);
         }
     }//GEN-LAST:event_txtNombreFocusLost
-
+    /**
+     * Este metodo es del apellido.
+     * @param evt recibe esto por parametro
+     */
     private void txtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusLost
         String apellidoIngresado = this.txtApellido.getText();
         if (apellidoIngresado.equals("")) {
-            this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarApellido.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(true);
         } else {
-            this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarApellido.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(false);
         }
     }//GEN-LAST:event_txtApellidoFocusLost
-
+    /**
+     * Este metodo es para guardar los datos al sistema.
+     * @param evt recibe esto por parametro
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
+    /**
+     * Este metodo es de la lista de los titulos de los profesionales.
+     * @param evt recibe esto por parametro
+     */
     private void listaTituloProfesionalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaTituloProfesionalItemStateChanged
-        String tituloIngresado = (String) this.listaTituloProfesional.getSelectedItem();
+        String tituloIngresado;
+        tituloIngresado = (String) this.listaTituloProfesional.
+                getSelectedItem();
         if (tituloIngresado.equals("Seleccione...")) {
-            this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarTituloProfesional.setVisible(true);
             this.lblTituloVacio.setVisible(true);
         } else {
             this.lblTituloVacio.setVisible(false);
-            this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+            this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoCorrecto.png")));
             this.lblValidarTituloProfesional.setVisible(true);
         }
     }//GEN-LAST:event_listaTituloProfesionalItemStateChanged
-
+    /**
+     * Este metodo es la lista de paises dode se graduaron.
+     * @param evt recibe esto por parametro
+     */
     private void listaPaisGraduacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaPaisGraduacionItemStateChanged
         if (!this.primeraVez) {
-            String paisGraduacionIngresado = (String) this.listaPaisGraduacion.getSelectedItem();
+            String paisGraduacionIngresado = (String) this.listaPaisGraduacion.
+                    getSelectedItem();
             if (paisGraduacionIngresado.equals("Seleccione...")) {
-                this.lblValidarPaisGraduacion.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+                this.lblValidarPaisGraduacion.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoIncorrecto.png")));
                 this.lblValidarPaisGraduacion.setVisible(true);
                 this.lblPaisVacio.setVisible(true);
             } else {
-                this.lblValidarPaisGraduacion.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+                this.lblValidarPaisGraduacion.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoCorrecto.png")));
                 this.lblValidarPaisGraduacion.setVisible(true);
                 this.lblPaisVacio.setVisible(false);
             }
@@ -571,7 +651,9 @@ layout.setHorizontalGroup(
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Este metodo oculta las etiquetas.
+     */
     private void ocultarEtiquetas() {
         this.lblValidarNombre.setVisible(false);
         this.lblValidarApellido.setVisible(false);
@@ -583,7 +665,9 @@ layout.setHorizontalGroup(
         this.lblTituloVacio.setVisible(false);
         this.lblPaisVacio.setVisible(false);
     }
-
+    /**
+     * Este metodo carga la lista de los paises de graduacion.
+     */
     private void cargarListaPaisesGraduacion() {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         ArrayList<String> paisesEnSistema = sistema.devolverListaPaises();
@@ -593,25 +677,36 @@ layout.setHorizontalGroup(
             this.listaPaisGraduacion.addItem(paisesEnSistema.get(i));
         }
     }
-
-    private void mostrarErrores(String nombre, String apellido, String tituloProfesional, String paisGraduacion) {
+    /**
+     * Este metodo muestra los errores.
+     * @param nombre recibe el nombre
+     * @param apellido el apellido
+     * @param tituloProfesional el titulo
+     * @param paisGraduacion y el pais donde se graduo
+     */
+    private void mostrarErrores(String nombre, String apellido,
+            String tituloProfesional, String paisGraduacion) {
         if (nombre.equals("")) {
-            this.lblValidarNombre.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNombre.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNombre.setVisible(true);
             this.lblNombreVacio.setVisible(true);
         }
         if (apellido.equals("")) {
-            this.lblValidarApellido.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarApellido.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarApellido.setVisible(true);
             this.lblApellidoVacio.setVisible(true);
         }
         if (tituloProfesional.equals("Seleccione...")) {
-            this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarTituloProfesional.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarTituloProfesional.setVisible(true);
             this.lblTituloVacio.setVisible(true);
         }
         if (paisGraduacion.equals("Seleccione...")) {
-            this.lblValidarPaisGraduacion.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarPaisGraduacion.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarPaisGraduacion.setVisible(true);
             this.lblPaisVacio.setVisible(true);
         }

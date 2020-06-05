@@ -3,12 +3,24 @@ package interfaz;
 import dominio.Sistema;
 import dominio.Usuario;
 import java.util.ArrayList;
-
+/**
+ * Esta ventana permite editar las restricciones.
+ * @author Usuario
+ */
 public class VentanaEditarRestricciones extends javax.swing.JDialog {
-
+    /**
+     * Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     * Esta variable hace referencia al usuario actual.
+     */
     private Usuario usuarioActual;
-
+    /**
+     * Este metodo inicializa la ventana de editar restricciones.
+     * @param unSistema recibe el sistema por parametro
+     * @param unUsuario recibe un usuario por parametro
+     */
     public VentanaEditarRestricciones(Sistema unSistema, Usuario unUsuario) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -17,23 +29,37 @@ public class VentanaEditarRestricciones extends javax.swing.JDialog {
         cargarListaRestricciones();
         this.panelListo.setVisible(false);
     }
-
+    /**
+     * Este metodo devuelve el sistema.
+     * @return retorna el sistema
+     */
     public Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica al sistema.
+     * @param unSistema este es el sistema nuevo
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
-    public Usuario getUsuarioActual() {
+    /**
+     * Este metodo devuelve al usuario actual.
+     * @return retorna un usuario
+     */
+    private Usuario getUsuarioActual() {
         return usuarioActual;
     }
-
-    public void setUsuarioActual(Usuario unUsuarioActual) {
+    /**
+     * Este metodo modifica al usuario actual.
+     * @param unUsuarioActual este es el nuevo usuario
+     */
+    private void setUsuarioActual(Usuario unUsuarioActual) {
         this.usuarioActual = unUsuarioActual;
     }
-
+    /**
+     * Este metodo suprime los warnigns no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -183,24 +209,37 @@ public class VentanaEditarRestricciones extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo es del boton de editar preferencias.
+     * @param evt recibe esto por parametro
+     */
     private void btnEditarPreferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPreferenciasActionPerformed
         ArrayList<String> restricciones = new ArrayList<>();
         agregarRestriccionesUsuario(restricciones);
-        this.usuarioActual.actualizarRestriccionesUsuario(usuarioActual, restricciones);
+        this.usuarioActual.
+                actualizarRestriccionesUsuario(usuarioActual, restricciones);
         this.panelEditarRestricciones.setVisible(false);
         this.panelListo.setVisible(true);
     }//GEN-LAST:event_btnEditarPreferenciasActionPerformed
-
+    /**
+     * Este es el metodo del boton vegano.
+     * @param evt recibe esto por parametro
+     */
     private void rdBtnVeganoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdBtnVeganoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdBtnVeganoActionPerformed
-
+    /**
+     * Este es el metodo que guarda los datos del sistema.
+     * @param evt recibe esto por parametro
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
-    void agregarRestriccionesUsuario(ArrayList<String> restricciones) {
+    /**
+     * Este es el metodo de agregar restricciones al usuario.
+     * @param restricciones recibe las restriccioes a agregar
+     */
+    private void agregarRestriccionesUsuario(ArrayList<String> restricciones) {
         if (this.rdBtnCeliaco.isSelected()) {
             restricciones.add("Celíaco");
         }
@@ -214,9 +253,12 @@ public class VentanaEditarRestricciones extends javax.swing.JDialog {
             restricciones.add("Intolerancia a la lactosa");
         }
     }
-
+    /**
+     * Este es el metodo que carga la lista de restricciones.
+     */
     private void cargarListaRestricciones() {
-        Sistema.Restricciones[] listaRestricciones = new Sistema.Restricciones[4];
+        Sistema.Restricciones[] listaRestricciones = new Sistema.
+                Restricciones[4];
         listaRestricciones[0] = Sistema.Restricciones.Celiaquia;
         listaRestricciones[1] = Sistema.Restricciones.Diabetes;
         listaRestricciones[2] = Sistema.Restricciones.IntoleranciaLactosa;
@@ -229,7 +271,8 @@ public class VentanaEditarRestricciones extends javax.swing.JDialog {
                 this.rdBtnDiabetes.setText("Diabetes");
             }
             if (i == 2) {
-                this.rdBtnIntoleranteLactosa.setText("Intolerante a la lactosa");
+                this.rdBtnIntoleranteLactosa.
+                        setText("Intolerante a la lactosa");
             }
             if (i == 3) {
                 this.rdBtnVegano.setText("Veganismo");

@@ -3,23 +3,36 @@ package interfaz;
 import dominio.Sistema;
 
 public class AyudaUsuario extends javax.swing.JDialog {
-
+    /**
+     *  Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
-
+    /**
+     * Este metodo inicializa la ventana.
+     * @param unSistema recibe un sistema por parametro
+     */
     public AyudaUsuario(Sistema unSistema) {
         initComponents();
         this.sistema = unSistema;
         this.setLocationRelativeTo(null);
     }
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo devuelve el sistema.
+     * @return retorna un sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica el sistema.
+     * @param unSistema este es el sistema que modifica
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
+    /**
+     * Este metodo suprime los warnigns no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -156,19 +169,31 @@ public class AyudaUsuario extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo es el boton de ingresar alimento ingerido.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarAlimentoIngeridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarAlimentoIngeridoActionPerformed
        
     }//GEN-LAST:event_btnIngresarAlimentoIngeridoActionPerformed
-
+    /**
+     * Este metodo es del boton de ingresar alimento ingerido.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarAlimentoIngerido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarAlimentoIngerido1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresarAlimentoIngerido1ActionPerformed
-
+    /**
+     * Este es el metodo del boton de ingresar alimento ingerido.
+     * @param evt recibe esto por parametro 
+     */
     private void btnIngresarAlimentoIngerido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarAlimentoIngerido2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresarAlimentoIngerido2ActionPerformed
-
+    /**
+     * Este es el metodo del boton de cerrar el sistema.
+     * @param evt recibe esto por parametro
+     */
     private void btnCerrarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSistemaActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarSistemaActionPerformed

@@ -3,12 +3,24 @@ package interfaz;
 import dominio.Sistema;
 import dominio.Usuario;
 import java.util.ArrayList;
-
+/**
+ * Esta ventana permite editar las preferencias.
+ * @author Usuario
+ */
 public class VentanaEditarPreferencias extends javax.swing.JDialog {
-
+    /**
+     * Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     * Esta variable hace referencia al usuario actual.
+     */
     private Usuario usuarioActual;
-
+    /**
+     * Este metodo inicializa la ventana.
+     * @param unSistema recibe el sistema por parametro
+     * @param unUsuario recibe un usuario
+     */
     public VentanaEditarPreferencias(Sistema unSistema, Usuario unUsuario) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -17,23 +29,37 @@ public class VentanaEditarPreferencias extends javax.swing.JDialog {
         cargarListaPreferencias();
         this.panelListo.setVisible(false);
     }
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo retorna al sistema.
+     * @return retorna al sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica al sistema.
+     * @param unSistema este es el nuevo sistema
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
-    public Usuario getUsuarioActual() {
+    /**
+     * Este metodo devuelve al usuario actual.
+     * @return retorna un usuario
+     */
+    private Usuario getUsuarioActual() {
         return usuarioActual;
     }
-
-    public void setUsuarioActual(Usuario unUsuarioActual) {
+    /**
+     * Este metodo modifica al usuario actual.
+     * @param unUsuarioActual este es el nuevo usuario
+     */
+    private void setUsuarioActual(Usuario unUsuarioActual) {
         this.usuarioActual = unUsuarioActual;
     }
-
+    /**
+     * Este metodo suprime los warnigns no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -199,32 +225,51 @@ public class VentanaEditarPreferencias extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este es el metodo del boton de harinas.
+     * @param evt recibe esto por parametro
+     */
     private void rdBtnHarinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdBtnHarinasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdBtnHarinasActionPerformed
-
+    /**
+     * Este es el metodo del boton de carnes rojas.
+     * @param evt recibe esto por parametro
+     */
     private void rdBtnCarnesRojasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdBtnCarnesRojasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdBtnCarnesRojasActionPerformed
-
+    /**
+     * Este es el metodo del boton de editar preferencias.
+     * @param evt recibe esto por parametro
+     */
     private void btnEditarPreferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPreferenciasActionPerformed
         ArrayList<String> preferencias = new ArrayList<>();
         agregarPreferenciasUsuario(preferencias);
-        this.usuarioActual.actualizarPreferenciasUsuario(usuarioActual, preferencias);
+        this.usuarioActual.
+                actualizarPreferenciasUsuario(usuarioActual, preferencias);
         this.panelListo.setVisible(true);
         this.panelEditarPreferencias.setVisible(false);
     }//GEN-LAST:event_btnEditarPreferenciasActionPerformed
-
+    /**
+     * Este es el metodo de guardar los datos.
+     * @param evt recibe esto por parametro
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
+    /**
+     * Este es el metodo del boton de verduras.
+     * @param evt recibe esto por parametro
+     */
     private void rdBtnVerdurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdBtnVerdurasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdBtnVerdurasActionPerformed
-
-    void agregarPreferenciasUsuario(ArrayList<String> preferencias) {
+    /**
+     * Este es el metodo de agregar las preferencias al usuario.
+     * @param preferencias estas son las preferencias a agregar
+     */
+    private void agregarPreferenciasUsuario(ArrayList<String> preferencias) {
         if (this.rdBtnCarnesBlancas.isSelected()) {
             preferencias.add("Carnes Blancas");
         }
@@ -256,7 +301,9 @@ public class VentanaEditarPreferencias extends javax.swing.JDialog {
     private javax.swing.JRadioButton rdBtnHarinas;
     private javax.swing.JRadioButton rdBtnVerduras;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Este metodo es para cargar la lista de preferencias.
+     */
    private void cargarListaPreferencias() {
         Sistema.Preferencias[] listaPreferencias = new Sistema.Preferencias[5];
         listaPreferencias[0] = Sistema.Preferencias.CarnesBlancas;

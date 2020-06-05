@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
 import java.util.Currency;
 import javax.swing.ImageIcon;
-
+/**
+ * Esta es la clase sistema, contiene la lista de todas las otras clases.
+ * @author Usuario
+ */
 public final class Sistema implements Serializable {
 
     private ArrayList<Usuario> listaUsuarios;
@@ -19,7 +21,15 @@ public final class Sistema implements Serializable {
     private ArrayList<PlanAlimentacion> listaPlanesAlimentacion;
     private ArrayList<Conversacion> listaConversaciones;
     private Persona personaLogueada;
-
+    /**
+     * Este es un constructor del sistema.
+     * @param unaListaUsuarios
+     * @param unaListaProfesionales
+     * @param unaListaAlimentos
+     * @param unaListaPlanesAlimentacion
+     * @param unaListaConversaciones
+     * @param personaLogueada 
+     */
     public Sistema(ArrayList<Usuario> unaListaUsuarios,
             ArrayList<Profesional> unaListaProfesionales,
             ArrayList<Alimento> unaListaAlimentos,
@@ -125,9 +135,10 @@ public final class Sistema implements Serializable {
     }
 
     public enum Paises {
-        Argentina, Bolivia, Brasil, Chile, Colombia, CostaRica, Cuba, Ecuador, ElSalvador,
-        GuayanaFrancesa, Granada, Guatemala, Guayana, Haití, Honduras, Jamaica,
-        México, Nicaragua, Paraguay, Panamá, Perú, PuertoRico, RepúblicaDominicana, Surinam, Uruguay, Venezuela;
+        Argentina, Bolivia, Brasil, Chile, Colombia, CostaRica, Cuba, Ecuador,
+        ElSalvador,GuayanaFrancesa, Granada, Guatemala, Guayana, Haití,Honduras,
+        Jamaica,México, Nicaragua, Paraguay, Panamá, Perú, PuertoRico, 
+        RepúblicaDominicana, Surinam, Uruguay, Venezuela;
     }
 
     public enum DiasDeLaSemana {

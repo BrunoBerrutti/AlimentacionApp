@@ -8,16 +8,20 @@ package interfaz;
 import dominio.Sistema;
 
 /**
- *
- * @author bruno
+ * Esta ventana es para confirmar que quieres cerrar el dialog.
+ * @author Usuario
  */
 public class ConfirmacionCerrarDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form ConfirmacionCerrarDialog
+     * Esta variable hace referencia al sistema.
      */
     private Sistema sistema;
-    
+    /**
+     * Este metodo inicializa la ventana.
+     * @param parent recibe un java frame
+     * @param modal recibe un boolean
+     */
     public ConfirmacionCerrarDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -89,19 +93,26 @@ public class ConfirmacionCerrarDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo es para salir del sistema.
+     * @param evt recibe esto por parametro
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //this.sistema.guardarDatosSistema();
         Runtime.getRuntime().exit(0);
         //this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * Este metodo es para cerrar.
+     * @param evt recibe esto por parametro
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Este metodo es que inicializa.
+     * @param args recibe esto por parametro
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -129,7 +140,9 @@ public class ConfirmacionCerrarDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ConfirmacionCerrarDialog dialog = new ConfirmacionCerrarDialog(new javax.swing.JFrame(), true);
+                ConfirmacionCerrarDialog dialog;
+                dialog = new ConfirmacionCerrarDialog(new javax.swing.JFrame(),
+                        true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

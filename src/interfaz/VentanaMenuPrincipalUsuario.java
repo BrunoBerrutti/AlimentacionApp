@@ -17,17 +17,43 @@ import java.util.GregorianCalendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+/**
+ * Esta clase es el menú del usuario{.
+ * @author Usuario
+ */
 public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
-
+    /**
+     *  Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
+    /**
+     *  Esta variable hace referencia al profesional seleccionado.
+     */
     private String profesionalSeleccionado;
+    /**
+     *  Esta variable hace referencia a si la conversacion existe o no.
+     */
     private boolean existeConversacion;
+    /**
+     *  Esta variable hace referencia a si es la primera vez o no.
+     */
     private boolean primeraVez;
+    /**
+     *  Esta variable hace referencia a si es la primera ingesta o no.
+     */
     private boolean primeraIngesta;
+    /**
+     *  Esta variable hace referencia al nombre del plan.
+     */
     private String nombreDelPlan;
+    /**
+     *  Esta variable hace referencia al boton de cerrar el sistema.
+     */
     private Button btnCerrarSistema;
-
+    /**
+     * Este metodo inicializa la ventana.
+     * @param unSistema le pasa el sistema por parametro
+     */
     public VentanaMenuPrincipalUsuario(Sistema unSistema) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -50,32 +76,50 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         this.btnCerrarSistemaUsuarios.setVisible(true);
         this.btnCerrarSistemaUsuarios.repaint();
     }
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo retorna el sistema.
+     * @return retorna el sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica el sistema.
+     * @param unSistema recibe el sistema por el cual va a modificar
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
-    public boolean getYaExisteConversacion() {
+    /**
+     * Este metodo retorna si existe una conversacion.
+     * @return retorna un booleano
+     */
+    private boolean getYaExisteConversacion() {
         return existeConversacion;
     }
-
-    public void setYaExisteConversacion(boolean existe) {
+    /**
+     * Este metodo modifica el booleano existeconversacion.
+     * @param existe es el booleano por el cual va a modificar el ya existente
+     */
+    private void setYaExisteConversacion(boolean existe) {
         this.existeConversacion = existe;
     }
-    
-    private void btnCerrarSistemaActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        
-    } 
-    
-    public void guardarDatosSistema() {
+    /**
+     * Este metodo aun no hace nada.
+     * @param evt es la variable que recibe por parametro
+     */
+    private void btnCerrarSistemaActionPerformed(java.awt.event.ActionEvent
+            evt) {                          
+    }
+    /**
+     * Este metodo guarda los datos en el sistema.
+     */
+    private void guardarDatosSistema() {
         try {
             FileOutputStream archivo = new FileOutputStream("Sistema.data");
             BufferedOutputStream buffer = new BufferedOutputStream(archivo);
-            try (ObjectOutputStream objetoASerializar = new ObjectOutputStream(buffer)) {
+            try (ObjectOutputStream objetoASerializar = new
+                ObjectOutputStream(buffer)) {
                 objetoASerializar.writeObject(this);
                 objetoASerializar.flush();
             }
@@ -83,7 +127,9 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
 
         }
     }
-
+    /**
+    * Este metodo suprime los warnings no chequeados.
+    */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1241,19 +1287,27 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo es el boton home.
+     * @param evt recibe esto por parametro
+     */
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         VentanaMenuPrincipal vPrincipal = new VentanaMenuPrincipal(sistema);
         this.setVisible(false);
         vPrincipal.setVisible(true);
     }//GEN-LAST:event_btnHomeActionPerformed
-
+    /**
+     * Este metodo es el boton de consulta con el profesional.
+     * @param evt recibe esto por parametro
+     */
     private void btnConsultaConProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaConProfesionalActionPerformed
         ocultarPaneles();
         this.btnConsultaConProfesional.setEnabled(false);
         if (sistema.getListaProfesionales().size() > 0) {
             this.listaConversaciones.setSelectedIndex(0);
-            String[] lista = sistema.getListaNombresProfesionalesConversaciones(sistema.getPersonaLogueada().getNombreCompleto());
+            String[] lista = sistema.
+            getListaNombresProfesionalesConversaciones(sistema.
+            getPersonaLogueada().getNombreCompleto());
             if (lista.length > 0) {
                 this.listaConversaciones.setListData(lista);
                 this.existeConversacion = true;
@@ -1272,7 +1326,10 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
 
 
     }//GEN-LAST:event_btnConsultaConProfesionalActionPerformed
-
+    /**
+     * Este metodo es el boton de solicitar el plan de alimentacion.
+     * @param evt recibe esto por parametro
+     */
     private void btnSolicitarPlanAlimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarPlanAlimentacionActionPerformed
         ocultarPaneles();
         this.btnSolicitarPlanAlimentacion.setEnabled(false);
@@ -1289,7 +1346,10 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_btnSolicitarPlanAlimentacionActionPerformed
-
+    /**
+     * Este metodo es el boton de ingresar alimentos ingeridos.
+     * @param evt recibe esto por parametro
+     */
     private void btnIngresarAlimentoIngeridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarAlimentoIngeridoActionPerformed
         ocultarPaneles();
         this.btnIngresarAlimentoIngerido.setEnabled(false);
@@ -1301,63 +1361,93 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
             this.comboAlimentosEnSistema.setModel(modelo);
             this.comboAlimentosEnSistema.addItem("Seleccione...");
             for (int i = 0; i < lstAlimentos.size(); i++) {
-                this.comboAlimentosEnSistema.addItem(lstAlimentos.get(i).toString());
+                this.comboAlimentosEnSistema.addItem(lstAlimentos.get(i).
+                        toString());
             }
             this.primeraIngesta = false;
         } else {
             this.panelNoHayAlimentos.setVisible(true);
         }
     }//GEN-LAST:event_btnIngresarAlimentoIngeridoActionPerformed
-
+    /**
+     * Este metodo es el de elegir los profesionales.
+     * @param evt recibe esto por parametro
+     */
     private void listaElegirProfesionalesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaElegirProfesionalesValueChanged
         this.existeConversacion = true;
-        Profesional profesional = (Profesional) this.listaElegirProfesionales.getSelectedValue();
-        this.sistema.crearConversacion(this.sistema.getPersonaLogueada(), profesional, "CONVERSACION:", true);
+        Profesional profesional = (Profesional) this.listaElegirProfesionales.
+                getSelectedValue();
+        this.sistema.crearConversacion(this.sistema.
+                getPersonaLogueada(), profesional, "CONVERSACION:", true);
         ocultarPaneles();
         actualizarConversaciones(profesional.getNombreCompleto());
         this.panelConsultaConProfesional.setVisible(true);
     }//GEN-LAST:event_listaElegirProfesionalesValueChanged
-
+    /**
+     * Este metodo es el de la lista de conversacion.
+     * @param evt recibe esto por parametro
+     */
     private void listaConversacionesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaConversacionesValueChanged
-        if (this.existeConversacion && this.listaConversaciones.getSelectedValue() != null) {
+        if (this.existeConversacion && this.listaConversaciones.
+                getSelectedValue() != null) {
             this.panelConversacion.setVisible(true);
-            this.profesionalSeleccionado = this.listaConversaciones.getSelectedValue();
+            this.profesionalSeleccionado = this.listaConversaciones.
+                    getSelectedValue();
             actualizarConversaciones(this.profesionalSeleccionado);
         }
     }//GEN-LAST:event_listaConversacionesValueChanged
-
+    /**
+     * Este metodo es el de la nueva conversacion.
+     * @param evt recibe esto por parametro
+     */
     private void btnNuevaConversacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaConversacionActionPerformed
         ArrayList listaNombresProfesionalesSinConversacion;
-        listaNombresProfesionalesSinConversacion = this.sistema.getNombresProfesionalesSinConversacionConUsuario((sistema.getPersonaLogueada()));
+        listaNombresProfesionalesSinConversacion = this.sistema.
+        getNombresProfesionalesSinConversacionConUsuario((sistema.
+        getPersonaLogueada()));
         if (listaNombresProfesionalesSinConversacion != null && listaNombresProfesionalesSinConversacion.size() > 0) {
             ocultarPaneles();
-            this.listaElegirProfesionales.setListData(listaNombresProfesionalesSinConversacion.toArray());
+            this.listaElegirProfesionales.
+            setListData(listaNombresProfesionalesSinConversacion.toArray());
             this.panelElegirProfesional.setVisible(true);
         }
     }//GEN-LAST:event_btnNuevaConversacionActionPerformed
-
+    /**
+     * Este metodo es el boton de enviar mensaje.
+     * @param evt recibe esto por parametro
+     */
     private void btnEnviarMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarMensajeActionPerformed
         String mensaje = this.txtMensajeNuevo.getText();
         String profesional = this.profesionalSeleccionado;
         String usuario = this.sistema.getPersonaLogueada().getNombreCompleto();
-        this.sistema.agregarMensajeConversacion(usuario, profesional, mensaje, false, false);
+        this.sistema.
+        agregarMensajeConversacion(usuario, profesional, mensaje, false, false);
         this.txtMensajeNuevo.setText("");
         actualizarConversaciones(profesional);
     }//GEN-LAST:event_btnEnviarMensajeActionPerformed
-
+    /**
+     * Este metodo es el boton de una nueva ingesta.
+     * @param evt recibe esto por parametro
+     */
     private void btnNuevaIngestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaIngestaActionPerformed
-        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().getNombreCompleto();
-        Usuario usuarioLogueado = this.sistema.getUsuarioPorNombre(nombreUsuarioLoguedo);
-        ArrayList<Ingesta> listaIngestasDelUsuario = usuarioLogueado.getAlimentosIngeridos();
+        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().
+                getNombreCompleto();
+        Usuario usuarioLogueado = this.sistema.
+                getUsuarioPorNombre(nombreUsuarioLoguedo);
+        ArrayList<Ingesta> listaIngestasDelUsuario = usuarioLogueado.
+                getAlimentosIngeridos();
         String fechaIngesta = this.fechaIngestaUsuario.getText();
-        String nuevoAlimento = this.comboAlimentosEnSistema.getSelectedItem().toString();
+        String nuevoAlimento = this.comboAlimentosEnSistema.getSelectedItem().
+                toString();
         if (nuevoAlimento.equals("Seleccione...")) {
             this.lblDatosIncorrectos2.setVisible(true);
-            this.lblValidarNuevoAlimento.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+            this.lblValidarNuevoAlimento.setIcon(new ImageIcon(getClass().
+                    getResource("/Imagenes/iconoCampoIncorrecto.png")));
             this.lblValidarNuevoAlimento.setVisible(true);
             this.lblNuevoAlimentoVacio.setVisible(true);
         } else {
-            this.sistema.agregarIngestaAUsuario(listaIngestasDelUsuario, fechaIngesta, nuevoAlimento);
+            this.sistema.agregarIngestaAUsuario(listaIngestasDelUsuario,
+                    fechaIngesta, nuevoAlimento);
             this.panelIngestaRegistradaCorrectamente.setVisible(true);
             this.lblNuevoAlimentoVacio.setVisible(false);
             this.lblValidarNuevoAlimento.setVisible(false);
@@ -1370,12 +1460,18 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         }
         this.panelAlimentoIngerido.setVisible(false);
     }//GEN-LAST:event_btnNuevaIngestaActionPerformed
-
+    /**
+     * Este metodo es el boton de ver los planes existentes.
+     * @param evt recibe esto por parametro
+     */
     private void btnVerPlanesExistentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPlanesExistentesActionPerformed
         this.btnVerPlanesExistentes.setEnabled(false);
-        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().getNombreCompleto();
-        Usuario usuarioLogueado = this.sistema.getUsuarioPorNombre(nombreUsuarioLoguedo);
-        String[] planesDelUsuario = this.sistema.planesAtendidosDelUsuario(usuarioLogueado);
+        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().
+                getNombreCompleto();
+        Usuario usuarioLogueado = this.sistema.
+                getUsuarioPorNombre(nombreUsuarioLoguedo);
+        String[] planesDelUsuario = this.sistema.
+                planesAtendidosDelUsuario(usuarioLogueado);
         if (planesDelUsuario.length > 0) {
             this.panelBuscarPlan.setVisible(true);
             this.listaPlanesDelUsuario.setListData(planesDelUsuario);
@@ -1384,83 +1480,129 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
             this.panelNoHayPlanesDisponibles.setVisible(true);
         }
     }//GEN-LAST:event_btnVerPlanesExistentesActionPerformed
-
+    /**
+     * Este metodo es el de solicitar un nuevo plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnSolicitarNuevoPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarNuevoPlanActionPerformed
         this.btnSolicitarNuevoPlan.setEnabled(false);
         this.lblValidarProfesionalPlan.setVisible(false);
         this.lblDatosIncorrectos.setVisible(false);
         this.lblDatosIncorrectos1.setVisible(false);
         this.panelSolicitarNuevoPlan.setVisible(true);
-        ArrayList<Profesional> lstProfesionales = this.sistema.getListaProfesionales();
+        ArrayList<Profesional> lstProfesionales = this.sistema.
+                getListaProfesionales();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         this.comboProfesionalesEnSistema.setModel(modelo);
         this.comboProfesionalesEnSistema.addItem("Seleccione...");
         for (int i = 0; i < lstProfesionales.size(); i++) {
-            this.comboProfesionalesEnSistema.addItem(lstProfesionales.get(i).toString());
+            this.comboProfesionalesEnSistema.
+                    addItem(lstProfesionales.get(i).toString());
         }
         this.primeraVez = false;
     }//GEN-LAST:event_btnSolicitarNuevoPlanActionPerformed
-
+    /**
+     * Este metodo es el boton de editar las preferencias.
+     * @param evt recibe esto por parametro
+     */
     private void btnEditarPreferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPreferenciasActionPerformed
-        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().getNombreCompleto();
-        Usuario usuarioLogueado = this.sistema.getUsuarioPorNombre(nombreUsuarioLoguedo);
-        VentanaEditarPreferencias editarPreferenciasUsuario = new VentanaEditarPreferencias(sistema, usuarioLogueado);
+        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().
+                getNombreCompleto();
+        Usuario usuarioLogueado = this.sistema.
+                getUsuarioPorNombre(nombreUsuarioLoguedo);
+        VentanaEditarPreferencias editarPreferenciasUsuario;
+        editarPreferenciasUsuario = new VentanaEditarPreferencias(sistema,
+                usuarioLogueado);
         editarPreferenciasUsuario.setVisible(true);
     }//GEN-LAST:event_btnEditarPreferenciasActionPerformed
-
+    /**
+     * Este metodo es el que guarda los datos en el sistema.
+     * @param evt recibe esto por parametro
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
+    /**
+     * Este metodo es el boton de editar las restricciones.
+     * @param evt recibe esto por parametro
+     */
     private void btnEditarRestriccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarRestriccionesActionPerformed
-        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().getNombreCompleto();
-        Usuario usuarioLogueado = this.sistema.getUsuarioPorNombre(nombreUsuarioLoguedo);
-        VentanaEditarRestricciones editarRestriccionesUsuario = new VentanaEditarRestricciones(sistema, usuarioLogueado);
+        String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().
+                getNombreCompleto();
+        Usuario usuarioLogueado = this.sistema.
+                getUsuarioPorNombre(nombreUsuarioLoguedo);
+        VentanaEditarRestricciones editarRestriccionesUsuario;
+        editarRestriccionesUsuario = new
+                VentanaEditarRestricciones(sistema, usuarioLogueado);
         editarRestriccionesUsuario.setVisible(true);
     }//GEN-LAST:event_btnEditarRestriccionesActionPerformed
-
+    /**
+     * Este metodo es el boton de aceptar la solicitud del plan.
+     * @param evt recibe esto por parametro
+     */
     private void btnAceptarSolicitudPlanAlimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarSolicitudPlanAlimentacionActionPerformed
-        String nombreProfesionalElegido = (String) this.comboProfesionalesEnSistema.getSelectedItem();
+        String nombreProfesionalElegido = (String) this.
+                comboProfesionalesEnSistema.getSelectedItem();
         if (nombreProfesionalElegido.equals("Seleccione...")) {
             this.lblDatosIncorrectos.setVisible(true);
             this.lblDatosIncorrectos1.setVisible(true);
         } else {
             this.lblDatosIncorrectos.setVisible(false);
             this.lblDatosIncorrectos1.setVisible(false);
-            Profesional profesionalElegido = sistema.getProfesionalPorNombre(nombreProfesionalElegido);
-            String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().getNombreCompleto();
-            Usuario usuarioLogueado = this.sistema.getUsuarioPorNombre(nombreUsuarioLoguedo);
-            this.sistema.agregarPlanSolicitado(usuarioLogueado, profesionalElegido);
+            Profesional profesionalElegido = sistema.
+                    getProfesionalPorNombre(nombreProfesionalElegido);
+            String nombreUsuarioLoguedo = this.sistema.
+                    getPersonaLogueada().getNombreCompleto();
+            Usuario usuarioLogueado = this.sistema.
+                    getUsuarioPorNombre(nombreUsuarioLoguedo);
+            this.sistema.agregarPlanSolicitado(usuarioLogueado,
+                    profesionalElegido);
             this.panelSolicitarNuevoPlan.setVisible(false);
             this.panelPlanSolicitadoCorrectamente.setVisible(true);
 
         }
     }//GEN-LAST:event_btnAceptarSolicitudPlanAlimentacionActionPerformed
-
+    /**
+     * Este metodo es el boton de validar el profesional.
+     * @param evt recibe esto por parametro
+     */
     private void lblValidarProfesionalPlanFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblValidarProfesionalPlanFocusGained
 
     }//GEN-LAST:event_lblValidarProfesionalPlanFocusGained
-
+    /**
+     * Este metodo es el combo de profesionales.
+     * @param evt recibe esto por parametro
+     */
     private void comboProfesionalesEnSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProfesionalesEnSistemaActionPerformed
         if (!this.primeraVez) {
-            String profesionalElegido = (String) this.comboProfesionalesEnSistema.getSelectedItem();
+            String profesionalElegido;
+            profesionalElegido = (String) this.comboProfesionalesEnSistema.
+                    getSelectedItem();
             if (profesionalElegido.equals("Seleccione...")) {
-                this.lblValidarProfesionalPlan.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+                this.lblValidarProfesionalPlan.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoIncorrecto.png")));
                 this.lblValidarProfesionalPlan.setVisible(true);
             } else {
-                this.lblValidarProfesionalPlan.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+                this.lblValidarProfesionalPlan.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoCorrecto.png")));
                 this.lblValidarProfesionalPlan.setVisible(true);
             }
         }
     }//GEN-LAST:event_comboProfesionalesEnSistemaActionPerformed
-
+    /**
+     * Este metodo es el de la lista de planes del usuario.
+     * @param evt recibe esto por parametro
+     */
     private void listaPlanesDelUsuarioValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPlanesDelUsuarioValueChanged
         ocultarPaneles();
         this.nombreDelPlan = this.listaPlanesDelUsuario.getSelectedValue();
-        PlanAlimentacion planSeleccionado = this.sistema.devolverPlanDadoNombre(nombreDelPlan);
+        PlanAlimentacion planSeleccionado = this.sistema.
+                devolverPlanDadoNombre(nombreDelPlan);
         this.lblNombreDelPlan.setText(planSeleccionado.getNombreDelPlan());
-        this.lblNombreDelProfesional.setText(planSeleccionado.getProfesional().getNombreCompleto());
-        this.lblTituloDelProfesional.setText(planSeleccionado.getProfesional().getTituloProfesional());
+        this.lblNombreDelProfesional.setText(planSeleccionado.getProfesional().
+                getNombreCompleto());
+        this.lblTituloDelProfesional.setText(planSeleccionado.getProfesional().
+                getTituloProfesional());
         String[][] planDiaADia = planSeleccionado.getPlanDiaADia();
         this.txtComidasLunes.setText(cargarDatosDelPlan(planDiaADia, 0));
         this.txtComidasMartes.setText(cargarDatosDelPlan(planDiaADia, 1));
@@ -1471,40 +1613,60 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         this.txtComidasDomingo.setText(cargarDatosDelPlan(planDiaADia, 6));
         this.panelVerPlanAlimentacion.setVisible(true);
     }//GEN-LAST:event_listaPlanesDelUsuarioValueChanged
-
+    /**
+     * Este metodo es el combo de alimentos.
+     * @param evt recibe esto por parametro
+     */
     private void comboAlimentosEnSistemaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboAlimentosEnSistemaItemStateChanged
         if (!this.primeraIngesta) {
-            String alimentoIngresado = (String) this.comboAlimentosEnSistema.getSelectedItem();
+            String alimentoIngresado = (String) this.comboAlimentosEnSistema.
+                    getSelectedItem();
             if (alimentoIngresado.equals("Seleccione...")) {
-                this.lblValidarNuevoAlimento.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png")));
+                this.lblValidarNuevoAlimento.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoIncorrecto.png")));
                 this.lblValidarNuevoAlimento.setVisible(true);
                 this.lblNuevoAlimentoVacio.setVisible(true);
             } else {
-                this.lblValidarNuevoAlimento.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iconoCampoCorrecto.png")));
+                this.lblValidarNuevoAlimento.setIcon(new ImageIcon(getClass().
+                        getResource("/Imagenes/iconoCampoCorrecto.png")));
                 this.lblValidarNuevoAlimento.setVisible(true);
                 this.lblNuevoAlimentoVacio.setVisible(false);
             }
         }
     }//GEN-LAST:event_comboAlimentosEnSistemaItemStateChanged
-
+    /**
+     * Este metodo es el boton de una nueva conversacion.
+     * @param evt recibe esto por parametro
+     */
     private void btnNuevaConversacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaConversacion1ActionPerformed
         ArrayList listaNombresProfesionalesSinConversacion;
-        listaNombresProfesionalesSinConversacion = this.sistema.getNombresProfesionalesSinConversacionConUsuario((sistema.getPersonaLogueada()));
+        listaNombresProfesionalesSinConversacion = this.sistema.
+        getNombresProfesionalesSinConversacionConUsuario((sistema.
+                getPersonaLogueada()));
         if (listaNombresProfesionalesSinConversacion != null && listaNombresProfesionalesSinConversacion.size() > 0) {
             ocultarPaneles();
-            this.listaElegirProfesionales.setListData(listaNombresProfesionalesSinConversacion.toArray());
+            this.listaElegirProfesionales.
+             setListData(listaNombresProfesionalesSinConversacion.toArray());
             this.panelElegirProfesional.setVisible(true);
         }
     }//GEN-LAST:event_btnNuevaConversacion1ActionPerformed
-
+    /**
+     * Este metodo es el boton de ayuda.
+     * @param evt recibe esto por parametro
+     */
     private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
         AyudaUsuario ayuda = new AyudaUsuario(sistema);
         ayuda.setVisible(true);
     }//GEN-LAST:event_btnAyudaActionPerformed
-
+    /**
+     * Este metodo es el boton de cerrar el sistema.
+     * @param evt recibe esto por parametro
+     */
     private void btnCerrarSistemaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSistemaUsuariosActionPerformed
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "Estas seguro que quieres salir? Perderás la información que no guardaste.","Atención!",dialogButton);
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Estas seguro"
+        + " que quieres salir? Perderás la información que no guardaste.",
+                "Atención!",dialogButton);
         if(dialogResult == JOptionPane.YES_OPTION){
             this.sistema.guardarDatosSistema();
             Runtime.getRuntime().exit(0);
@@ -1515,7 +1677,9 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         //Runtime.getRuntime().exit(0);
         //this.dispose();
     }//GEN-LAST:event_btnCerrarSistemaUsuariosActionPerformed
-
+    /**
+     * Este metodo es para ocultar los panel.
+     */
     private void ocultarPaneles() {
         this.btnConsultaConProfesional.setEnabled(true);
         this.btnIngresarAlimentoIngerido.setEnabled(true);
@@ -1539,16 +1703,23 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         this.panelNoHayPlanesDisponibles.setVisible(false);
         this.panelVacio.setVisible(false);
     }
-
+    /**
+     * Este metodo es para actualizar la conversacion.
+     * @param destinatario recibe el destinatario
+     */
     private void actualizarConversaciones(String destinatario) {
         if (destinatario != null) {
-            String remitente = this.sistema.getPersonaLogueada().getNombreCompleto();
-            String conversacion = this.sistema.getConversacion(destinatario, remitente);
+            String remitente = this.sistema.getPersonaLogueada().
+                    getNombreCompleto();
+            String conversacion = this.sistema.
+                    getConversacion(destinatario, remitente);
             this.txtMostrarConversacion.setText(conversacion);
             this.lblNombreProfesional.setText(this.profesionalSeleccionado);
-            Profesional profesional = this.sistema.getProfesionalPorNombre(this.profesionalSeleccionado);
+            Profesional profesional = this.sistema.
+                    getProfesionalPorNombre(this.profesionalSeleccionado);
             this.lblFotoProfesional.setIcon(profesional.getFotoDePerfil());
-            this.listaConversaciones.setListData(this.sistema.getListaNombresProfesionalesConversaciones(remitente));
+            this.listaConversaciones.setListData(this.sistema.
+                    getListaNombresProfesionalesConversaciones(remitente));
         }
     }
 
@@ -1667,22 +1838,30 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
     private javax.swing.JTextArea txtMensajeNuevo;
     private javax.swing.JTextPane txtMostrarConversacion;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Este metodo carga los datos del plan.
+     * @param planDiaADia recibe el plan
+     * @param indiceDia recibe el indice
+     * @return retorna un string
+     */
     private String cargarDatosDelPlan(String[][] planDiaADia, int indiceDia) {
         String actual = "DESAYUNO:" + "\n";
-        if (planDiaADia[indiceDia][0] == null || planDiaADia[indiceDia][0].equals("")) {
+        if (planDiaADia[indiceDia][0] == null || planDiaADia[indiceDia][0].
+                equals("")) {
             actual += "\n" + "No planificado";
         } else {
             actual += "\n" + planDiaADia[indiceDia][0];
         }
         actual += "\n" + "\n" + "ALMUERZO:" + "\n";
-        if (planDiaADia[indiceDia][1] == null || planDiaADia[indiceDia][1].equals("")) {
+        if (planDiaADia[indiceDia][1] == null || planDiaADia[indiceDia][1].
+                equals("")) {
             actual += "\n" + "No planificado";
         } else {
             actual += "\n" + planDiaADia[indiceDia][1];
         }
         actual += "\n" + "\n" + "CENA:" + "\n";
-        if (planDiaADia[indiceDia][2] == null || planDiaADia[indiceDia][2].equals("")) {
+        if (planDiaADia[indiceDia][2] == null || planDiaADia[indiceDia][2].
+                equals("")) {
             actual += "\n" + "No planificado";
         } else {
             actual += "\n" + planDiaADia[indiceDia][2];

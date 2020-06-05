@@ -4,34 +4,55 @@ import dominio.Persona;
 import dominio.Sistema;
 import java.awt.Image;
 import java.awt.Toolkit;
-
+/**
+ * Esta ventana es el menu principal de la aplicacion.
+ * @author Usuario
+ */
 public class VentanaMenuPrincipal extends javax.swing.JDialog {
-
+    /**
+     * Esta variable hace referencia al sistema.
+     */
     private Sistema sistema;
-
+    /**
+     * Este metodo inicializa la ventana principal.
+     * @param unSistema recibe el sistema por parametro
+     */
     public VentanaMenuPrincipal(Sistema unSistema) {
 
         initComponents();
         this.setLocationRelativeTo(null);
         this.sistema = unSistema;
-        this.listaUsuariosVentana.setListData(sistema.getListaUsuarios().toArray());
-        this.listaProfesionalesVentana.setListData(sistema.getListaProfesionales().toArray());
-        //hola
+        this.listaUsuariosVentana.setListData(sistema.
+                getListaUsuarios().toArray());
+        this.listaProfesionalesVentana.setListData(sistema.
+                getListaProfesionales().toArray());
     }
-
-    public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Imagen5.png"));
+    /**
+     * Este metodo retorna el icon image.
+     * @return retorna un icono
+     */
+    private Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.
+                getSystemResource("Imagenes/Imagen5.png"));
         return retValue;
     }
-
-    public Sistema getSistema() {
+    /**
+     * Este metodo retorna el sistema.
+     * @return retorna el sistema
+     */
+    private Sistema getSistema() {
         return sistema;
     }
-
-    public void setSistema(Sistema unSistema) {
+    /**
+     * Este metodo modifica el sistema.
+     * @param unSistema este es el sistema por el cual se cambia el existente
+     */
+    private void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
-
+    /**
+     * Este metodo suprime los warnings no chequeados.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -200,43 +221,71 @@ public class VentanaMenuPrincipal extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este metodo es para guardar los datos.
+     * @param evt recibe esto por parametro
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.sistema.guardarDatosSistema();
     }//GEN-LAST:event_formWindowClosing
-
+    /**
+     * Este metodo es de la lista de usuarios.
+     * @param evt recibe esto por parametro
+     */
     private void listaUsuariosVentanaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaUsuariosVentanaValueChanged
-        this.sistema.setPersonaLogueada((Persona) listaUsuariosVentana.getSelectedValue());
-        VentanaMenuPrincipalUsuario ventanaPrincipalUsuarios = new VentanaMenuPrincipalUsuario(sistema);
+        this.sistema.setPersonaLogueada((Persona) listaUsuariosVentana.
+                getSelectedValue());
+        VentanaMenuPrincipalUsuario ventanaPrincipalUsuarios;
+        ventanaPrincipalUsuarios = new VentanaMenuPrincipalUsuario(sistema);
         this.setVisible(false);
         ventanaPrincipalUsuarios.setVisible(true);
     }//GEN-LAST:event_listaUsuariosVentanaValueChanged
-
+    /**
+     * Este metodo es de la lista de profesionales.
+     * @param evt recibe esto por parametro
+     */
     private void listaProfesionalesVentanaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProfesionalesVentanaValueChanged
-        this.sistema.setPersonaLogueada((Persona) listaProfesionalesVentana.getSelectedValue());
-        VentanaMenuPrincipalProfesional ventanaPrincipalProfesionales = new VentanaMenuPrincipalProfesional(sistema);
+        this.sistema.setPersonaLogueada((Persona) listaProfesionalesVentana.
+                getSelectedValue());
+        VentanaMenuPrincipalProfesional ventanaPrincipalProfesionales;
+        ventanaPrincipalProfesionales = new
+         VentanaMenuPrincipalProfesional(sistema);
         this.setVisible(false);
         ventanaPrincipalProfesionales.setVisible(true);
     }//GEN-LAST:event_listaProfesionalesVentanaValueChanged
-
+    /**
+     * Este metodo es el boton de agregar usuario.
+     * @param evt recibe esto por parametro
+     */
     private void btnAgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioMouseClicked
         VentanaRegistrarUsuario unA = new VentanaRegistrarUsuario(sistema);
         this.setVisible(false);
         unA.setVisible(true);
     }//GEN-LAST:event_btnAgregarUsuarioMouseClicked
-
+    /**
+     * Este metodo es del boton de agregar profesional.
+     * @param evt recibe esto por parametro
+     */
     private void btnAgregarProfesionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProfesionalMouseClicked
-        VentanaRegistrarProfesional ventanaRegProfesional = new VentanaRegistrarProfesional(sistema);
+        VentanaRegistrarProfesional ventanaRegProfesional;
+        ventanaRegProfesional = new VentanaRegistrarProfesional(sistema);
         this.setVisible(false);
         ventanaRegProfesional.setVisible(true);
     }//GEN-LAST:event_btnAgregarProfesionalMouseClicked
-
+    /**
+     * Este es el metodo del boton de agregar profesioanles.
+     * @param evt recibe esto por parametro
+     */
     private void btnAgregarProfesional1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProfesional1MouseClicked
-        VentanaRegistrarProfesional ventanaRegProfesional = new VentanaRegistrarProfesional(sistema);
+        VentanaRegistrarProfesional ventanaRegProfesional;
+        ventanaRegProfesional = new VentanaRegistrarProfesional(sistema);
         this.setVisible(false);
         ventanaRegProfesional.setVisible(true);
     }//GEN-LAST:event_btnAgregarProfesional1MouseClicked
-
+    /**
+     * Este metodo es del boton de cerrar el sistema.
+     * @param evt recibe esto por parametro
+     */
     private void btnCerrarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSistemaActionPerformed
         this.sistema.guardarDatosSistema();
         this.dispose();
