@@ -40,21 +40,21 @@ public class VentanaEditarRestricciones extends javax.swing.JDialog {
      * Este metodo modifica al sistema.
      * @param unSistema este es el sistema nuevo
      */
-    private void setSistema(Sistema unSistema) {
+    public void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
     /**
      * Este metodo devuelve al usuario actual.
      * @return retorna un usuario
      */
-    private Usuario getUsuarioActual() {
+    public Usuario getUsuarioActual() {
         return usuarioActual;
     }
     /**
      * Este metodo modifica al usuario actual.
      * @param unUsuarioActual este es el nuevo usuario
      */
-    private void setUsuarioActual(Usuario unUsuarioActual) {
+    public void setUsuarioActual(Usuario unUsuarioActual) {
         this.usuarioActual = unUsuarioActual;
     }
     /**

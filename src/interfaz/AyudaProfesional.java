@@ -23,14 +23,14 @@ public class AyudaProfesional extends javax.swing.JDialog {
      * Este metodo retorna al sistema.
      * @return retorna un sistema
      */
-    private Sistema getSistema() {
+    public Sistema getSistema() {
         return sistema;
     }
     /**
      * Este metodo modifica al sistema.
      * @param unSistema recibe el nuevo sistema
      */
-    private void setSistema(Sistema unSistema) {
+    public void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
     /**

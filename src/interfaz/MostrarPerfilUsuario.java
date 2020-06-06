@@ -65,28 +65,28 @@ public class MostrarPerfilUsuario extends javax.swing.JDialog {
      * Este metodo retorna al sistema.
      * @return retorna el sistema
      */
-    private Sistema getSistema() {
+    public Sistema getSistema() {
         return sistema;
     }
     /**
      * Este metodo modifica al sistema.
      * @param unSistema este es el nuevo sistema
      */
-    private void setSistema(Sistema unSistema) {
+    public void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
     /**
      * Este metodo retorna el nombre del usuario.
      * @return retorna el nombre del usuario
      */
-    private String getNombreUsuario() {
+    public String getNombreUsuario() {
         return nombreUsuario;
     }
     /**
      * Este metodo modifica el nombre del usuario.
      * @param unNombreUsuario este es el nuevo nombre del usuario
      */
-    private void setNombreUsuario(String unNombreUsuario) {
+    public void setNombreUsuario(String unNombreUsuario) {
         this.nombreUsuario = unNombreUsuario;
     }
     /**

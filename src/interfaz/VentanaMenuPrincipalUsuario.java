@@ -799,9 +799,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
                                             .addGroup(panelVerPlanAlimentacionLayout.createSequentialGroup()
                                                 .addComponent(lblAlimentoIngeridoSeleccionado7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(panelVerPlanAlimentacionLayout.createSequentialGroup()
-                                                .addComponent(jScrollPane36, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                                            .addComponent(jScrollPane36, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(panelVerPlanAlimentacionLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addGroup(panelVerPlanAlimentacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -815,7 +813,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
                         .addGroup(panelVerPlanAlimentacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlimentoIngeridoSeleccionado10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane39, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelVerPlanAlimentacionLayout.setVerticalGroup(
             panelVerPlanAlimentacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

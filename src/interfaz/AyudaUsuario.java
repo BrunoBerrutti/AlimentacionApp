@@ -20,14 +20,14 @@ public class AyudaUsuario extends javax.swing.JDialog {
      * Este metodo devuelve el sistema.
      * @return retorna un sistema
      */
-    private Sistema getSistema() {
+    public Sistema getSistema() {
         return sistema;
     }
     /**
      * Este metodo modifica el sistema.
      * @param unSistema este es el sistema que modifica
      */
-    private void setSistema(Sistema unSistema) {
+    public void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
     /**

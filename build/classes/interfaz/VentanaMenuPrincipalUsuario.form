@@ -831,10 +831,7 @@
                                                       <Component id="lblAlimentoIngeridoSeleccionado7" min="-2" pref="130" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jScrollPane36" min="-2" pref="160" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="jScrollPane36" min="-2" pref="160" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -859,7 +856,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="30" pref="-11" max="32767" attributes="0"/>
+                      <EmptySpace min="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
