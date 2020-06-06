@@ -344,8 +344,7 @@ public class SistemaTest {
         ArrayList<PlanAlimentacion> listaPlanesAlimentacion = new ArrayList<>();
         listaPlanesAlimentacion.add(plan1);
         Sistema sistemaATestear = new Sistema(null, null, null, listaPlanesAlimentacion, null, null);
-        boolean fueAtendido = sistemaATestear.atenderSolicitudDelPlan(plan1.getPlanDiaADia(), professional1,
-                user1, plan1.getNombreDelPlan());
+        boolean fueAtendido = sistemaATestear.agregarPlanSolicitado(user1, professional1);
         assertTrue(fueAtendido);
     }
 
@@ -357,8 +356,7 @@ public class SistemaTest {
         ArrayList<PlanAlimentacion> listaPlanesAlimentacion = new ArrayList<>();
         listaPlanesAlimentacion.add(plan1);
         Sistema sistemaATestear = new Sistema(null, null, null, listaPlanesAlimentacion, null, null);
-        boolean fueAtendido = sistemaATestear.atenderSolicitudDelPlan(plan1.getPlanDiaADia(), professional1,
-                user1, "Plan de alimentación");
+        boolean fueAtendido = sistemaATestear.agregarPlanSolicitado(user1, professional1);
         assertFalse(fueAtendido);
     }
 
@@ -371,8 +369,7 @@ public class SistemaTest {
         listaPlanesAlimentacion.add(plan1);
         Sistema sistemaATestear = new Sistema(null, null, null, listaPlanesAlimentacion, null, null);
         Profesional professional2 = new Profesional("Lautaro", null, null, null, null, null, null);
-        boolean fueAtendido = sistemaATestear.atenderSolicitudDelPlan(plan1.getPlanDiaADia(), professional2,
-                user1, plan1.getNombreDelPlan());
+        boolean fueAtendido = sistemaATestear.agregarPlanSolicitado(user1, professional2);
         assertFalse(fueAtendido);
     }
 
@@ -385,8 +382,7 @@ public class SistemaTest {
         listaPlanesAlimentacion.add(plan1);
         Sistema sistemaATestear = new Sistema(null, null, null, listaPlanesAlimentacion, null, null);
         Usuario user2 = new Usuario("Martina", null, null, null, null, null, null, null);
-        boolean fueAtendido = sistemaATestear.atenderSolicitudDelPlan(plan1.getPlanDiaADia(), professional1,
-                user2, plan1.getNombreDelPlan());
+        boolean fueAtendido = sistemaATestear.agregarPlanSolicitado(user2, professional1);
         assertFalse(fueAtendido);
     }
 
@@ -397,8 +393,7 @@ public class SistemaTest {
         PlanAlimentacion plan1 = new PlanAlimentacion("Plan de alimentación", user1, professional1, false, null);
         ArrayList<PlanAlimentacion> listaPlanesAlimentacion = new ArrayList<>();
         Sistema sistemaATestear = new Sistema(null, null, null, listaPlanesAlimentacion, null, null);
-        boolean fueAtendido = sistemaATestear.atenderSolicitudDelPlan(plan1.getPlanDiaADia(), professional1,
-                user1, plan1.getNombreDelPlan());
+        boolean fueAtendido = sistemaATestear.agregarPlanSolicitado(user1, professional1);
         assertFalse(fueAtendido);
     }
 
@@ -410,8 +405,7 @@ public class SistemaTest {
         ArrayList<PlanAlimentacion> listaPlanesAlimentacion = new ArrayList<>();
         listaPlanesAlimentacion.add(plan1);
         Sistema sistemaATestear = new Sistema(null, null, null, listaPlanesAlimentacion, null, null);
-        sistemaATestear.atenderSolicitudDelPlan(plan1.getPlanDiaADia(), professional1,
-                user1, plan1.getNombreDelPlan());
+        boolean fueAtendido = sistemaATestear.agregarPlanSolicitado(user1, professional1);
         boolean sonIguales = sistemaATestear.planesAtendidosDelUsuario(user1)[0].equals(plan1.getNombreDelPlan());
         assertTrue(sonIguales);
     }
@@ -548,7 +542,6 @@ public class SistemaTest {
         assertEquals(sistemaATestear.devolverListaIngestasDeLaSemana(), listaEsperada);
     }
 
-
     @Test
     public void testEnumDevolverListaDiasDeLaSemana() {
         Sistema sistemaATestear = new Sistema();
@@ -562,5 +555,30 @@ public class SistemaTest {
         listaEsperada.add("Domingo");
         assertEquals(sistemaATestear.devolverListaDiasDeLaSemana(), listaEsperada);
     }
+    
+    @Test
+    public void agregarAlimentoLista() {
+        Sistema sistemaATestear = new Sistema();
+        Alimento manzana = new Alimento("Manzana", "Fruta", null, null);
+        sistemaATestear.agregarAlimentoALaLista(manzana);
+        assertEquals(manzana, sistemaATestear.getListaAlimentos().get(0));
+    }
+    
+    @Test
+    public void crearAlimento() {
+        Sistema sistemaATestear = new Sistema();
+        Alimento manzana = new Alimento("Manzana", "Fruta", null, null);
+        sistemaATestear.crearAlimento("Manzana", "Fruta", null, null);
+        assertEquals(manzana, sistemaATestear.getListaAlimentos().get(0));
+    }
+    
+    @Test
+    public void crearProfesional() {
+        Sistema sistemaATestear = new Sistema();
+        Profesional profesional = new Profesional("Roberto", "Alcides", "12/03/12", null, "Personal Trainning", "05/06/06", "Uruguay");
+        sistemaATestear.crearProfesional("Roberto", "Alcides", "12/03/12", null, "Personal Trainning", "05/06/06", "Uruguay");
+        assertEquals(profesional, sistemaATestear.getListaProfesionales().get(0));
+    }
+    
 
 }
