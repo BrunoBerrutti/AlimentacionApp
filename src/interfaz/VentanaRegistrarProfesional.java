@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class VentanaRegistrarProfesional extends javax.swing.JDialog {
@@ -37,6 +38,7 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
         lblTituloVentana = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         icono = new javax.swing.JLabel();
+        btnCerrarSistemaUsuarios1 = new javax.swing.JButton();
         panel2 = new javax.swing.JPanel();
         lblNuevoProfesional = new javax.swing.JLabel();
         lblIconoNuevoProfesional = new javax.swing.JLabel();
@@ -66,11 +68,9 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(1060, 800));
         setMinimumSize(new java.awt.Dimension(1060, 800));
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1060, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(1060, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -102,6 +102,18 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
 
         icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IconoBrocoli.png"))); // NOI18N
 
+        btnCerrarSistemaUsuarios1.setBackground(new java.awt.Color(51, 51, 51));
+        btnCerrarSistemaUsuarios1.setForeground(new java.awt.Color(51, 51, 51));
+        btnCerrarSistemaUsuarios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_Close_Window_48px.png"))); // NOI18N
+        btnCerrarSistemaUsuarios1.setBorderPainted(false);
+        btnCerrarSistemaUsuarios1.setContentAreaFilled(false);
+        btnCerrarSistemaUsuarios1.setFocusPainted(false);
+        btnCerrarSistemaUsuarios1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSistemaUsuarios1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -111,7 +123,9 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(btnHome)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSistemaUsuarios1)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addGap(0, 22, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,13 +140,18 @@ public class VentanaRegistrarProfesional extends javax.swing.JDialog {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnHome)
-                .addGap(116, 116, 116)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnHome)
+                    .addComponent(btnCerrarSistemaUsuarios1))
+                .addGap(105, 105, 105)
                 .addComponent(lblTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(icono, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(349, Short.MAX_VALUE))
         );
+
+        btnCerrarSistemaUsuarios1.getAccessibleContext().setAccessibleName("btnCerrarSistema");
+        btnCerrarSistemaUsuarios1.getAccessibleContext().setAccessibleDescription("");
 
         panel2.setBackground(new java.awt.Color(51, 51, 51));
         panel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -538,8 +557,19 @@ layout.setHorizontalGroup(
         }
     }//GEN-LAST:event_listaPaisGraduacionItemStateChanged
 
+    private void btnCerrarSistemaUsuarios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSistemaUsuarios1ActionPerformed
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Estas seguro que quieres salir? Perderás la información que no guardaste.","Atención!",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            this.sistema.guardarDatosSistema();
+            Runtime.getRuntime().exit(0);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnCerrarSistemaUsuarios1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSistemaUsuarios1;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnIngresarFotoPerfil;
     private javax.swing.JButton btnIngresarProfesionalASistema;
