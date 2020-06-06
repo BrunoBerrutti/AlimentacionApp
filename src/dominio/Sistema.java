@@ -1,6 +1,7 @@
 package dominio;
 
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public final class Sistema implements Serializable {
     private ArrayList<Profesional> listaProfesionales;
     private ArrayList<Alimento> listaAlimentos;
     private ArrayList<PlanAlimentacion> listaPlanesAlimentacion;
+    private ArrayList<Usuario> listaPlanesAlimentacionSolicitados;
     private ArrayList<Conversacion> listaConversaciones;
     private Persona personaLogueada;
 
@@ -44,6 +46,7 @@ public final class Sistema implements Serializable {
         setPersonaLogueada(new Usuario("Nombre", "Apellido", "",
                 new ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png")),
                 "", null, null, null));
+        this.listaPlanesAlimentacionSolicitados = new ArrayList<Usuario>();
 
     }
 
@@ -106,6 +109,10 @@ public final class Sistema implements Serializable {
 
     public ArrayList<PlanAlimentacion> getListaPlanesAlimentacion() {
         return this.listaPlanesAlimentacion;
+    }
+    
+    public ArrayList<Usuario> getListaPlanesAlimentacionSolicitado() {
+        return this.listaPlanesAlimentacionSolicitados;
     }
 
     public void setListaPlanesAlimentacion(ArrayList<PlanAlimentacion> unaListaPlanesAlimentacion) {
@@ -437,32 +444,42 @@ public final class Sistema implements Serializable {
     public boolean agregarPlanSolicitado(Usuario usuario, Profesional profesional) {
         boolean agreguePlan = false;
         if (usuario != null && profesional != null) {
-            PlanAlimentacion planNuevo = new PlanAlimentacion("", usuario, profesional, false, null);
-            if (!getListaPlanesAlimentacion().contains(planNuevo)) {
-                this.getListaPlanesAlimentacion().add(planNuevo);
+            //PlanAlimentacion planNuevo = new PlanAlimentacion("", usuario, profesional, false, null);
+           // if (!getListaPlanesAlimentacion().contains(planNuevo)) {
+                profesional.agregarSolicitudPendiente(usuario);
                 agreguePlan = true;
-            }
+           // }
         }
         return agreguePlan;
 
     }
-
-    public boolean atenderSolicitudDelPlan(String[][] planAlimentacion,
+    
+    
+    public boolean agregarPlan(String[][] planAlimentacion,
             Profesional profesional,
             Usuario usuario,
             String nombrePlan) {
-        boolean fueAtendido = false;
-        for (int i = 0; i < this.listaPlanesAlimentacion.size(); i++) {
-            PlanAlimentacion actual = this.listaPlanesAlimentacion.get(i);
-            if (actual.getProfesional().equals(profesional) && actual.getUsuario().equals(usuario)
-                    && actual.getFueAtendidoElPlan() == false) {
-                actual.setNombreDelPlan(nombrePlan);
-                actual.setPlanDiaADia(planAlimentacion);
-                actual.setFueAtendidoElPlan(true);
-                fueAtendido = true;
+        
+            PlanAlimentacion plan = new PlanAlimentacion(null, null, null, false, null);
+            plan.setProfesional(profesional);
+            plan.setUsuario(usuario);
+            plan.setNombreDelPlan(nombrePlan);
+            plan.setPlanDiaADia(planAlimentacion);
+            this.listaPlanesAlimentacion.add(plan);
+            usuario.agregarPlanAlimentacion(plan);
+        
+        return true;
+    }
+    
+
+    public void borrarSolicitudDePlan(Usuario usuario) {
+        boolean fueBorrado = false;
+        for (int i = 0; i < this.listaPlanesAlimentacionSolicitados.size(); i++) {
+            if (usuario == this.listaPlanesAlimentacionSolicitados.get(i)) {
+                    this.listaPlanesAlimentacionSolicitados.remove(i);
+                    return;
             }
         }
-        return fueAtendido;
     }
 
     public String[] planesAtendidosDelUsuario(Usuario usuario) {
@@ -496,15 +513,15 @@ public final class Sistema implements Serializable {
 
     public String[] getListaPlanesPendientes(Profesional profesional) {
         if (profesional != null) {
-            ArrayList<String> planesPendientes = new ArrayList<>();
-            for (int i = 0; i < this.listaPlanesAlimentacion.size(); i++) {
-                Profesional profesionalActual = this.listaPlanesAlimentacion.get(i).getProfesional();
-                boolean fueAtendidoPlanActual = this.listaPlanesAlimentacion.get(i).getFueAtendidoElPlan();
-                if (profesionalActual.equals(profesional) && fueAtendidoPlanActual == false) {
-                    String nombreUsuario = this.listaPlanesAlimentacion.get(i).getUsuario().getNombreCompleto();
-                    planesPendientes.add(nombreUsuario);
-                }
-            }
+            ArrayList<String> planesPendientes = profesional.getListaPlanesPendientes();
+            //for (int i = 0; i < profesional.getListaPlanesPendientes().size(); i++) {
+                //Profesional profesionalActual = this.listaPlanesAlimentacion.get(i).getProfesional();
+                //boolean fueAtendidoPlanActual = this.listaPlanesAlimentacion.get(i).getFueAtendidoElPlan();
+                //if (profesionalActual.equals(profesional) && fueAtendidoPlanActual == false) {
+                //    String nombreUsuario = this.listaPlanesAlimentacion.get(i).getUsuario().getNombreCompleto();
+              //      planesPendientes.add(nombreUsuario);
+                //}
+            //}
             String[] nombreUsuarios = new String[planesPendientes.size()];
             for (int i = 0; i < nombreUsuarios.length; i++) {
                 nombreUsuarios[i] = planesPendientes.get(i);

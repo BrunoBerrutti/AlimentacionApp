@@ -10,6 +10,7 @@ public final class Usuario extends Persona {
     private ArrayList<String> preferencias;
     private ArrayList<String> restricciones;
     public ArrayList<Ingesta> alimentosIngeridos;
+    private ArrayList<PlanAlimentacion> planesAlimentacion;
 
     public Usuario(String unNombre,
             String unApellido,
@@ -28,6 +29,7 @@ public final class Usuario extends Persona {
         this.setPreferencias(listaPreferencias);
         this.setRestricciones(listaRestricciones);
         this.setAlimentosIngeridos(listaAlimentos);
+        this.planesAlimentacion = new ArrayList<PlanAlimentacion>();
     }
 
     public String getNacionalidad() {
@@ -99,6 +101,22 @@ public final class Usuario extends Persona {
             retorno[i] = getPreferencias().get(i);
         }
         return retorno;
+    }
+    
+    public void agregarPlanAlimentacion(PlanAlimentacion plan){
+        this.planesAlimentacion.add(plan);
+    }
+    
+    public ArrayList<PlanAlimentacion> getPlanesAlimentacion(){
+        return this.planesAlimentacion;
+    }
+    
+    public String[] getNombresPlanesAlimentacion(){
+        String[] planesDelUsuario = new String[this.planesAlimentacion.size()];
+        for (int i = 0; i < planesDelUsuario.length; i++) {
+            planesDelUsuario[i] = this.planesAlimentacion.get(i).getNombreDelPlan();
+        }
+        return planesDelUsuario;
     }
 
     @Override

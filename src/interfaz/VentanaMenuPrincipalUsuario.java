@@ -1375,7 +1375,7 @@ public class VentanaMenuPrincipalUsuario extends javax.swing.JDialog {
         this.btnVerPlanesExistentes.setEnabled(false);
         String nombreUsuarioLoguedo = this.sistema.getPersonaLogueada().getNombreCompleto();
         Usuario usuarioLogueado = this.sistema.getUsuarioPorNombre(nombreUsuarioLoguedo);
-        String[] planesDelUsuario = this.sistema.planesAtendidosDelUsuario(usuarioLogueado);
+        String[] planesDelUsuario = usuarioLogueado.getNombresPlanesAlimentacion();
         if (planesDelUsuario.length > 0) {
             this.panelBuscarPlan.setVisible(true);
             this.listaPlanesDelUsuario.setListData(planesDelUsuario);

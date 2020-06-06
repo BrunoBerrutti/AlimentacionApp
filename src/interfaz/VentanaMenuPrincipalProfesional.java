@@ -2256,11 +2256,14 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             String nombreProfesionalLogueado = sistema.getPersonaLogueada().getNombreCompleto();
             Profesional profesionalLogueado = sistema.getProfesionalPorNombre(nombreProfesionalLogueado);
             Usuario usuarioPerfil = (Usuario) sistema.getUsuarioPorNombre(usuarioSeleccionado);
-            boolean fueAtendidoElPlan = this.sistema.atenderSolicitudDelPlan(planAlimentacion, profesionalLogueado, usuarioPerfil, nombreDelPlan);
-            if (fueAtendidoElPlan) {
-                ocultarPaneles();
-                this.panelMostrarPlanEnviado.setVisible(true);
-            }
+            boolean fueAtendidoElPlan = this.sistema.agregarPlan(planAlimentacion, profesionalLogueado, usuarioPerfil, nombreDelPlan);
+            //if (fueAtendidoElPlan) {
+            ocultarPaneles();
+            this.panelMostrarPlanEnviado.setVisible(true);
+            this.sistema.borrarSolicitudDePlan(usuarioPerfil);
+            profesionalLogueado.borrarSolicitudPendiente(usuarioPerfil);
+                
+            //}
         }
     }//GEN-LAST:event_btnElaborarPlan1ActionPerformed
 
