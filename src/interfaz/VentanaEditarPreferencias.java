@@ -152,7 +152,7 @@ public class VentanaEditarPreferencias extends javax.swing.JDialog {
             }
         });
         panelEditarPreferencias.add(rdBtnCarnesRojas);
-        rdBtnCarnesRojas.setBounds(100, 150, 240, 35);
+        rdBtnCarnesRojas.setBounds(100, 160, 240, 35);
 
         rdBtnCarnesBlancas.setBackground(new java.awt.Color(51, 51, 51));
         rdBtnCarnesBlancas.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N

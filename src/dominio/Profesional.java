@@ -1,5 +1,6 @@
 package dominio;
 
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public final class Profesional extends Persona {
@@ -7,6 +8,7 @@ public final class Profesional extends Persona {
     public String tituloProfesional;
     private String fechaGraduacion;
     private String paisGraduacion;
+    private ArrayList<String> listaPlanesPendientes; 
 
     public Profesional(String unNombre,
             String unApellido,
@@ -23,6 +25,7 @@ public final class Profesional extends Persona {
         setTituloProfesional(unTitulo);
         setFechaGraduacion(unaFechaGraduacion);
         setPaisGraduacion(unPaisGraduacion);
+        this.listaPlanesPendientes = new ArrayList<String>(); 
     }
 
     public String getTituloProfesional() {
@@ -56,6 +59,24 @@ public final class Profesional extends Persona {
     public void setPaisGraduacion(String unPaisGraduacion) {
         paisGraduacion = unPaisGraduacion;
         
+    }
+    
+    public void agregarSolicitudPendiente(Usuario usuario){
+        this.listaPlanesPendientes.add(usuario.getNombreCompleto());
+    }
+    
+    public void borrarSolicitudPendiente(Usuario usuario){
+        for (int i = 0; i < this.listaPlanesPendientes.size(); i++) {
+            if (usuario.getNombreCompleto().equals(this.listaPlanesPendientes.get(i))) {
+                    this.listaPlanesPendientes.remove(i);
+                    return;
+            }
+        }
+        
+    }
+    
+    public ArrayList<String> getListaPlanesPendientes(){
+        return this.listaPlanesPendientes;
     }
 
     @Override
