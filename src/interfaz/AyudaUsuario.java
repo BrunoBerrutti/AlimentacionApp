@@ -53,16 +53,14 @@ public class AyudaUsuario extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(58, 80, 92));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         jPanel1.setMaximumSize(new java.awt.Dimension(600, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 600));
@@ -70,10 +68,10 @@ public class AyudaUsuario extends javax.swing.JDialog {
         jPanel1.setLayout(null);
 
         lblNombreUsuario.setFont(new java.awt.Font("Levenim MT", 0, 55)); // NOI18N
-        lblNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreUsuario.setForeground(new java.awt.Color(153, 255, 153));
         lblNombreUsuario.setText("Ayuda");
         jPanel1.add(lblNombreUsuario);
-        lblNombreUsuario.setBounds(203, 27, 192, 78);
+        lblNombreUsuario.setBounds(203, 27, 192, 70);
 
         btnIngresarAlimentoIngerido.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresarAlimentoIngerido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8_Chat_70px.png"))); // NOI18N
@@ -118,9 +116,9 @@ public class AyudaUsuario extends javax.swing.JDialog {
         btnIngresarAlimentoIngerido2.setBounds(18, 273, 143, 129);
 
         textDesayuno2.setEditable(false);
-        textDesayuno2.setBackground(new java.awt.Color(51, 51, 51));
+        textDesayuno2.setBackground(new java.awt.Color(58, 80, 92));
         textDesayuno2.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
-        textDesayuno2.setForeground(new java.awt.Color(255, 255, 255));
+        textDesayuno2.setForeground(new java.awt.Color(153, 225, 153));
         textDesayuno2.setTabSize(0);
         textDesayuno2.setText("Ingresar ingesta de alimentos.");
         jScrollPane14.setViewportView(textDesayuno2);
@@ -129,9 +127,9 @@ public class AyudaUsuario extends javax.swing.JDialog {
         jScrollPane14.setBounds(220, 450, 315, 31);
 
         textDesayuno3.setEditable(false);
-        textDesayuno3.setBackground(new java.awt.Color(51, 51, 51));
+        textDesayuno3.setBackground(new java.awt.Color(58, 80, 92));
         textDesayuno3.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
-        textDesayuno3.setForeground(new java.awt.Color(255, 255, 255));
+        textDesayuno3.setForeground(new java.awt.Color(153, 255, 153));
         textDesayuno3.setTabSize(0);
         textDesayuno3.setText("Entablar contacto con \nprofesionales y realizar\nconsultas sobre alimentación.");
         jScrollPane15.setViewportView(textDesayuno3);
@@ -140,9 +138,9 @@ public class AyudaUsuario extends javax.swing.JDialog {
         jScrollPane15.setBounds(219, 160, 315, 81);
 
         textDesayuno4.setEditable(false);
-        textDesayuno4.setBackground(new java.awt.Color(51, 51, 51));
+        textDesayuno4.setBackground(new java.awt.Color(58, 80, 92));
         textDesayuno4.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
-        textDesayuno4.setForeground(new java.awt.Color(255, 255, 255));
+        textDesayuno4.setForeground(new java.awt.Color(153, 255, 153));
         textDesayuno4.setTabSize(0);
         textDesayuno4.setText("Solicitar planes de alimentación\na los profesionales registrados en\nel sistema.");
         jScrollPane16.setViewportView(textDesayuno4);

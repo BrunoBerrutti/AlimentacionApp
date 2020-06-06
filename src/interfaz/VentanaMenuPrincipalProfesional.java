@@ -129,7 +129,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblNombreUsuario = new javax.swing.JLabel();
         lblFotoProfesional = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        listaConversaciones = new javax.swing.JList<>();
+        listaConversaciones = new javax.swing.JList<String>();
         jLabel1 = new javax.swing.JLabel();
         panelConversacionOk = new javax.swing.JPanel();
         panelMostrarOk = new javax.swing.JPanel();
@@ -147,8 +147,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblElaborarNuevoPlan = new javax.swing.JLabel();
         lblComida = new javax.swing.JLabel();
         lblAlimentos = new javax.swing.JLabel();
-        listaDiasDeLaSemana = new javax.swing.JComboBox<>();
-        listaComidasPlan = new javax.swing.JComboBox<>();
+        listaDiasDeLaSemana = new javax.swing.JComboBox<String>();
+        listaComidasPlan = new javax.swing.JComboBox<String>();
         jScrollPane8 = new javax.swing.JScrollPane();
         listaAlimentosEnSistema = new javax.swing.JList();
         lblDia = new javax.swing.JLabel();
@@ -177,7 +177,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         panelPlanAlimentacion = new javax.swing.JPanel();
         panelIzquierdo = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        listaPlanesPendientes = new javax.swing.JList<>();
+        listaPlanesPendientes = new javax.swing.JList<String>();
         lblElijaUnUsuario = new javax.swing.JLabel();
         panelDatosUsuario = new javax.swing.JPanel();
         lblFotoUsuario = new javax.swing.JLabel();
@@ -189,15 +189,14 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblFechaNacimiento = new javax.swing.JLabel();
         lblTxtRestricciones = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        listaRestricciones = new javax.swing.JList<>();
+        listaRestricciones = new javax.swing.JList<String>();
         lblPreferencias = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        listaPreferencias = new javax.swing.JList<>();
+        listaPreferencias = new javax.swing.JList<String>();
         lblIngestas = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        listaIngestas = new javax.swing.JList<>();
+        listaIngestas = new javax.swing.JList<String>();
         btnElaborarPlan = new javax.swing.JButton();
-        lblElaborarPlan = new javax.swing.JLabel();
         panelNuevoAlimento = new javax.swing.JPanel();
         panelAlimentroRegistradoCorrectamente = new javax.swing.JPanel();
         lblNoPlanes2 = new javax.swing.JLabel();
@@ -209,7 +208,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         txtNombre = new javax.swing.JTextField();
         lblTipoAlimento = new javax.swing.JLabel();
         btnIngresarFotoAlimento = new javax.swing.JButton();
-        listaTipoAlimentos = new javax.swing.JComboBox<>();
+        listaTipoAlimentos = new javax.swing.JComboBox<String>();
         lblPrincipalesNutrientes = new javax.swing.JLabel();
         btnIngresarAlimentoASistema = new javax.swing.JButton();
         checkHidratos = new javax.swing.JCheckBox();
@@ -244,6 +243,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblTipoAlimentoVacio = new javax.swing.JLabel();
         panelVacio = new javax.swing.JPanel();
         btnAyuda = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         btnCerrarSistema1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -269,7 +269,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        panelMenu.setBackground(new java.awt.Color(164, 211, 249));
+        panelMenu.setBackground(new java.awt.Color(58, 80, 92));
         panelMenu.setMaximumSize(new java.awt.Dimension(260, 800));
         panelMenu.setMinimumSize(new java.awt.Dimension(260, 800));
         panelMenu.setPreferredSize(new java.awt.Dimension(260, 800));
@@ -299,6 +299,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         lblConsultasPendientes.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblConsultasPendientes.setForeground(new java.awt.Color(153, 255, 153));
         lblConsultasPendientes.setText("Consultas pendientes");
 
         btnPlanesSolicitados.setForeground(new java.awt.Color(255, 255, 255));
@@ -314,9 +315,11 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         lblPlanesSolicitados.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblPlanesSolicitados.setForeground(new java.awt.Color(153, 255, 153));
         lblPlanesSolicitados.setText("Planes de alimentación");
 
         lblPlanesSolicitados2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblPlanesSolicitados2.setForeground(new java.awt.Color(153, 255, 153));
         lblPlanesSolicitados2.setText("solicitados");
 
         btnIngresarAlimento.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,9 +335,11 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         lblIngresarAlimento.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblIngresarAlimento.setForeground(new java.awt.Color(153, 255, 153));
         lblIngresarAlimento.setText("Ingresar un alimento");
 
         lblIngresarAlimento2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblIngresarAlimento2.setForeground(new java.awt.Color(153, 255, 153));
         lblIngresarAlimento2.setText("al sistema");
 
         btnCerrarSistema2nd.setBackground(new java.awt.Color(51, 51, 51));
@@ -371,7 +376,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                             .addGroup(panelMenuLayout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addComponent(lblIngresarAlimento)))
-                        .addGap(0, 24, Short.MAX_VALUE)))
+                        .addGap(0, 19, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -414,7 +419,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 .addComponent(lblIngresarAlimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblIngresarAlimento2)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         panelDerecho.setBackground(new java.awt.Color(51, 51, 51));
@@ -423,48 +428,81 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         panelDerecho.setPreferredSize(new java.awt.Dimension(800, 800));
         panelDerecho.setLayout(new java.awt.CardLayout());
 
-        panelNoHayPlanesPendientes.setBackground(new java.awt.Color(51, 51, 51));
+        panelNoHayPlanesPendientes.setBackground(new java.awt.Color(58, 80, 92));
         panelNoHayPlanesPendientes.setMaximumSize(new java.awt.Dimension(400, 400));
         panelNoHayPlanesPendientes.setMinimumSize(new java.awt.Dimension(400, 400));
         panelNoHayPlanesPendientes.setName(""); // NOI18N
-        panelNoHayPlanesPendientes.setLayout(null);
 
         lblNohayPlanesTexto1.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
-        lblNohayPlanesTexto1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNohayPlanesTexto1.setForeground(new java.awt.Color(153, 255, 153));
         lblNohayPlanesTexto1.setText("No hay planes de");
-        panelNoHayPlanesPendientes.add(lblNohayPlanesTexto1);
-        lblNohayPlanesTexto1.setBounds(200, 260, 344, 77);
 
         lblNoHayAlimentosIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCaraTriste.png"))); // NOI18N
-        panelNoHayPlanesPendientes.add(lblNoHayAlimentosIcono);
-        lblNoHayAlimentosIcono.setBounds(300, 130, 137, 124);
 
         lblNohayConsultasTexto2.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
-        lblNohayConsultasTexto2.setForeground(new java.awt.Color(255, 255, 255));
+        lblNohayConsultasTexto2.setForeground(new java.awt.Color(153, 255, 153));
         lblNohayConsultasTexto2.setText("alimentación pendientes");
-        panelNoHayPlanesPendientes.add(lblNohayConsultasTexto2);
-        lblNohayConsultasTexto2.setBounds(128, 336, 487, 77);
 
         lblNoHayAlimentos.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
-        lblNoHayAlimentos.setForeground(new java.awt.Color(255, 255, 255));
+        lblNoHayAlimentos.setForeground(new java.awt.Color(153, 255, 153));
         lblNoHayAlimentos.setText("No hay alimentos registrados");
-        panelNoHayPlanesPendientes.add(lblNoHayAlimentos);
-        lblNoHayAlimentos.setBounds(90, 300, 610, 77);
 
         lblNohayPlanesIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoOK.png"))); // NOI18N
-        panelNoHayPlanesPendientes.add(lblNohayPlanesIcono);
-        lblNohayPlanesIcono.setBounds(300, 110, 137, 124);
+
+        javax.swing.GroupLayout panelNoHayPlanesPendientesLayout = new javax.swing.GroupLayout(panelNoHayPlanesPendientes);
+        panelNoHayPlanesPendientes.setLayout(panelNoHayPlanesPendientesLayout);
+        panelNoHayPlanesPendientesLayout.setHorizontalGroup(
+            panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                .addGroup(panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addGroup(panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNoHayAlimentosIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNohayPlanesIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNoHayAlimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(lblNohayPlanesTexto1))
+                            .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(lblNohayConsultasTexto2)))))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        panelNoHayPlanesPendientesLayout.setVerticalGroup(
+            panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblNoHayAlimentosIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNohayPlanesIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(panelNoHayPlanesPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(lblNoHayAlimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNohayPlanesTexto1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelNoHayPlanesPendientesLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(lblNohayConsultasTexto2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(301, Short.MAX_VALUE))
+        );
 
         panelDerecho.add(panelNoHayPlanesPendientes, "card3");
 
-        panelNoHayConsultasPendientes.setBackground(new java.awt.Color(51, 51, 51));
+        panelNoHayConsultasPendientes.setBackground(new java.awt.Color(58, 80, 92));
         panelNoHayConsultasPendientes.setMaximumSize(new java.awt.Dimension(400, 400));
         panelNoHayConsultasPendientes.setMinimumSize(new java.awt.Dimension(400, 400));
         panelNoHayConsultasPendientes.setName(""); // NOI18N
         panelNoHayConsultasPendientes.setPreferredSize(new java.awt.Dimension(400, 400));
 
         lblNohayConsultasTexto.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
-        lblNohayConsultasTexto.setForeground(new java.awt.Color(255, 255, 255));
+        lblNohayConsultasTexto.setForeground(new java.awt.Color(153, 255, 153));
         lblNohayConsultasTexto.setText("No hay consultas pendientes");
 
         lblNohayConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoOK.png"))); // NOI18N
@@ -495,17 +533,17 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
 
         panelDerecho.add(panelNoHayConsultasPendientes, "card3");
 
-        panelConsultaConProfesional.setBackground(new java.awt.Color(51, 51, 51));
+        panelConsultaConProfesional.setBackground(new java.awt.Color(58, 80, 92));
         panelConsultaConProfesional.setMaximumSize(new java.awt.Dimension(800, 800));
         panelConsultaConProfesional.setMinimumSize(new java.awt.Dimension(800, 800));
 
         lblNombreUsuario.setFont(new java.awt.Font("Levenim MT", 0, 45)); // NOI18N
-        lblNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreUsuario.setForeground(new java.awt.Color(153, 255, 153));
         lblNombreUsuario.setText("Usuario");
 
         lblFotoProfesional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png"))); // NOI18N
 
-        listaConversaciones.setBackground(new java.awt.Color(238, 238, 238));
+        listaConversaciones.setBackground(new java.awt.Color(86, 107, 119));
         listaConversaciones.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         listaConversaciones.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -515,10 +553,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         jScrollPane3.setViewportView(listaConversaciones);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(153, 255, 153));
         jLabel1.setText("Elija un usuario:");
 
-        panelConversacionOk.setBackground(new java.awt.Color(51, 51, 51));
+        panelConversacionOk.setBackground(new java.awt.Color(58, 80, 92));
 
         panelMostrarOk.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -551,7 +589,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        panelConversacion.setBackground(new java.awt.Color(51, 51, 51));
+        panelConversacion.setBackground(new java.awt.Color(58, 80, 92));
         panelConversacion.setOpaque(false);
 
         btnVerPerfilDeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoVerPerfilUsuario.png"))); // NOI18N
@@ -563,14 +601,14 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtMensajeNuevo.setBackground(new java.awt.Color(238, 238, 238));
+        txtMensajeNuevo.setBackground(new java.awt.Color(86, 107, 119));
         txtMensajeNuevo.setColumns(20);
         txtMensajeNuevo.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtMensajeNuevo.setRows(5);
         jScrollPane1.setViewportView(txtMensajeNuevo);
 
         txtMostrarConversacion.setEditable(false);
-        txtMostrarConversacion.setBackground(new java.awt.Color(238, 238, 238));
+        txtMostrarConversacion.setBackground(new java.awt.Color(86, 107, 119));
         txtMostrarConversacion.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtMostrarConversacion.setAutoscrolls(false);
         jScrollPane2.setViewportView(txtMostrarConversacion);
@@ -588,7 +626,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         lblVerPerfilUsuario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        lblVerPerfilUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblVerPerfilUsuario.setForeground(new java.awt.Color(153, 255, 153));
         lblVerPerfilUsuario.setText("Ver perfil de usuario");
 
         javax.swing.GroupLayout panelConversacionLayout = new javax.swing.GroupLayout(panelConversacion);
@@ -697,29 +735,23 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
 
         panelDerecho.add(panelConsultaConProfesional, "card4");
 
-        panelElaborarPlan.setBackground(new java.awt.Color(51, 51, 51));
+        panelElaborarPlan.setBackground(new java.awt.Color(58, 80, 92));
         panelElaborarPlan.setMaximumSize(new java.awt.Dimension(800, 800));
         panelElaborarPlan.setMinimumSize(new java.awt.Dimension(800, 800));
-        panelElaborarPlan.setLayout(null);
 
         lblElaborarNuevoPlan.setFont(new java.awt.Font("Levenim MT", 0, 65)); // NOI18N
-        lblElaborarNuevoPlan.setForeground(new java.awt.Color(255, 255, 255));
+        lblElaborarNuevoPlan.setForeground(new java.awt.Color(153, 255, 153));
         lblElaborarNuevoPlan.setText("Elaborar plan ");
-        panelElaborarPlan.add(lblElaborarNuevoPlan);
-        lblElaborarNuevoPlan.setBounds(30, 11, 403, 91);
 
         lblComida.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
-        lblComida.setForeground(new java.awt.Color(255, 255, 255));
+        lblComida.setForeground(new java.awt.Color(153, 255, 153));
         lblComida.setText("Comida");
-        panelElaborarPlan.add(lblComida);
-        lblComida.setBounds(50, 230, 134, 52);
 
         lblAlimentos.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
-        lblAlimentos.setForeground(new java.awt.Color(255, 255, 255));
+        lblAlimentos.setForeground(new java.awt.Color(153, 255, 153));
         lblAlimentos.setText("Alimentos");
-        panelElaborarPlan.add(lblAlimentos);
-        lblAlimentos.setBounds(310, 110, 167, 44);
 
+        listaDiasDeLaSemana.setBackground(new java.awt.Color(86, 107, 119));
         listaDiasDeLaSemana.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
         listaDiasDeLaSemana.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -736,8 +768,6 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 listaDiasDeLaSemanaActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(listaDiasDeLaSemana);
-        listaDiasDeLaSemana.setBounds(50, 170, 200, 40);
 
         listaComidasPlan.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
         listaComidasPlan.addItemListener(new java.awt.event.ItemListener() {
@@ -755,10 +785,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 listaComidasPlanActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(listaComidasPlan);
-        listaComidasPlan.setBounds(50, 290, 200, 40);
 
-        listaAlimentosEnSistema.setBackground(new java.awt.Color(238, 238, 238));
+        listaAlimentosEnSistema.setBackground(new java.awt.Color(86, 107, 119));
         listaAlimentosEnSistema.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         listaAlimentosEnSistema.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -767,22 +795,15 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
         jScrollPane8.setViewportView(listaAlimentosEnSistema);
 
-        panelElaborarPlan.add(jScrollPane8);
-        jScrollPane8.setBounds(310, 160, 285, 166);
-
         lblDia.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
-        lblDia.setForeground(new java.awt.Color(255, 255, 255));
+        lblDia.setForeground(new java.awt.Color(153, 255, 153));
         lblDia.setText("Día");
-        panelElaborarPlan.add(lblDia);
-        lblDia.setBounds(50, 120, 134, 36);
 
         lblNombrePlan.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
-        lblNombrePlan.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombrePlan.setForeground(new java.awt.Color(153, 255, 153));
         lblNombrePlan.setText("Nombre del plan:");
-        panelElaborarPlan.add(lblNombrePlan);
-        lblNombrePlan.setBounds(30, 370, 240, 34);
 
-        txtNombrePlan.setBackground(new java.awt.Color(227, 227, 227));
+        txtNombrePlan.setBackground(new java.awt.Color(86, 107, 119));
         txtNombrePlan.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtNombrePlan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtNombrePlan.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -796,8 +817,6 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 txtNombrePlanActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(txtNombrePlan);
-        txtNombrePlan.setBounds(260, 370, 181, 38);
 
         btnAgregarAlPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoAgregarAlPlan.png"))); // NOI18N
         btnAgregarAlPlan.setBorderPainted(false);
@@ -807,8 +826,6 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 btnAgregarAlPlanActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(btnAgregarAlPlan);
-        btnAgregarAlPlan.setBounds(620, 150, 90, 80);
 
         btnEliminarDelPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoEliminarDelPlan.png"))); // NOI18N
         btnEliminarDelPlan.setBorderPainted(false);
@@ -818,34 +835,24 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 btnEliminarDelPlanActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(btnEliminarDelPlan);
-        btnEliminarDelPlan.setBounds(630, 260, 70, 70);
 
         lblDesayuno.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        lblDesayuno.setForeground(new java.awt.Color(255, 255, 255));
+        lblDesayuno.setForeground(new java.awt.Color(153, 255, 153));
         lblDesayuno.setText("Desayuno");
-        panelElaborarPlan.add(lblDesayuno);
-        lblDesayuno.setBounds(170, 460, 120, 34);
 
         lblAlmuerzo.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        lblAlmuerzo.setForeground(new java.awt.Color(255, 255, 255));
+        lblAlmuerzo.setForeground(new java.awt.Color(153, 255, 153));
         lblAlmuerzo.setText("Almuerzo");
-        panelElaborarPlan.add(lblAlmuerzo);
-        lblAlmuerzo.setBounds(370, 460, 120, 34);
 
         lblCena.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        lblCena.setForeground(new java.awt.Color(255, 255, 255));
+        lblCena.setForeground(new java.awt.Color(153, 255, 153));
         lblCena.setText("Cena");
-        panelElaborarPlan.add(lblCena);
-        lblCena.setBounds(560, 460, 80, 34);
 
         lblNombreDelDia.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        lblNombreDelDia.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreDelDia.setForeground(new java.awt.Color(153, 255, 153));
         lblNombreDelDia.setText("Nombre del dia");
-        panelElaborarPlan.add(lblNombreDelDia);
-        lblNombreDelDia.setBounds(20, 550, 120, 34);
 
-        btnElaborarPlan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoEnviarMensaje.png"))); // NOI18N
+        btnElaborarPlan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/elaborarplan.png"))); // NOI18N
         btnElaborarPlan1.setBorderPainted(false);
         btnElaborarPlan1.setContentAreaFilled(false);
         btnElaborarPlan1.addActionListener(new java.awt.event.ActionListener() {
@@ -853,35 +860,24 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 btnElaborarPlan1ActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(btnElaborarPlan1);
-        btnElaborarPlan1.setBounds(730, 740, 60, 50);
 
-        textAlmuerzo.setBackground(new java.awt.Color(51, 51, 51));
+        textAlmuerzo.setBackground(new java.awt.Color(86, 107, 119));
         textAlmuerzo.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         textAlmuerzo.setForeground(new java.awt.Color(255, 255, 255));
         textAlmuerzo.setRows(5);
         jScrollPane10.setViewportView(textAlmuerzo);
 
-        panelElaborarPlan.add(jScrollPane10);
-        jScrollPane10.setBounds(350, 520, 160, 240);
-
-        textCena.setBackground(new java.awt.Color(51, 51, 51));
+        textCena.setBackground(new java.awt.Color(86, 107, 119));
         textCena.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         textCena.setForeground(new java.awt.Color(255, 255, 255));
         textCena.setRows(5);
         jScrollPane11.setViewportView(textCena);
 
-        panelElaborarPlan.add(jScrollPane11);
-        jScrollPane11.setBounds(540, 520, 160, 240);
-
-        textDesayuno.setBackground(new java.awt.Color(51, 51, 51));
+        textDesayuno.setBackground(new java.awt.Color(86, 107, 119));
         textDesayuno.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         textDesayuno.setForeground(new java.awt.Color(255, 255, 255));
         textDesayuno.setRows(5);
         jScrollPane12.setViewportView(textDesayuno);
-
-        panelElaborarPlan.add(jScrollPane12);
-        jScrollPane12.setBounds(150, 520, 160, 240);
 
         btnEliminarDelPlan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoGuardarDia.png"))); // NOI18N
         btnEliminarDelPlan1.setBorderPainted(false);
@@ -891,29 +887,144 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 btnEliminarDelPlan1ActionPerformed(evt);
             }
         });
-        panelElaborarPlan.add(btnEliminarDelPlan1);
-        btnEliminarDelPlan1.setBounds(580, 390, 70, 70);
 
         lblValidarNombrePlan.setForeground(new java.awt.Color(255, 255, 255));
         lblValidarNombrePlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoCampoIncorrecto.png"))); // NOI18N
-        panelElaborarPlan.add(lblValidarNombrePlan);
-        lblValidarNombrePlan.setBounds(450, 370, 32, 44);
 
         lblCena1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        lblCena1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCena1.setForeground(new java.awt.Color(153, 255, 153));
         lblCena1.setText("Guardar día");
-        panelElaborarPlan.add(lblCena1);
-        lblCena1.setBounds(640, 410, 150, 34);
 
         lblNombrePlanVacio.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         lblNombrePlanVacio.setForeground(new java.awt.Color(240, 128, 128));
         lblNombrePlanVacio.setText("Dato vacío");
-        panelElaborarPlan.add(lblNombrePlanVacio);
-        lblNombrePlanVacio.setBounds(490, 370, 134, 38);
+
+        javax.swing.GroupLayout panelElaborarPlanLayout = new javax.swing.GroupLayout(panelElaborarPlan);
+        panelElaborarPlan.setLayout(panelElaborarPlanLayout);
+        panelElaborarPlanLayout.setHorizontalGroup(
+            panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(lblElaborarNuevoPlan))
+                            .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDia, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(listaDiasDeLaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblComida, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(listaComidasPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(60, 60, 60)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAlimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAgregarAlPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnEliminarDelPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNombrePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                        .addGap(230, 230, 230)
+                                        .addComponent(txtNombrePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(9, 9, 9)
+                                .addComponent(lblValidarNombrePlan)
+                                .addGap(8, 8, 8)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                        .addGap(150, 150, 150)
+                                        .addComponent(lblCena1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblNombrePlanVacio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                        .addGap(90, 90, 90)
+                                        .addComponent(btnEliminarDelPlan1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(lblNombreDelDia, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDesayuno, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(40, 40, 40)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAlmuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCena, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnElaborarPlan1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelElaborarPlanLayout.setVerticalGroup(
+            panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(lblElaborarNuevoPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblDia, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(listaDiasDeLaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(lblComida, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(listaComidasPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addComponent(lblAlimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnAgregarAlPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnEliminarDelPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombrePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombrePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblValidarNombrePlan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(lblCena1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNombrePlanVacio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnEliminarDelPlan1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDesayuno, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlmuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCena, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lblNombreDelDia, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelElaborarPlanLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelElaborarPlanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnElaborarPlan1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         panelDerecho.add(panelElaborarPlan, "card2");
 
-        panelMostrarPlanEnviado.setBackground(new java.awt.Color(51, 51, 51));
+        panelMostrarPlanEnviado.setBackground(new java.awt.Color(58, 80, 92));
         panelMostrarPlanEnviado.setMaximumSize(new java.awt.Dimension(800, 800));
         panelMostrarPlanEnviado.setMinimumSize(new java.awt.Dimension(800, 800));
         panelMostrarPlanEnviado.setPreferredSize(new java.awt.Dimension(800, 800));
@@ -921,7 +1032,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblOK2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoOK.png"))); // NOI18N
 
         lblOKTexto2.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
-        lblOKTexto2.setForeground(new java.awt.Color(255, 255, 255));
+        lblOKTexto2.setForeground(new java.awt.Color(153, 255, 153));
         lblOKTexto2.setText("Plan Enviado");
 
         javax.swing.GroupLayout panelMostrarPlanEnviadoLayout = new javax.swing.GroupLayout(panelMostrarPlanEnviado);
@@ -953,17 +1064,17 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
 
         panelDerecho.add(panelMostrarPlanEnviado, "card2");
 
-        panelPlanAlimentacion.setBackground(new java.awt.Color(51, 51, 51));
+        panelPlanAlimentacion.setBackground(new java.awt.Color(58, 80, 92));
         panelPlanAlimentacion.setMaximumSize(new java.awt.Dimension(800, 800));
         panelPlanAlimentacion.setMinimumSize(new java.awt.Dimension(800, 800));
         panelPlanAlimentacion.setPreferredSize(new java.awt.Dimension(800, 800));
 
-        panelIzquierdo.setBackground(new java.awt.Color(51, 51, 51));
+        panelIzquierdo.setBackground(new java.awt.Color(58, 80, 92));
         panelIzquierdo.setMaximumSize(new java.awt.Dimension(320, 500));
         panelIzquierdo.setMinimumSize(new java.awt.Dimension(320, 500));
         panelIzquierdo.setPreferredSize(new java.awt.Dimension(320, 500));
 
-        listaPlanesPendientes.setBackground(new java.awt.Color(238, 238, 238));
+        listaPlanesPendientes.setBackground(new java.awt.Color(86, 107, 119));
         listaPlanesPendientes.setFont(new java.awt.Font("Century Gothic", 0, 19)); // NOI18N
         listaPlanesPendientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaPlanesPendientes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -974,7 +1085,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         jScrollPane4.setViewportView(listaPlanesPendientes);
 
         lblElijaUnUsuario.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblElijaUnUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblElijaUnUsuario.setForeground(new java.awt.Color(153, 255, 153));
         lblElijaUnUsuario.setText("Elija un usuario:");
 
         javax.swing.GroupLayout panelIzquierdoLayout = new javax.swing.GroupLayout(panelIzquierdo);
@@ -998,10 +1109,10 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 .addComponent(lblElijaUnUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        panelDatosUsuario.setBackground(new java.awt.Color(51, 51, 51));
+        panelDatosUsuario.setBackground(new java.awt.Color(58, 80, 92));
         panelDatosUsuario.setMaximumSize(new java.awt.Dimension(300, 130));
         panelDatosUsuario.setMinimumSize(new java.awt.Dimension(300, 130));
         panelDatosUsuario.setPreferredSize(new java.awt.Dimension(300, 130));
@@ -1009,7 +1120,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblFotoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoPerfilDeUsuarioAgrandado.png"))); // NOI18N
 
         lblNombreUsuario1.setFont(new java.awt.Font("Levenim MT", 0, 40)); // NOI18N
-        lblNombreUsuario1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreUsuario1.setForeground(new java.awt.Color(153, 255, 153));
         lblNombreUsuario1.setText("Perfil de Usuario");
 
         javax.swing.GroupLayout panelDatosUsuarioLayout = new javax.swing.GroupLayout(panelDatosUsuario);
@@ -1035,47 +1146,50 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 .addGap(41, 41, 41))
         );
 
-        panelPerfilDeUsuario.setBackground(new java.awt.Color(51, 51, 51));
+        panelPerfilDeUsuario.setBackground(new java.awt.Color(58, 80, 92));
         panelPerfilDeUsuario.setMaximumSize(new java.awt.Dimension(450, 580));
         panelPerfilDeUsuario.setMinimumSize(new java.awt.Dimension(450, 580));
         panelPerfilDeUsuario.setPreferredSize(new java.awt.Dimension(450, 580));
 
         lblNombreUsuario2.setFont(new java.awt.Font("Levenim MT", 0, 35)); // NOI18N
-        lblNombreUsuario2.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreUsuario2.setForeground(new java.awt.Color(153, 255, 153));
         lblNombreUsuario2.setText("Usuario");
 
         lblFotoDeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fotoDeUsuarioStandard.png"))); // NOI18N
 
         lblTxtFechaNacimiento.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblTxtFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        lblTxtFechaNacimiento.setForeground(new java.awt.Color(153, 255, 153));
         lblTxtFechaNacimiento.setText("Fecha de nacimiento:");
 
         lblFechaNacimiento.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        lblFechaNacimiento.setForeground(new java.awt.Color(153, 255, 153));
         lblFechaNacimiento.setText("Fecha del usuario");
 
         lblTxtRestricciones.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblTxtRestricciones.setForeground(new java.awt.Color(255, 255, 255));
+        lblTxtRestricciones.setForeground(new java.awt.Color(153, 255, 153));
         lblTxtRestricciones.setText("Restricciones:");
 
+        listaRestricciones.setBackground(new java.awt.Color(86, 107, 119));
         listaRestricciones.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane5.setViewportView(listaRestricciones);
 
         lblPreferencias.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblPreferencias.setForeground(new java.awt.Color(255, 255, 255));
+        lblPreferencias.setForeground(new java.awt.Color(153, 255, 153));
         lblPreferencias.setText("Preferencias:");
 
+        listaPreferencias.setBackground(new java.awt.Color(86, 107, 119));
         listaPreferencias.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane6.setViewportView(listaPreferencias);
 
         lblIngestas.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblIngestas.setForeground(new java.awt.Color(255, 255, 255));
+        lblIngestas.setForeground(new java.awt.Color(153, 255, 153));
         lblIngestas.setText("Ingestas:");
 
+        listaIngestas.setBackground(new java.awt.Color(86, 107, 119));
         listaIngestas.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane7.setViewportView(listaIngestas);
 
-        btnElaborarPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoEnviarMensaje.png"))); // NOI18N
+        btnElaborarPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/elaborarplan.png"))); // NOI18N
         btnElaborarPlan.setBorderPainted(false);
         btnElaborarPlan.setContentAreaFilled(false);
         btnElaborarPlan.addActionListener(new java.awt.event.ActionListener() {
@@ -1084,45 +1198,40 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        lblElaborarPlan.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        lblElaborarPlan.setForeground(new java.awt.Color(255, 255, 255));
-        lblElaborarPlan.setText("Elaborar plan");
-
         javax.swing.GroupLayout panelPerfilDeUsuarioLayout = new javax.swing.GroupLayout(panelPerfilDeUsuario);
         panelPerfilDeUsuario.setLayout(panelPerfilDeUsuarioLayout);
         panelPerfilDeUsuarioLayout.setHorizontalGroup(
             panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
                 .addGroup(panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                        .addComponent(lblNombreUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblFotoDeUsuario))
+                        .addGap(50, 50, 50)
+                        .addGroup(panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
+                                .addComponent(lblNombreUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblFotoDeUsuario))
+                            .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
+                                .addComponent(lblTxtFechaNacimiento)
+                                .addGap(26, 26, 26)
+                                .addComponent(lblFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPerfilDeUsuarioLayout.createSequentialGroup()
+                                    .addComponent(lblIngestas)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
+                                    .addComponent(lblPreferencias)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
+                                    .addComponent(lblTxtRestricciones)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                        .addComponent(lblTxtFechaNacimiento)
-                        .addGap(26, 26, 26)
-                        .addComponent(lblFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPerfilDeUsuarioLayout.createSequentialGroup()
-                            .addComponent(lblIngestas)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                            .addComponent(lblPreferencias)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                            .addComponent(lblTxtRestricciones)
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(48, 48, 48))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPerfilDeUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblElaborarPlan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnElaborarPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                        .addGap(159, 159, 159)
+                        .addComponent(btnElaborarPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         panelPerfilDeUsuarioLayout.setVerticalGroup(
             panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1131,10 +1240,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                     .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(lblNombreUsuario2))
-                    .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblFotoDeUsuario)))
-                .addGap(24, 24, 24)
+                    .addComponent(lblFotoDeUsuario))
+                .addGap(40, 40, 40)
                 .addGroup(panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTxtFechaNacimiento)
                     .addComponent(lblFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1153,14 +1260,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                     .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(panelPerfilDeUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnElaborarPlan))
-                    .addGroup(panelPerfilDeUsuarioLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(lblElaborarPlan)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnElaborarPlan)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelPlanAlimentacionLayout = new javax.swing.GroupLayout(panelPlanAlimentacion);
@@ -1200,9 +1302,8 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         panelNuevoAlimento.setMaximumSize(new java.awt.Dimension(800, 800));
         panelNuevoAlimento.setMinimumSize(new java.awt.Dimension(800, 800));
         panelNuevoAlimento.setPreferredSize(new java.awt.Dimension(800, 800));
-        panelNuevoAlimento.setLayout(null);
 
-        panelAlimentroRegistradoCorrectamente.setBackground(new java.awt.Color(51, 51, 51));
+        panelAlimentroRegistradoCorrectamente.setBackground(new java.awt.Color(58, 80, 92));
         panelAlimentroRegistradoCorrectamente.setMaximumSize(new java.awt.Dimension(800, 800));
         panelAlimentroRegistradoCorrectamente.setMinimumSize(new java.awt.Dimension(800, 800));
         panelAlimentroRegistradoCorrectamente.setPreferredSize(new java.awt.Dimension(800, 800));
@@ -1210,7 +1311,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblNoPlanes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoOK.png"))); // NOI18N
 
         lblNohayPlanesTexto2.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
-        lblNohayPlanesTexto2.setForeground(new java.awt.Color(255, 255, 255));
+        lblNohayPlanesTexto2.setForeground(new java.awt.Color(153, 255, 153));
         lblNohayPlanesTexto2.setText("Alimento registrado");
 
         javax.swing.GroupLayout panelAlimentroRegistradoCorrectamenteLayout = new javax.swing.GroupLayout(panelAlimentroRegistradoCorrectamente);
@@ -1237,25 +1338,22 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                 .addContainerGap(432, Short.MAX_VALUE))
         );
 
-        panelNuevoAlimento.add(panelAlimentroRegistradoCorrectamente);
-        panelAlimentroRegistradoCorrectamente.setBounds(0, 0, 800, 800);
-
-        panelIngresarAlimentoAlSistema.setBackground(new java.awt.Color(51, 51, 51));
+        panelIngresarAlimentoAlSistema.setBackground(new java.awt.Color(58, 80, 92));
         panelIngresarAlimentoAlSistema.setMaximumSize(new java.awt.Dimension(700, 700));
         panelIngresarAlimentoAlSistema.setMinimumSize(new java.awt.Dimension(700, 700));
         panelIngresarAlimentoAlSistema.setPreferredSize(new java.awt.Dimension(700, 700));
 
         lblNuevoAlimento.setFont(new java.awt.Font("Levenim MT", 0, 65)); // NOI18N
-        lblNuevoAlimento.setForeground(new java.awt.Color(255, 255, 255));
+        lblNuevoAlimento.setForeground(new java.awt.Color(153, 255, 153));
         lblNuevoAlimento.setText("Nuevo Alimento");
 
         lblIconoNuevoAlimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoIngresarAlimento.png"))); // NOI18N
 
         lblNombre.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setForeground(new java.awt.Color(153, 255, 153));
         lblNombre.setText("Nombre");
 
-        txtNombre.setBackground(new java.awt.Color(227, 227, 227));
+        txtNombre.setBackground(new java.awt.Color(86, 107, 119));
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtNombre.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1271,7 +1369,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         lblTipoAlimento.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblTipoAlimento.setForeground(new java.awt.Color(255, 255, 255));
+        lblTipoAlimento.setForeground(new java.awt.Color(153, 255, 153));
         lblTipoAlimento.setText("Tipo de alimento");
 
         btnIngresarFotoAlimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregarFotoUsuario.png"))); // NOI18N
@@ -1284,7 +1382,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         listaTipoAlimentos.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        listaTipoAlimentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Fruta", "Verdura", "Cereal", "Legumbre", "Carne", "Lácteo", "Bebida" }));
+        listaTipoAlimentos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "Fruta", "Verdura", "Cereal", "Legumbre", "Carne", "Lácteo", "Bebida" }));
         listaTipoAlimentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaTipoAlimentosActionPerformed(evt);
@@ -1292,7 +1390,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         });
 
         lblPrincipalesNutrientes.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblPrincipalesNutrientes.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrincipalesNutrientes.setForeground(new java.awt.Color(153, 255, 153));
         lblPrincipalesNutrientes.setText("Ingrese los principales nutrientes");
 
         btnIngresarAlimentoASistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fotoConfirmar.png"))); // NOI18N
@@ -1304,9 +1402,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        checkHidratos.setBackground(new java.awt.Color(51, 51, 51));
+        checkHidratos.setBackground(new java.awt.Color(58, 80, 92));
         checkHidratos.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkHidratos.setForeground(new java.awt.Color(255, 255, 255));
+        checkHidratos.setForeground(new java.awt.Color(153, 255, 153));
         checkHidratos.setText("Hiidratos de carbono ");
         checkHidratos.setActionCommand("Hiidratos de carbono");
         checkHidratos.addActionListener(new java.awt.event.ActionListener() {
@@ -1315,7 +1413,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtHidratos.setBackground(new java.awt.Color(227, 227, 227));
+        txtHidratos.setBackground(new java.awt.Color(86, 107, 119));
         txtHidratos.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtHidratos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtHidratos.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1327,9 +1425,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
 
         lblHidratos.setForeground(new java.awt.Color(255, 255, 255));
 
-        checkGlucidos.setBackground(new java.awt.Color(51, 51, 51));
+        checkGlucidos.setBackground(new java.awt.Color(58, 80, 92));
         checkGlucidos.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkGlucidos.setForeground(new java.awt.Color(255, 255, 255));
+        checkGlucidos.setForeground(new java.awt.Color(153, 255, 153));
         checkGlucidos.setText("Glúcidos");
         checkGlucidos.setActionCommand("Hiidratos de carbono");
         checkGlucidos.addActionListener(new java.awt.event.ActionListener() {
@@ -1338,9 +1436,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        checkLipidos.setBackground(new java.awt.Color(51, 51, 51));
+        checkLipidos.setBackground(new java.awt.Color(58, 80, 92));
         checkLipidos.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkLipidos.setForeground(new java.awt.Color(255, 255, 255));
+        checkLipidos.setForeground(new java.awt.Color(153, 255, 153));
         checkLipidos.setText("Lípidos");
         checkLipidos.setActionCommand("Hiidratos de carbono");
         checkLipidos.addActionListener(new java.awt.event.ActionListener() {
@@ -1349,9 +1447,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        checkVitaminas.setBackground(new java.awt.Color(51, 51, 51));
+        checkVitaminas.setBackground(new java.awt.Color(58, 80, 92));
         checkVitaminas.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkVitaminas.setForeground(new java.awt.Color(255, 255, 255));
+        checkVitaminas.setForeground(new java.awt.Color(153, 255, 153));
         checkVitaminas.setText("Vitaminas");
         checkVitaminas.setActionCommand("Hiidratos de carbono");
         checkVitaminas.addActionListener(new java.awt.event.ActionListener() {
@@ -1360,9 +1458,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        checkProteínas.setBackground(new java.awt.Color(51, 51, 51));
+        checkProteínas.setBackground(new java.awt.Color(58, 80, 92));
         checkProteínas.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkProteínas.setForeground(new java.awt.Color(255, 255, 255));
+        checkProteínas.setForeground(new java.awt.Color(153, 255, 153));
         checkProteínas.setText("Proteínas");
         checkProteínas.setActionCommand("Hiidratos de carbono");
         checkProteínas.addActionListener(new java.awt.event.ActionListener() {
@@ -1371,9 +1469,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        checkMinerales.setBackground(new java.awt.Color(51, 51, 51));
+        checkMinerales.setBackground(new java.awt.Color(58, 80, 92));
         checkMinerales.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkMinerales.setForeground(new java.awt.Color(255, 255, 255));
+        checkMinerales.setForeground(new java.awt.Color(153, 255, 153));
         checkMinerales.setText("Minerales");
         checkMinerales.setActionCommand("Hiidratos de carbono");
         checkMinerales.addActionListener(new java.awt.event.ActionListener() {
@@ -1382,9 +1480,9 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        checkFibra.setBackground(new java.awt.Color(51, 51, 51));
+        checkFibra.setBackground(new java.awt.Color(58, 80, 92));
         checkFibra.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        checkFibra.setForeground(new java.awt.Color(255, 255, 255));
+        checkFibra.setForeground(new java.awt.Color(153, 255, 153));
         checkFibra.setText("Fibras");
         checkFibra.setActionCommand("Hiidratos de carbono");
         checkFibra.addActionListener(new java.awt.event.ActionListener() {
@@ -1393,7 +1491,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtFibra.setBackground(new java.awt.Color(227, 227, 227));
+        txtFibra.setBackground(new java.awt.Color(86, 107, 119));
         txtFibra.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtFibra.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtFibra.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1403,7 +1501,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtMinerales.setBackground(new java.awt.Color(227, 227, 227));
+        txtMinerales.setBackground(new java.awt.Color(86, 107, 119));
         txtMinerales.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtMinerales.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtMinerales.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1413,7 +1511,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtLipidos.setBackground(new java.awt.Color(227, 227, 227));
+        txtLipidos.setBackground(new java.awt.Color(86, 107, 119));
         txtLipidos.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtLipidos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtLipidos.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1423,7 +1521,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtGlucidos.setBackground(new java.awt.Color(227, 227, 227));
+        txtGlucidos.setBackground(new java.awt.Color(86, 107, 119));
         txtGlucidos.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtGlucidos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtGlucidos.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1433,7 +1531,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtVitaminas.setBackground(new java.awt.Color(227, 227, 227));
+        txtVitaminas.setBackground(new java.awt.Color(86, 107, 119));
         txtVitaminas.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtVitaminas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtVitaminas.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1443,7 +1541,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
-        txtProteínas.setBackground(new java.awt.Color(227, 227, 227));
+        txtProteínas.setBackground(new java.awt.Color(86, 107, 119));
         txtProteínas.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         txtProteínas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtProteínas.setMaximumSize(new java.awt.Dimension(6, 26));
@@ -1466,15 +1564,15 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
         lblLipidos.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(153, 255, 153));
         jLabel2.setText("Las proporciones de");
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(153, 255, 153));
         jLabel3.setText("ingresarse en gramos.");
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(153, 255, 153));
         jLabel4.setText("los alimentos deben de");
 
         lblValidarNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -1526,7 +1624,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                     .addGroup(panelIngresarAlimentoAlSistemaLayout.createSequentialGroup()
                         .addGap(349, 349, 349)
                         .addComponent(lblHidratos)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresarAlimentoAlSistemaLayout.createSequentialGroup()
                 .addGroup(panelIngresarAlimentoAlSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIngresarAlimentoAlSistemaLayout.createSequentialGroup()
@@ -1559,7 +1657,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresarAlimentoAlSistemaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                                 .addGroup(panelIngresarAlimentoAlSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblDatosIncorrectos2)
                                     .addComponent(lblDatosIncorrectos))
@@ -1639,7 +1737,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                             .addComponent(lblValidarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNombreVacio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(lblTipoAlimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTipoAlimento, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                         .addGroup(panelIngresarAlimentoAlSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelIngresarAlimentoAlSistemaLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
@@ -1650,7 +1748,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                                     .addComponent(lblValidarTipoAlimento, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTipoAlimentoVacio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
-                        .addComponent(lblPrincipalesNutrientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPrincipalesNutrientes, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                         .addGap(19, 19, 19))
                     .addGroup(panelIngresarAlimentoAlSistemaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1739,12 +1837,22 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
                     .addGap(171, 171, 171)))
         );
 
-        panelNuevoAlimento.add(panelIngresarAlimentoAlSistema);
-        panelIngresarAlimentoAlSistema.setBounds(0, 0, 800, 800);
+        javax.swing.GroupLayout panelNuevoAlimentoLayout = new javax.swing.GroupLayout(panelNuevoAlimento);
+        panelNuevoAlimento.setLayout(panelNuevoAlimentoLayout);
+        panelNuevoAlimentoLayout.setHorizontalGroup(
+            panelNuevoAlimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelIngresarAlimentoAlSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelAlimentroRegistradoCorrectamente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panelNuevoAlimentoLayout.setVerticalGroup(
+            panelNuevoAlimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelIngresarAlimentoAlSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelAlimentroRegistradoCorrectamente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         panelDerecho.add(panelNuevoAlimento, "card5");
 
-        panelVacio.setBackground(new java.awt.Color(51, 51, 51));
+        panelVacio.setBackground(new java.awt.Color(58, 80, 92));
         panelVacio.setMaximumSize(new java.awt.Dimension(800, 800));
         panelVacio.setMinimumSize(new java.awt.Dimension(800, 800));
 
@@ -1760,19 +1868,28 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
             }
         });
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BienvenidaABroccoli.png"))); // NOI18N
+
         javax.swing.GroupLayout panelVacioLayout = new javax.swing.GroupLayout(panelVacio);
         panelVacio.setLayout(panelVacioLayout);
         panelVacioLayout.setHorizontalGroup(
             panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
-                .addContainerGap(704, Short.MAX_VALUE)
-                .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelVacioLayout.createSequentialGroup()
+                .addGroup(panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
+                        .addContainerGap(704, Short.MAX_VALUE)
+                        .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelVacioLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelVacioLayout.setVerticalGroup(
             panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacioLayout.createSequentialGroup()
-                .addContainerGap(708, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2769,6 +2886,7 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2791,7 +2909,6 @@ public final class VentanaMenuPrincipalProfesional extends javax.swing.JDialog {
     private javax.swing.JLabel lblDesayuno;
     private javax.swing.JLabel lblDia;
     private javax.swing.JLabel lblElaborarNuevoPlan;
-    private javax.swing.JLabel lblElaborarPlan;
     private javax.swing.JLabel lblElijaUnUsuario;
     private javax.swing.JLabel lblFechaNacimiento;
     private javax.swing.JLabel lblFibra;

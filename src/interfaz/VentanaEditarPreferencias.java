@@ -88,12 +88,12 @@ public class VentanaEditarPreferencias extends javax.swing.JDialog {
             }
         });
 
-        panelListo.setBackground(new java.awt.Color(51, 51, 51));
+        panelListo.setBackground(new java.awt.Color(58, 80, 92));
         panelListo.setMaximumSize(new java.awt.Dimension(508, 450));
         panelListo.setMinimumSize(new java.awt.Dimension(508, 450));
 
         lblListo.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
-        lblListo.setForeground(new java.awt.Color(255, 255, 255));
+        lblListo.setForeground(new java.awt.Color(153, 255, 153));
         lblListo.setText("Listo!");
 
         lblIconoListo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoOK.png"))); // NOI18N

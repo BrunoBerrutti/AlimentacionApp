@@ -49,42 +49,42 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
      * Este metodo devuelve el sistema.
      * @return el sistema
      */
-    private Sistema getSistema() {
+    public Sistema getSistema() {
         return sistema;
     }
     /**
      * Este metodo modifica el sistema.
      * @param unSistema es el sistema por el cual se va a cambiar
      */
-    private void setSistema(Sistema unSistema) {
+    public void setSistema(Sistema unSistema) {
         this.sistema = unSistema;
     }
     /**
     * Este metodo devuelve la foto de perfil.
     * @return retorna la foto
     */
-    private ImageIcon getFotoDePerfilActual() {
+    public ImageIcon getFotoDePerfilActual() {
         return fotoDePerfilActual;
     }
     /**
      * Este metodo modifica la foto de perfil.
      * @param unaFoto es la foto por la cual se quiere cambiar
      */
-    private void setFotoDePerfilActual(ImageIcon unaFoto) {
+    public void setFotoDePerfilActual(ImageIcon unaFoto) {
         this.fotoDePerfilActual = unaFoto;
     }
     /**
      * Este metodo devuelve true si es la primera vez en el sistema.
      * @return retorna un booleano
      */
-    private boolean getPrimeraVezEnSistema() {
+    public boolean getPrimeraVezEnSistema() {
         return primeraVez;
     }
     /**
      * Este metodo modifica la variable primeravez.
      * @param primera es el booleano por el cual se desea modificar
      */
-    private void setPrimeraVezEnSistema(boolean primera) {
+    public void setPrimeraVezEnSistema(boolean primera) {
         this.primeraVez = primera;
     }
     /**
@@ -95,9 +95,8 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private void initComponents() {
 
         panel1 = new javax.swing.JPanel();
-        lblTituloVentana = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
-        icono = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
         lblNuevoUsuario = new javax.swing.JLabel();
         lblIconoNuevoUsuario = new javax.swing.JLabel();
@@ -117,7 +116,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         rdBtnVegano = new javax.swing.JRadioButton();
         btnIngresarUsuarioASistema = new javax.swing.JButton();
         lblTxtNacionalidad = new javax.swing.JLabel();
-        listaNacionalidad = new javax.swing.JComboBox<>();
+        listaNacionalidad = new javax.swing.JComboBox<String>();
         lblTxtFechaNac = new javax.swing.JLabel();
         rdBtnIntoleranteLactosa = new javax.swing.JRadioButton();
         dateChooserFechaNacimiento = new datechooser.beans.DateChooserCombo();
@@ -142,12 +141,8 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         });
         getContentPane().setLayout(null);
 
-        panel1.setBackground(new java.awt.Color(164, 211, 249));
+        panel1.setBackground(new java.awt.Color(58, 80, 92));
         panel1.setMaximumSize(new java.awt.Dimension(270, 800));
-
-        lblTituloVentana.setFont(new java.awt.Font("Segoe Script", 1, 50)); // NOI18N
-        lblTituloVentana.setForeground(new java.awt.Color(0, 51, 153));
-        lblTituloVentana.setText("Broccoli");
 
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconoVolverAtras.png"))); // NOI18N
@@ -161,7 +156,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
             }
         });
 
-        icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IconoBrocoli.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevabrocco.png"))); // NOI18N
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -169,35 +164,24 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(btnHome)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGap(0, 22, Short.MAX_VALUE)
-                        .addComponent(icono, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addComponent(btnHome)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnHome)
-                .addGap(116, 116, 116)
-                .addComponent(lblTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(icono, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel1);
         panel1.setBounds(0, 0, 270, 800);
 
-        panel2.setBackground(new java.awt.Color(51, 51, 51));
+        panel2.setBackground(new java.awt.Color(58, 80, 92));
         panel2.setForeground(new java.awt.Color(51, 51, 51));
         panel2.setMaximumSize(new java.awt.Dimension(800, 800));
         panel2.setMinimumSize(new java.awt.Dimension(800, 800));
@@ -205,7 +189,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         panel2.setLayout(null);
 
         lblNuevoUsuario.setFont(new java.awt.Font("Levenim MT", 0, 65)); // NOI18N
-        lblNuevoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblNuevoUsuario.setForeground(new java.awt.Color(153, 255, 153));
         lblNuevoUsuario.setText("Nuevo Usuario");
         panel2.add(lblNuevoUsuario);
         lblNuevoUsuario.setBounds(203, 36, 475, 91);
@@ -215,13 +199,13 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         lblIconoNuevoUsuario.setBounds(85, 27, 100, 100);
 
         lblNombre.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setForeground(new java.awt.Color(153, 255, 153));
         lblNombre.setText("Nombre");
         panel2.add(lblNombre);
         lblNombre.setBounds(31, 182, 181, 38);
 
         lblApellido.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setForeground(new java.awt.Color(153, 255, 153));
         lblApellido.setText("Apellido");
         panel2.add(lblApellido);
         lblApellido.setBounds(31, 231, 171, 38);
@@ -251,72 +235,72 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         txtApellido.setBounds(260, 230, 181, 34);
 
         lblTxtPreferencias.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblTxtPreferencias.setForeground(new java.awt.Color(255, 255, 255));
+        lblTxtPreferencias.setForeground(new java.awt.Color(153, 255, 153));
         lblTxtPreferencias.setText("Preferencias");
         panel2.add(lblTxtPreferencias);
         lblTxtPreferencias.setBounds(31, 423, 265, 38);
 
-        rdBtnVerduras.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnVerduras.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnVerduras.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnVerduras.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnVerduras.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnVerduras.setText("Preferencia 3");
         panel2.add(rdBtnVerduras);
         rdBtnVerduras.setBounds(31, 544, 195, 35);
 
-        rdBtnHarinas.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnHarinas.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnHarinas.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnHarinas.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnHarinas.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnHarinas.setText("Preferencia 5");
         panel2.add(rdBtnHarinas);
-        rdBtnHarinas.setBounds(31, 620, 153, 35);
+        rdBtnHarinas.setBounds(31, 620, 161, 35);
 
-        rdBtnFrutas.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnFrutas.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnFrutas.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnFrutas.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnFrutas.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnFrutas.setText("Preferencia 4");
         panel2.add(rdBtnFrutas);
-        rdBtnFrutas.setBounds(31, 582, 153, 35);
+        rdBtnFrutas.setBounds(31, 582, 161, 35);
 
-        rdBtnCarnesRojas.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnCarnesRojas.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnCarnesRojas.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnCarnesRojas.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnCarnesRojas.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnCarnesRojas.setText("Preferencia 1");
         panel2.add(rdBtnCarnesRojas);
         rdBtnCarnesRojas.setBounds(31, 468, 218, 35);
 
-        rdBtnCarnesBlancas.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnCarnesBlancas.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnCarnesBlancas.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnCarnesBlancas.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnCarnesBlancas.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnCarnesBlancas.setText("Preferencia 2");
         panel2.add(rdBtnCarnesBlancas);
         rdBtnCarnesBlancas.setBounds(31, 506, 209, 35);
 
         lblTxtRestricciones.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblTxtRestricciones.setForeground(new java.awt.Color(255, 255, 255));
+        lblTxtRestricciones.setForeground(new java.awt.Color(153, 255, 153));
         lblTxtRestricciones.setText("Restricciones");
         panel2.add(lblTxtRestricciones);
         lblTxtRestricciones.setBounds(469, 423, 208, 38);
 
-        rdBtnCeliaco.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnCeliaco.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnCeliaco.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnCeliaco.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnCeliaco.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnCeliaco.setText("Restriccion 4");
         panel2.add(rdBtnCeliaco);
-        rdBtnCeliaco.setBounds(469, 582, 145, 35);
+        rdBtnCeliaco.setBounds(469, 582, 153, 35);
 
-        rdBtnDiabetes.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnDiabetes.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnDiabetes.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnDiabetes.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnDiabetes.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnDiabetes.setText("Restriccion 1");
         panel2.add(rdBtnDiabetes);
         rdBtnDiabetes.setBounds(469, 468, 175, 35);
 
-        rdBtnVegano.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnVegano.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnVegano.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnVegano.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnVegano.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnVegano.setText("Restriccion 2");
         panel2.add(rdBtnVegano);
-        rdBtnVegano.setBounds(469, 506, 145, 35);
+        rdBtnVegano.setBounds(469, 506, 153, 35);
 
         btnIngresarUsuarioASistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fotoConfirmar.png"))); // NOI18N
         btnIngresarUsuarioASistema.setBorderPainted(false);
@@ -330,7 +314,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         btnIngresarUsuarioASistema.setBounds(654, 657, 99, 94);
 
         lblTxtNacionalidad.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblTxtNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblTxtNacionalidad.setForeground(new java.awt.Color(153, 255, 153));
         lblTxtNacionalidad.setText("Nacionalidad");
         panel2.add(lblTxtNacionalidad);
         lblTxtNacionalidad.setBounds(30, 280, 204, 38);
@@ -345,14 +329,14 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
         listaNacionalidad.setBounds(260, 280, 270, 40);
 
         lblTxtFechaNac.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
-        lblTxtFechaNac.setForeground(new java.awt.Color(255, 255, 255));
+        lblTxtFechaNac.setForeground(new java.awt.Color(153, 255, 153));
         lblTxtFechaNac.setText("Fecha de nacimiento");
         panel2.add(lblTxtFechaNac);
         lblTxtFechaNac.setBounds(30, 340, 328, 38);
 
-        rdBtnIntoleranteLactosa.setBackground(new java.awt.Color(51, 51, 51));
+        rdBtnIntoleranteLactosa.setBackground(new java.awt.Color(58, 80, 92));
         rdBtnIntoleranteLactosa.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        rdBtnIntoleranteLactosa.setForeground(new java.awt.Color(255, 255, 255));
+        rdBtnIntoleranteLactosa.setForeground(new java.awt.Color(153, 255, 153));
         rdBtnIntoleranteLactosa.setText("Restriccion 3");
         rdBtnIntoleranteLactosa.setActionCommand("");
         panel2.add(rdBtnIntoleranteLactosa);
@@ -360,37 +344,37 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
 
         dateChooserFechaNacimiento.setCurrentView(new datechooser.view.appearance.AppearancesList("Swing",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 16),
                     new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 16),
                     new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 16),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 16),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 16),
                     new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 16),
                     new java.awt.Color(0, 0, 0),
                     new java.awt.Color(255, 0, 0),
                     false,
@@ -456,7 +440,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     lblPaisVacio.setBounds(580, 280, 120, 38);
 
     getContentPane().add(panel2);
-    panel2.setBounds(275, 0, 950, 800);
+    panel2.setBounds(270, 0, 950, 800);
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -630,7 +614,7 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private javax.swing.JButton btnIngresarFotoPerfil;
     private javax.swing.JButton btnIngresarUsuarioASistema;
     private datechooser.beans.DateChooserCombo dateChooserFechaNacimiento;
-    private javax.swing.JLabel icono;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblApellidoVacio;
     private javax.swing.JLabel lblDatosIncorrectos;
@@ -639,7 +623,6 @@ public class VentanaRegistrarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel lblNombreVacio;
     private javax.swing.JLabel lblNuevoUsuario;
     private javax.swing.JLabel lblPaisVacio;
-    private javax.swing.JLabel lblTituloVentana;
     private javax.swing.JLabel lblTxtFechaNac;
     private javax.swing.JLabel lblTxtNacionalidad;
     private javax.swing.JLabel lblTxtPreferencias;

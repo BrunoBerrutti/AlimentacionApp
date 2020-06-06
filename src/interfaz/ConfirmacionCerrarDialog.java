@@ -41,6 +41,7 @@ public class ConfirmacionCerrarDialog extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(58, 80, 92));
 
         jLabel1.setText("¿Esta seguro que quiere salir del sistema? Perderá cualquier información que no haya guardado.");
         jLabel1.setName("cerrarDialog"); // NOI18N
@@ -85,7 +86,7 @@ public class ConfirmacionCerrarDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jButton1.getAccessibleContext().setAccessibleName("btnConfirmar");
